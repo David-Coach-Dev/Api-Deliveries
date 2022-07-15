@@ -19,7 +19,7 @@
    ** Petición en la api
    ********************************/
     if (count($arrayRouters) == 1 && isset($_SERVER['REQUEST_METHOD'])){
-      $table=explode("?",$arrayRouters[2])[0];
+      $table=explode("?",$arrayRouters[1])[0];
       /********************************
        ** Petición GET
       ********************************/
