@@ -7,7 +7,7 @@
   /********************************
    ** No hay Petición en la api
    ********************************/
-    if (count($arrayRouters) <= 1) {
+    if (count($arrayRouters) < 1) {
       $json = array(
         "status" => 404,
         "detalle" => "not found...",
@@ -18,7 +18,7 @@
   /********************************
    ** Petición en la api
    ********************************/
-    if (count($arrayRouters) == 2 && isset($_SERVER['REQUEST_METHOD'])){
+    if (count($arrayRouters) == 1 && isset($_SERVER['REQUEST_METHOD'])){
       $table=explode("?",$arrayRouters[2])[0];
       /********************************
        ** Petición GET
@@ -48,7 +48,7 @@
   /********************************
    ** ruta mala
    ********************************/
-    if (count($arrayRouters) >2) {
+    if (count($arrayRouters) >1) {
       $json = array(
         "status" => 404,
         "detalle" => "not found...",
