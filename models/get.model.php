@@ -179,7 +179,7 @@
                 array_push($selectArray, $value);
               }
               $selectArray=array_unique($selectArray);
-              if (empty(Connection::getColumnsData($table, $selectArray, $db))){
+              if (empty(Connection::getColumnsData($db, $table, $selectArray))){
                 return null;
               }
             /************************************
@@ -189,7 +189,7 @@
                 array_push($selectArray, $value);
               }
               $selectArray=array_unique($selectArray);
-              if (empty(Connection::getColumnsData($table, $selectArray, $db))){
+              if (empty(Connection::getColumnsData($db, $table, $selectArray))){
                 return null;
               }
             /************************************
@@ -282,7 +282,7 @@
                 array_push($selectArray, $value);
               }
               $selectArray=array_unique($selectArray);
-              if (empty(Connection::getColumnsData($table, $selectArray, $db))){
+              if (empty(Connection::getColumnsData($db, $table, $selectArray))){
                 return null;
               }
             /***********************************
