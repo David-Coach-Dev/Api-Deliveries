@@ -13,13 +13,13 @@
         /********************************
          ** Petición Get.
          ********************************/
-          static public function getData($table, $select,
+          static public function getData($db, $table, $select,
             $orderBy, $orderMode, $startAt, $endAt){
             /***********************************************
              *? Validar exigencia de la tabla y columnas
             ***********************************************/
               $selectArray = explode(",", $select);
-              if (empty(Connection::getColumnsData($table, $selectArray))) {
+              if (empty(Connection::getColumnsData($db, $table, $selectArray))) {
                 return null;
               }
             /********************************
@@ -54,7 +54,7 @@
             /********************************
              *? Contención con sql
             ********************************/
-              $stmt = Connection::connect()->prepare($sql);
+              $stmt = Connection::connect($db)->prepare($sql);
             /********************************
              *? Ejecutar sentencia sql.
             ********************************/
@@ -71,7 +71,7 @@
         /********************************
          ** Petición Get con filtro.
          ********************************/
-          static public function getDataFilter($table, $select,
+          static public function getDataFilter($db, $table, $select,
             $linkTo, $equalTo, $orderBy, $orderMode,
             $startAt, $endAt){
             /************************************
@@ -88,7 +88,7 @@
                 array_push($selectArray, $value);
               }
               $selectArray=array_unique($selectArray);
-              if (empty(Connection::getColumnsData($table, $selectArray))){
+              if (empty(Connection::getColumnsData($db, $table, $selectArray))){
                 return null;
               }
             /************************************
@@ -140,7 +140,7 @@
             /********************************
              *? Contención con sql
             ********************************/
-              $stmt = Connection::connect()->prepare($sql);
+              $stmt = Connection::connect($db)->prepare($sql);
             /********************************
              *? Armado los parámetros.
             ********************************/
@@ -163,7 +163,7 @@
         /*******************************************************
          ** Peticiones Get para buscadores.
          *******************************************************/
-          static public function getDataSearch($table, $select, $linkTo,
+          static public function getDataSearch($db, $table, $select, $linkTo,
             $searchTo, $orderBy, $orderMode, $startAt, $endAt){
             /********************************
              *? Armado de variables.
@@ -179,7 +179,7 @@
                 array_push($selectArray, $value);
               }
               $selectArray=array_unique($selectArray);
-              if (empty(Connection::getColumnsData($table, $selectArray))){
+              if (empty(Connection::getColumnsData($table, $selectArray, $db))){
                 return null;
               }
             /************************************
@@ -189,7 +189,7 @@
                 array_push($selectArray, $value);
               }
               $selectArray=array_unique($selectArray);
-              if (empty(Connection::getColumnsData($table, $selectArray))){
+              if (empty(Connection::getColumnsData($table, $selectArray, $db))){
                 return null;
               }
             /************************************
@@ -198,7 +198,7 @@
               if (count($linkToArray) > 1) {
                 foreach ($linkToArray as $key => $value) {
                   if ($key > 0) {
-                    $searchToText .= "AND " . $value . "=:" . $value . " ";
+                    $searchToText.="AND ".$value."=:".$value." ";
                   }
                 }
               }
@@ -242,7 +242,7 @@
             /********************************
               *? Contención con sql
             ********************************/
-              $stmt = Connection::connect()->prepare($sql);
+              $stmt = Connection::connect($db)->prepare($sql);
             /********************************
              *? Armado los parámetros.
             ********************************/
@@ -267,7 +267,7 @@
         /************************************************************
          ** Peticiones Get con rangos.
          *************************************************************/
-          static public function getDataRange($table, $select, $linkTo, $betweenIn,
+          static public function getDataRange($db, $table, $select, $linkTo, $betweenIn,
             $betweenOut, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
             /********************************
              *? Armado de variables.
@@ -282,7 +282,7 @@
                 array_push($selectArray, $value);
               }
               $selectArray=array_unique($selectArray);
-              if (empty(Connection::getColumnsData($table, $selectArray))){
+              if (empty(Connection::getColumnsData($table, $selectArray, $db))){
                 return null;
               }
             /***********************************
@@ -335,7 +335,7 @@
             /********************************
              *? Contención con sql
              ********************************/
-              $stmt = Connection::connect()->prepare($sql);
+              $stmt = Connection::connect($db)->prepare($sql);
             /********************************
              *? Ejecutar sentencia sql.
              ********************************/
@@ -352,7 +352,7 @@
         /************************************************************
          ** Peticiones Get con tablas relacionadas.
          *************************************************************/
-          static public function getRelData($rel, $type,$select, $orderBy,
+          static public function getRelData($db, $rel, $type,$select, $orderBy,
             $orderMode, $startAt, $endAt){
             /********************************
              *? Armado de variables.
@@ -406,7 +406,7 @@
                 /********************************
                  *? Contención con sql
                 ********************************/
-                  $stmt = Connection::connect()->prepare($sql);
+                  $stmt = Connection::connect($db)->prepare($sql);
                 /********************************
                  *? Ejecutar sentencia sql.
                 ********************************/
@@ -429,7 +429,7 @@
         /************************************************************
          ** Peticiones Get con tablas relacionadas con filtros.
          *************************************************************/
-          static public function getRelDataFilter($rel, $type, $select,
+          static public function getRelDataFilter($db, $rel, $type, $select,
             $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
             /********************************
              *? Armado de variables.
@@ -497,7 +497,7 @@
                 /********************************
                  *? Contención con sql
                  ********************************/
-                  $stmt = Connection::connect()->prepare($sql);
+                  $stmt = Connection::connect($db)->prepare($sql);
                 /********************************
                  *? Armado los parámetros.
                  ********************************/
@@ -526,7 +526,7 @@
         /***************************************************************
          ** Peticiones Get con tablas relacionadas con buscadores.
          ***************************************************************/
-          static public function getRelDataSearch($rel, $type, $select, $linkTo,
+          static public function getRelDataSearch($db, $rel, $type, $select, $linkTo,
             $searchTo, $orderBy, $orderMode, $startAt, $endAt){
             /********************************
              *? Armado de variables.
@@ -537,14 +537,23 @@
               $searchToArray = explode("_", $searchTo);
               $innerJoinToText = "";
               $searchToText = "";
-            /***********************************
-             *? Validar si mas una tablas.
-             ***********************************/
-              if (count($linkToArray) > 1) {
-              /********************************
-               *? Organización de relaciones
-              ********************************/
-                if (count($relToArray) > 1) {
+            /********************************
+             *? Organización de relaciones
+            ********************************/
+              if (count($relToArray) > 1) {
+                /*******************************
+                 *? Organización de filtros
+                ********************************/
+                  if (count($linkToArray) > 1) {
+                    foreach ($linkToArray as $key => $value) {
+                      if ($key > 0) {
+                        $searchToText.="AND ".$value."=:".$value." ";
+                      }
+                    }
+                  }
+                /*******************************
+                *? Organización de relaciones
+                ********************************/
                   foreach ($relToArray as $key => $value) {
                     if ($key > 0) {
                       $innerJoinToText .= "INNER JOIN ".$value." ON ".$relToArray[0]
@@ -552,87 +561,78 @@
                                         .$value.".id_".$typeToArray[$key]." ";
                     }
                   }
-                  /*******************************
-                  *? Organización de búsqueda
-                  ********************************/
-                    foreach ($linkToArray as $key => $value) {
-                      if ($key > 0) {
-                        $searchToText.="AND ".$value."=:".$value." ";
-                      }
-                    }
-                  /***********************************
-                   *? Con buscador
-                  **********************************/
+                /***********************************
+                 *? Con buscador
+                **********************************/
+                  $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
+                          WHERE $linkToArray[0]
+                          LIKE '%$searchToArray[0]%' $searchToText";
+                /*********************************
+                 *? Con buscador con orden
+                **********************************/
+                  if ($orderBy != null && $orderMode != null
+                    && $startAt == null && $endAt == null) {
+                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText
+                          WHERE $linkToArray[0]
+                          LIKE '%$searchToArray[0]%' $searchToText
+                          ORDER BY $orderBy $orderMode";
+                  }
+                /********************************
+                 *? limitar datos sin ordenar
+                ********************************/
+                  if ($orderBy == null && $orderMode == null
+                    && $startAt != null && $endAt != null) {
                     $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
                             WHERE $linkToArray[0]
-                            LIKE '%$searchToArray[0]%' $searchToText";
-                  /*********************************
-                   *? Con buscador con orden
-                  **********************************/
-                    if ($orderBy != null && $orderMode != null
-                      && $startAt == null && $endAt == null) {
-                      $sql="SELECT $select FROM $relToArray[0] $innerJoinToText
+                            LIKE '%$searchToArray[0]%' $searchToText
+                            LIMIT $startAt, $endAt";
+                  }
+                /*********************************
+                 *? Con buscador con limites
+                **********************************/
+                  if ($orderBy != null && $orderMode != null
+                    && $startAt != null && $endAt != null) {
+                    $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
                             WHERE $linkToArray[0]
                             LIKE '%$searchToArray[0]%' $searchToText
-                            ORDER BY $orderBy $orderMode";
+                            ORDER BY $orderBy $orderMode
+                            LIMIT $startAt, $endAt";
+                  }
+                /********************************
+                 *? Contención con sql
+                ********************************/
+                  $stmt = Connection::connect($db)->prepare($sql);
+                /********************************
+                 *? Armado los parámetros.
+                ********************************/
+                  foreach ($linkToArray as $key => $value){
+                    if($key>0){
+                      $stmt->bindParam(":".$value, $searchToArray[$key], PDO::PARAM_STR);
                     }
-                  /********************************
-                   *? limitar datos sin ordenar
-                  ********************************/
-                    if ($orderBy == null && $orderMode == null
-                      && $startAt != null && $endAt != null) {
-                      $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
-                              WHERE $linkToArray[0]
-                              LIKE '%$searchToArray[0]%' $searchToText
-                              LIMIT $startAt, $endAt";
-                    }
-                  /*********************************
-                   *? Con buscador con limites
-                  **********************************/
-                    if ($orderBy != null && $orderMode != null
-                      && $startAt != null && $endAt != null) {
-                      $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
-                              WHERE $linkToArray[0]
-                              LIKE '%$searchToArray[0]%' $searchToText
-                              ORDER BY $orderBy $orderMode
-                              LIMIT $startAt, $endAt";
-                    }
-                  /********************************
-                   *? Contención con sql
-                  ********************************/
-                    $stmt = Connection::connect()->prepare($sql);
-                  /********************************
-                   *? Armado los parámetros.
-                  ********************************/
-                    foreach ($linkToArray as $key => $value) {
-                      if($key>0){
-                        $stmt->bindParam(":".$value, $searchToArray[$key], PDO::PARAM_STR);
-                      }
-                    }
-                  /********************************
-                   *? Ejecutar sentencia sql.
-                  ********************************/
-                    try {
-                      $stmt->execute();
-                    } catch (PDOException $Exception) {
-                      return null;
-                    }
-                  /*********************************
-                    *? Retorno del getRelData.
-                  *********************************/
-                    return $stmt->fetchAll(PDO::FETCH_CLASS);
-                } else {
-                  /*********************************************
-                   *? Retorno null si solo hay una tabla.
-                  *********************************************/
+                  }
+                /********************************
+                 *? Ejecutar sentencia sql.
+                ********************************/
+                  try {
+                    $stmt->execute();
+                  } catch (PDOException $Exception) {
                     return null;
-                }
+                  }
+                /*********************************
+                  *? Retorno del getRelData.
+                *********************************/
+                  return $stmt->fetchAll(PDO::FETCH_CLASS);
+              } else {
+                /*********************************************
+                 *? Retorno null si solo hay una tabla.
+                *********************************************/
+                  return null;
               }
           }
         /************************************************************
         ** Peticiones Get con tablas relacionadas con rangos.
         *************************************************************/
-          static public function getRelDataRange($rel, $type, $select, $linkTo,
+          static public function getRelDataRange($db, $rel, $type, $select, $linkTo,
             $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt, $endAt,
             $filterTo, $inTo){
             /********************************
@@ -659,8 +659,8 @@
                 /********************************
                  *? Armado el filtro Between.
                  ********************************/
-                  if ($filterTo != null && $inTo != null) {
-                    $filToText = 'AND ' . $filterTo . ' IN (' . $inTo . ')';
+                  if ($filterTo!=null && $inTo!=null) {
+                    $filToText='AND '.$filterTo.' IN ('.$inTo.')';
                   }
                 /********************************
                  *? Con rango.
@@ -706,7 +706,7 @@
                 /********************************
                  *? Contención con sql
                 ********************************/
-                $stmt = Connection::connect()->prepare($sql);
+                $stmt = Connection::connect($db)->prepare($sql);
                 /********************************
                  *? Ejecutar sentencia sql.
                 ********************************/

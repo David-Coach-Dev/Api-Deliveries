@@ -32,13 +32,13 @@
                     }
                     array_push($columns,$_GET["nameId"]);
                     $columns=array_unique($columns);
-                    if (empty(Connection::getColumnsData($table, $columns))){
+                    if (empty(Connection::getColumnsData($db, $table, $columns))){
                         $return -> fncResponse(null,"PUT");
                         return;
                     }
                 /***********************************************************************************
                  *? solicitud de repuestas del controlador para editar datos en cualquier tabla
                  ***********************************************************************************/
-                    $response->putData($table, $data, $id, $nameId);
+                    $response->putData($db, $table, $data, $id, $nameId);
                 }
 ?>

@@ -31,7 +31,7 @@
       if ($table!="relations" && !isset($_GET["searchTo"])
         && !isset($_GET["equalTo"]) && !isset($_GET["betweenIn"])
         && !isset($_GET["betweenOut"])) {
-        $response -> getData($table, $select, $orderBy,
+        $response -> getData($db, $table, $select, $orderBy,
             $orderMode, $startAt, $endAt);
       } else
     /****************************************************
@@ -39,7 +39,7 @@
      ****************************************************/
       if($table!="relations" && isset($_GET["linkTo"])
         && isset($_GET["equalTo"]) && !isset($_GET["searchTo"])){
-        $response -> getDataFilter($table, $select,
+        $response -> getDataFilter($db, $table, $select,
                       $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt);
       }else
     /*****************************************************
@@ -48,7 +48,7 @@
       if(!isset($_GET["rel"]) && !isset($_GET["type"])
         && isset($_GET["linkTo"]) && isset($_GET["searchTo"])
         && !isset($_GET["equalTo"])) {
-        $response->getDataSearch($table, $select, $linkTo, $searchTo,
+        $response->getDataSearch($db, $table, $select, $linkTo, $searchTo,
                     $orderBy, $orderMode, $startAt, $endAt);
       }else
     /*************************************************************
@@ -57,7 +57,7 @@
       if ($table != "relations" && !isset($_GET["rel"]) && !isset($_GET["type"])
         && isset($_GET["linkTo"]) && isset($_GET["betweenIn"])
         && isset($_GET["betweenOut"])) {
-        $response->getDataRange($table, $select, $linkTo, $betweenIn,
+        $response->getDataRange($db, $table, $select, $linkTo, $betweenIn,
                   $betweenOut, $orderBy, $orderMode, $startAt,
                   $endAt, $filterTo, $inTo);
       }else
@@ -66,7 +66,7 @@
      *************************************************************/
       if($table=="relations" && isset($_GET["rel"]) && isset($_GET["type"])
         && !isset($_GET["linkTo"]) && !isset($_GET["equalTo"])){
-          $response -> getRelData($rel, $type, $select ,$orderBy,
+          $response -> getRelData($db, $rel, $type, $select ,$orderBy,
                         $orderMode, $startAt, $endAt);
       }else
     /*************************************************************
@@ -74,7 +74,7 @@
      *************************************************************/
       if($table=="relations" && isset($_GET["rel"]) && isset($_GET["type"])
         && isset($_GET["linkTo"]) && isset($_GET["equalTo"])){
-        $response -> getRelDataFilter($rel, $type, $select, $linkTo,
+        $response -> getRelDataFilter($db, $rel, $type, $select, $linkTo,
                       $equalTo, $orderBy, $orderMode, $startAt, $endAt);
       }else
     /***************************************************************
@@ -83,7 +83,7 @@
       if ($table == "relations" && isset($_GET["rel"])
         && isset($_GET["type"]) && isset($_GET["linkTo"])
         && isset($_GET["searchTo"])) {
-        $response->getRelDataSearch($rel, $type, $select, $linkTo,
+        $response->getRelDataSearch($db, $rel, $type, $select, $linkTo,
                     $searchTo, $orderBy, $orderMode, $startAt, $endAt);
       }else
     /********************************************************************
@@ -92,7 +92,7 @@
       if ($table == "relations" && isset($_GET["rel"]) && isset($_GET["type"])
         && isset($_GET["linkTo"]) && isset($_GET["betweenIn"])
         && isset($_GET["betweenOut"])){
-        $response->getRelDataRange($rel, $type, $select, $linkTo,
+        $response->getRelDataRange($db,  $rel, $type, $select, $linkTo,
                     $betweenIn, $betweenOut, $orderBy, $orderMode,
                     $startAt, $endAt, $filterTo, $inTo);
         }else{

@@ -21,25 +21,29 @@
                 foreach(array_keys($_POST) as $key => $value){
                     array_push($columns, $value);
                 }
-            }
-            if (empty(Connection::getColumnsData($table, $columns))){
-                $return->fncResponse(null,"POST","Files not match the DB" );
-            }
-        /***********************************************************************************
-         *? Petición POST para el registro de usuarios
-         ***********************************************************************************/
-            if(isset($_GET["register"]) && $_GET["register"]==true){
-                $response->postRegister($table, $_POST, $suffix);
-            }else
-            /***********************************************************************************
-             *? Petición POST para el registro de usuarios
-             ***********************************************************************************/
-                if(isset($_GET["login"]) && $_GET["login"]==true){
-                    $response->postLogin($table, $_POST, $suffix);
+                if (empty(Connection::getColumnsData($db, $table, $columns))){
+                    $return->fncResponse(null,"POST","Files not match the DB" );
                 }else{
+                /***********************************************************************************
+                 *? Petición POST para el registro de usuarios
+                ***********************************************************************************/
+                    if(isset($_GET["register"]) && $_GET["register"]==true){
+                        print_r("postRegister");
+                        $response->postRegister($db, $table, $_POST, $suffix);
+                    }else
                     /***********************************************************************************
-                     *? solicitud de repuestas del controlador para crear datos en cualquier tabla
-                    ***********************************************************************************/
-                        $response->postData($table, $_POST);
-                }
+                     *? Petición POST para el registro de usuarios
+                     ***********************************************************************************/
+                    if(isset($_GET["login"]) && $_GET["login"]==true){
+                            print_r("postLogin");
+                            $response->postLogin($db, $table, $_POST, $suffix);
+                        }else{
+                            /***********************************************************************************
+                             *? solicitud de repuestas del controlador para crear datos en cualquier tabla
+                             ***********************************************************************************/
+                                print_r("posData");
+                                $response->postData($db, $table, $_POST);
+                        }
+            }
+        }
 ?>

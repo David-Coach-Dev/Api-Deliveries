@@ -14,19 +14,19 @@
                 /******************************************
                  ** Petición Put para editar datos.
                  ******************************************/
-                    static public function putData($table, $data, $id, $nameId){
+                    static public function putData($db, $table, $data, $id, $nameId){
+                        /************************************
+                         *? Variables
+                         ************************************/
+                            $set="";
                         /************************************
                          *? Validación del ID
                          ************************************/
-                            $response=GetModel::getDataFilter($table, $nameId,
+                            $response=GetModel::getDataFilter($db, $table, $nameId,
                                                     $nameId, $id, null, null, null, null);
                             if(empty($response)){
                                 return null;
                             }
-                        /************************************
-                         *? Armado de variables
-                         ************************************/
-                            $set="";
                         /************************************
                          *? Arando columnas y parámetros.
                          ************************************/
@@ -41,7 +41,7 @@
                         /********************************
                          *? Contención con sql
                          ********************************/
-                            $link=Connection::connect();
+                            $link=Connection::connect($db);
                             $stmt = $link->prepare($sql);
                         /********************************
                          *? Armado los parámetros.

@@ -13,7 +13,7 @@
                 /*****************************************
                  ** Petición Post para crear datos.
                  *****************************************/
-                    static public function postData($table, $data){
+                    static public function postData($db, $table, $data){
                         /************************************
                          *? Armado de variables
                          ************************************/
@@ -35,7 +35,7 @@
                         /********************************
                          *? Contención con sql
                          ********************************/
-                            $link=Connection::connect();
+                            $link=Connection::connect($db);
                             $stmt = $link->prepare($sql);
                         /********************************
                          *? Armado los parámetros.

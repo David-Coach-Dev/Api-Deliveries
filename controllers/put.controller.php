@@ -10,8 +10,8 @@
             /********************************************
              ** Petición Put para editar datos.
              ********************************************/
-                static public function putData($table, $data, $id, $nameId){
-                    $response = PutModel::putData($table, $data, $id, $nameId);
+                static public function putData($db, $table, $data, $id, $nameId){
+                    $response = PutModel::putData($db, $table, $data, $id, $nameId);
                     $return = new PutController();
                     $return -> fncResponse($response,"putData");
                 }

@@ -1,56 +1,44 @@
 <?php
-    /****************************************
-     *todo Petición DELETE.
-    ****************************************/
+  /****************************************
+   *todo Petición DELETE.
+  ****************************************/
+    /********************************************
+     *! Requerimientos.
+    ********************************************/
+      require_once "models/connection.php";
+      require_once "controllers/delete.controller.php";
+    /********************************************
+     *? Variables
+    ********************************************/
+      $columns=array();
+      $id=$_GET["id"]?? null;
+      $nameId=$_GET["nameId"]?? null;
+      $suffix=$_GET["suffix"]?? null;
+      $active=$_GET["active"]?? null;
+      $response = new DeleteController();
+      $return = new DeleteController();
+    /***************************************************************
+     *? Validando variables de DELETE
+     ***************************************************************/
+      if(isset($_GET["id"]) && isset($_GET["nameId"])){
         /********************************************
-         *! Requerimientos.
-        ********************************************/
-            require_once "models/connection.php";
-            require_once "controllers/delete.controller.php";
-        /********************************************
-         *? Variables
-        ********************************************/
-            $data=array();
-            $columns=array();
-            $id=$_GET["id"]?? null;
-            $nameId=$_GET["nameId"]?? null;
-            $active_product=$_GET["active_product"]?? null;
-            $response = new DeleteController();
-            $return = new DeleteController();
-        /***************************************************************
-         *? Validando variables de DELETE
-         ***************************************************************/
-            if(isset($_GET["id"]) && isset($_GET["nameId"])){
-                /********************************************
-                 *? Capturar los datos del formulario
-                 ********************************************/
-                    parse_str(file_get_contents('php://input'), $data);
-                /********************************************
-                 *? Validando la data
-                 ********************************************/
-                    if(!empty($data)){
-                        /********************************************
-                         *? Armando columnas
-                        ********************************************/
-                        foreach(array_keys($data) as $key => $value){
-                            array_push($columns,$value);
-                        }
-                        array_push($columns,$_GET["nameId"]);
-                        $columns=array_unique($columns);
-                    }else{
-                        $columns = array($_GET["nameId"]);
-                        $data=null;
-                    }
-                /********************************************
-                 *? Validar la tabla y columnas
-                ********************************************/
-                    if (empty(Connection::getColumnsData($table, $columns))){
-                        $return -> fncResponse(null,"deleteData");
-                        return;
-                    }
-                /***********************************************************************************
-                 *? solicitud de repuestas del controlador para borrar datos en cualquier tabla
-                ***********************************************************************************/
-                    $response->deleteData($table, $data, $id, $nameId);
-            }
+         *? Validar la tabla y columnas
+         ********************************************/
+          $columns = array($_GET["nameId"]);
+          if (empty(Connection::getColumnsData($db, $table, $columns))){
+            $return -> fncResponse(null,"Delete");
+            return;
+          }
+        /***********************************************************************************
+         *? Petición Delete para cambizar el active a false em DB
+         ***********************************************************************************/
+          if(isset($_GET["active"]) && $_GET["active"]==true){
+              $response->deleteDataActive($db, $table, $id, $nameId, $suffix);
+            }else{
+              /***********************************************************************************
+               *? solicitud de repuestas del controlador para borrar datos en cualquier tabla
+               ***********************************************************************************/
+                $response->deleteData($db, $table, $id, $nameId);
+          }
+      }
 ?>

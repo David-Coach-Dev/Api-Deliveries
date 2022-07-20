@@ -10,9 +10,9 @@
       /********************************
        ** Petición GET sin filtro
       ********************************/
-        static public function getData($table, $select,
+        static public function getData($db, $table, $select,
         $orderBy, $orderMode, $startAt, $endAt){
-          $response = GetModel::getData($table, $select,
+          $response = GetModel::getData($db, $table, $select,
               $orderBy, $orderMode, $startAt, $endAt);
           $return = new GetController();
           $return -> fncResponse($response,"getData");
@@ -20,9 +20,9 @@
       /********************************
        ** Petición GET con filtro
       ********************************/
-        static public function getDataFilter($table, $select,
+        static public function getDataFilter($db, $table, $select,
           $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
-          $response = GetModel::getDataFilter($table, $select,
+          $response = GetModel::getDataFilter($db, $table, $select,
             $linkTo,$equalTo, $orderBy, $orderMode, $startAt, $endAt);
           $return = new GetController();
           $return -> fncResponse($response,"getDataFilter");
@@ -30,9 +30,9 @@
       /************************************************************
         ** Petición Get con tablas relacionadas.
       ************************************************************/
-        static public function getRelData($rel, $type,
+        static public function getRelData($db, $rel, $type,
           $select, $orderBy, $orderMode, $startAt, $endAt){
-          $response = GetModel::getRelData($rel, $type,
+          $response = GetModel::getRelData($db, $rel, $type,
             $select, $orderBy, $orderMode, $startAt, $endAt);
           $return = new GetController();
           $return->fncResponse($response,"getRelData");
@@ -40,10 +40,10 @@
       /*************************************************************
        ** Petición Get con tablas relacionadas con filtros .
       *************************************************************/
-        static public function getRelDataFilter($rel, $type,
+        static public function getRelDataFilter($db, $rel, $type,
           $select, $linkTo, $equalTo, $orderBy, $orderMode,
           $startAt, $endAt){
-          $response = GetModel::getRelDataFilter($rel, $type,
+          $response = GetModel::getRelDataFilter($db, $rel, $type,
             $select, $linkTo, $equalTo, $orderBy, $orderMode,
             $startAt, $endAt);
           $return = new GetController();
@@ -52,32 +52,44 @@
       /****************************************************
       ** Petición Get para buscadores
       *****************************************************/
-        static public function getDataSearch($table, $select, $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt){
-          $response = GetModel::getDataSearch($table, $select, $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt);
+        static public function getDataSearch($db, $table, $select,
+          $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt){
+          $response = GetModel::getDataSearch($db, $table, $select,
+            $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt);
           $return = new GetController();
           $return->fncResponse($response,"getDataSearch");
         }
       /*************************************************************
        ** Petición Get para buscadores con tablas relacionadas.
       *************************************************************/
-        static public function getRelDataSearch($rel, $type, $select, $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt){
-          $response = GetModel::getRelDataSearch($rel, $type, $select, $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt);
+        static public function getRelDataSearch($db, $rel, $type, $select,
+          $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt){
+          $response = GetModel::getRelDataSearch($db, $rel, $type, $select,
+            $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt);
           $return = new GetController();
           $return->fncResponse($response,"getRelDataSearch");
         }
       /*************************************************************
        ** Petición Get con rangos.
       *************************************************************/
-        static public function getDataRange($table, $select, $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt,$endAt, $filterTo, $inTo){
-          $response = GetModel::getDataRange($table, $select, $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt,$endAt, $filterTo, $inTo);
+        static public function getDataRange($db, $table, $select,
+          $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode,
+          $startAt, $endAt, $filterTo, $inTo){
+          $response = GetModel::getDataRange($db, $table, $select,
+            $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode,
+            $startAt, $endAt, $filterTo, $inTo);
           $return = new GetController();
-          $return->fncResponse($response,"getRelDataRange");
+          $return->fncResponse($response,"getDataRange");
         }
       /*************************************************************
        ** Petición Get con rangos con tablas relacionadas.
       *************************************************************/
-        static public function getRelDataRange($rel, $type, $select, $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
-          $response = GetModel::getRelDataRange($rel, $type, $select, $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo);
+        static public function getRelDataRange($db, $rel, $type, $select,
+          $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt,
+          $endAt, $filterTo, $inTo){
+          $response = GetModel::getRelDataRange($db, $rel, $type, $select,
+            $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt,
+            $endAt, $filterTo, $inTo);
           $return = new GetController();
           $return->fncResponse($response,"getRelDataRange");
         }
