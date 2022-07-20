@@ -57,7 +57,9 @@
                                   .";dbname=".Connection::infoDatabase($db)["database"],
                                   Connection::infoDatabase($db)["user"],
                                   Connection::infoDatabase($db)["pass"]);
-                  $link->exec("set names utf8");
+                  if($db==1){
+                    $link->exec("set names utf8");
+                  }
             /************************************************
              *? Capturar error de confección a la DB.
             ************************************************/
@@ -108,7 +110,7 @@
             }
         }
       /*************************************************
-       ** Generar token de autorización
+       ** Generar token de autorización de usuario
       *************************************************/
         static public function jwt($id, $email){
           $time=time();
@@ -116,7 +118,7 @@
             //tiempo en que inicia el token en el email
             "init"=>$time,
             //tiempo de expiración del token
-            "exp"=>$time+(60*60*24),
+            "exp"=>$time+(60*60*24),//(60*5)
             //Datos del usurario para el token
             "data" =>[
               "id" => $id,
@@ -124,6 +126,24 @@
             ]
           );
           return $token;
+        }
+      /*************************************************
+       ** Generar code de autorización de usuario
+       *************************************************/
+        static public function code($id, $email){
+          $time=time();
+          $code= array(
+            //tiempo en que inicia el code en el email
+            "init"=>$time,
+            //tiempo de expiración del code
+            "exp"=>$time+(60*5),
+            //Datos del usurario para el code
+            "data" =>[
+              "id" => $id,
+              "email"=>$email
+            ]
+          );
+          return $code;
         }
     }
 ?>

@@ -28,7 +28,7 @@
               $suffix=$val;
             }
             $data=array(
-                "active_".$suffix => 1
+                "active_".$suffix => 0
             );
             $update=PutModel::putData($db, $table, $data, $id, $nameId);
             $return = new DeleteController();
