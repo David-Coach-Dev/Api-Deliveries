@@ -26,7 +26,7 @@
                 }else{
                 /***********************************************************************************
                  *? Petición POST para el registro de usuarios
-                ***********************************************************************************/
+                 ***********************************************************************************/
                     if(isset($_GET["register"]) && $_GET["register"]==true){
                         print_r("postRegister");
                         $response->postRegister($db, $table, $_POST, $suffix);
@@ -44,6 +44,6 @@
                                 print_r("posData");
                                 $response->postData($db, $table, $_POST);
                         }
+                }
             }
-        }
 ?>
