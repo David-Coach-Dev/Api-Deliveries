@@ -52,7 +52,7 @@
             ***************************************/
               // 1 - SQL
               if($db == 1){
-                return $infoSqlDB;
+                return $infoSqlDBLocal;
               }
               // 2 - PGSQL
               if($db == 2){

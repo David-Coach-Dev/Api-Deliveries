@@ -253,7 +253,8 @@
                     $data=array(
                       "token_".$suffix=>$jwt,
                       "token_exp_".$suffix=>$token["exp"],
-                      "logged_in_".$suffix=>true
+                      "logged_in_".$suffix=>true,
+                      "active_".$suffix=>true
                     );
                   /***********************************************
                    *? Actualizando del JWT en la DB
