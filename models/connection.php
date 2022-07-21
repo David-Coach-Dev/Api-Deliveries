@@ -14,9 +14,9 @@
          ** Información de la DB.
         ********************************/
           static public function infoDatabase($db){
-            /********************************
-             *? Información de la DB Sql.
-            ********************************/
+            /*********************************************
+             *? Información de la DB Sql Local.
+             *********************************************/
               $infoSqlDBLocal = array(
                 "base"=>"mysql",
                 "host"=>"localhost",
@@ -25,9 +25,9 @@
                 "pass" => "",
                 "port"=>3306
               );
-            /********************************
-             *? Información de la DB Sql.
-            ********************************/
+            /********************************************
+             *? Información de la DB Sql Heroku.
+             ********************************************/
               $infoSqlDBHeroku = array(
                 "base"=>"mysql",
                 "host"=>"us-cdbr-east-06.cleardb.net",
@@ -36,9 +36,20 @@
                 "pass" => "0087b518",
                 "port"=>3306
               );
-            /********************************
-             *? Información de la DB PgSql.
-            ********************************/
+            /****************************************
+             *? Información de la DB PgSql Local.
+             ****************************************/
+              $infoPgSqlDBHeroku = array(
+                "base"=>"pgsql",
+                "host"=>"localhost",
+                "database" => "",
+                "user" => "",
+                "pass" => "",
+                "port"=> 5432,
+              );
+            /****************************************
+             *? Información de la DB PgSql Heroku.
+             ****************************************/
               $infoPgSqlDBHeroku = array(
                 "base"=>"pgsql",
                 "host"=>"ec2-3-223-169-166.compute-1.amazonaws.com",
