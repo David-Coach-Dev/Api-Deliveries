@@ -17,7 +17,7 @@
             /********************************
              *? Información de la DB Sql.
             ********************************/
-              $infoSqlDB = array(
+              $infoSqlDBLocal = array(
                 "base"=>"mysql",
                 "host"=>"localhost",
                 "database" => "deliveries",
@@ -26,9 +26,20 @@
                 "port"=>3306
               );
             /********************************
+             *? Información de la DB Sql.
+            ********************************/
+              $infoSqlDBHeroku = array(
+                "base"=>"mysql",
+                "host"=>"us-cdbr-east-06.cleardb.net",
+                "database" => "heroku_38c964e95de6f41",
+                "user" => "bf34cb7b4936d7",
+                "pass" => "0087b518",
+                "port"=>3306
+              );
+            /********************************
              *? Información de la DB PgSql.
             ********************************/
-              $infoPgSqlDB = array(
+              $infoPgSqlDBHeroku = array(
                 "base"=>"pgsql",
                 "host"=>"ec2-3-223-169-166.compute-1.amazonaws.com",
                 "database" => "d1mvga7irad67n",
@@ -45,7 +56,14 @@
               }
               // 2 - PGSQL
               if($db == 2){
-                return $infoPgSqlDB;
+                return $infoSqlDBHeroku;
+              }
+              if($db == 3){
+                return $infoPgSqlDBLocal;
+              }
+              // 2 - PGSQL
+              if($db == 4){
+                return $infoPgSqlDBHeroku;
               }
           }
         /********************************
