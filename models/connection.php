@@ -83,7 +83,7 @@
                                     .";dbname=".Connection::infoDatabase($db)["database"],
                                     Connection::infoDatabase($db)["user"],
                                     Connection::infoDatabase($db)["pass"]);
-                    if($db==1){
+                    if($db==1 && $db==2){
                       $link->exec("set names utf8");
                     }
               /************************************************
