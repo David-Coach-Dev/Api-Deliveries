@@ -28,20 +28,17 @@
                  *? Petición POST para el registro de usuarios
                  ***********************************************************************************/
                     if(isset($_GET["register"]) && $_GET["register"]==true){
-                        print_r("postRegister");
                         $response->postRegister($db, $table, $_POST, $suffix);
                     }else
                     /***********************************************************************************
                      *? Petición POST para el registro de usuarios
                      ***********************************************************************************/
                     if(isset($_GET["login"]) && $_GET["login"]==true){
-                            print_r("postLogin");
                             $response->postLogin($db, $table, $_POST, $suffix);
                         }else{
                             /***********************************************************************************
                              *? solicitud de repuestas del controlador para crear datos en cualquier tabla
                              ***********************************************************************************/
-                                print_r("posData");
                                 $response->postData($db, $table, $_POST);
                         }
                 }

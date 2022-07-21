@@ -4,6 +4,7 @@
   ********************************/
     $arrayRouters = explode("/", $_SERVER['REQUEST_URI']);
     $arrayRouters = array_filter($arrayRouters);
+    date_default_timezone_set('America/Guayaquil');
   /********************************
    ** No hay Petición en la api
    ********************************/
