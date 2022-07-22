@@ -40,9 +40,9 @@
                              *? Petición POST para usuarios autorizados con JWT
                              ***********************************************************************************/
                                 if(isset($_GET["token"])){
-                                    $table=$_GET["table"]?? "users";
+                                    $tableToken=$_GET["table"]?? "users";
                                     $suffix=$_GET["suffix"]?? "user";
-                                    $validate=Connection::valideToken($db, $table, $suffix, $_GET["token"]);
+                                    $validate=Connection::valideToken($db, $tableToken, $suffix, $_GET["token"]);
                                     /***********************************************************************************
                                      *? Ok -> si el token existe y no esta expirado.
                                      ***********************************************************************************/

@@ -189,8 +189,7 @@
             /*************************************************
              ** validar usuario del token.
              *************************************************/
-              $user=GetModel::getDataFilter($db, $table, "*", "token_".$suffix, $token, null, null, null, null);
-              echo'<pre>';print_r($user);echo'</pre>';
+              $user = GetModel::getDataFilter($db, $table, "*", "token_".$suffix, $token, null, null, null, null);
                 if(!empty($user)){
                   /*************************************************
                    ** validar usuario del token.
@@ -204,7 +203,6 @@
                 }else{
                   return "no-aut";
                 }
-              return;
           }
       }
 ?>
