@@ -185,11 +185,11 @@
         /*************************************************
          ** validar token
          *************************************************/
-          static public function valideToken($table, $suffix, $token){
+          static public function valideToken($db, $table, $suffix, $token){
             /*************************************************
              ** validar usuario del token.
              *************************************************/
-              $user=GetModel::getDataFilter(2, $table, "*", "token_".$suffix, $token, null, null, null, null);
+              $user=GetModel::getDataFilter($db, $table, "*", "token_".$suffix, $token, null, null, null, null);
               echo'<pre>';print_r($user);echo'</pre>';
                 if(!empty($user)){
                   /*************************************************
