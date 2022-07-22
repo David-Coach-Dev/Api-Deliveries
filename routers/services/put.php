@@ -36,9 +36,39 @@
                         $return -> fncResponse(null,"PUT");
                         return;
                     }
-                /***********************************************************************************
-                 *? solicitud de repuestas del controlador para editar datos en cualquier tabla
-                 ***********************************************************************************/
-                    $response->putData($db, $table, $data, $id, $nameId);
+                    /***********************************************************************************
+                     *? Petición PUT para usuarios autorizados con JWT
+                     ***********************************************************************************/
+                        if(isset($_GET["token"])){
+                            $tableToken=$_GET["table"]?? "users";
+                            $suffix=$_GET["suffix"]?? "user";
+                            $validate=Connection::valideToken($db, $tableToken, $suffix, $_GET["token"]);
+                            /***********************************************************************************
+                             *? Ok -> si el token existe y no esta expirado.
+                                ***********************************************************************************/
+                                if($validate=="ok"){
+                                    /***********************************************************************************
+                                     *? solicitud de repuestas del controlador para editar datos en cualquier tabla
+                                        ***********************************************************************************/
+                                        $response->putData($db, $table, $data, $id, $nameId);
+                                }
+                                /***********************************************************************************
+                                 *? Exp -> si el token existe pero esta expirado.
+                                    ***********************************************************************************/
+                                    if($validate=="exp"){
+                                        $return->fncResponse(null,"PUT","El token a expirado." );
+                                    }
+                                /***********************************************************************************
+                                 *? No-out -> si el token no coincide en DB.
+                                    ***********************************************************************************/
+                                    if($validate=="no-aut"){
+                                        $return->fncResponse(null,"PUT","El usuario no esta autorizado." );
+                                    }
+                        }else{
+                            /***********************************************************************************
+                             *? No consta con un token de autorización.
+                             ***********************************************************************************/
+                                $return->fncResponse(null,"PUT","Autorización requerida.");
+                        }
                 }
 ?>
