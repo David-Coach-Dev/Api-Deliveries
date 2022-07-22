@@ -32,7 +32,7 @@
         /***********************************************************************************
          *? Petición Delete para cambizar el active a false em DB
          ***********************************************************************************/
-          if(isset($_GET["active"]) && $_GET["active"]==true){
+          if(isset($_GET["desactive"]) && $_GET["desactive"]==true){
               $response->deleteDataActive($db, $table, $id, $nameId, $suffix);
             }else{
               /***********************************************************************************

@@ -79,7 +79,7 @@
             ************************************/
               $selectArray = explode(",", $select);
               $linkToArray = explode(",",$linkTo);
-              $equalToArray = explode("_",$equalTo);
+              $equalToArray = explode(",",$equalTo);
               $linkToText="";
             /************************************
              *? validar exigencia de la tabla
@@ -170,7 +170,7 @@
             ********************************/
               $selectArray=explode(",", $select);
               $linkToArray = explode(",", $linkTo);
-              $searchToArray = explode("_", $searchTo);
+              $searchToArray = explode(",", $searchTo);
               $searchToText = "";
             /************************************
              *? validar exigencia de la tabla
@@ -438,7 +438,7 @@
               $typeToArray = explode(",", $type);
               $innerJoinToText="";
               $linkToArray = explode(",", $linkTo);
-              $equalToArray = explode("_", $equalTo);
+              $equalToArray = explode(",", $equalTo);
               $filterToText = "";
             /***********************************
              *? Validar si mas una tablas.
@@ -534,7 +534,7 @@
               $relToArray = explode(",", $rel);
               $typeToArray = explode(",", $type);
               $linkToArray = explode(",", $linkTo);
-              $searchToArray = explode("_", $searchTo);
+              $searchToArray = explode(",", $searchTo);
               $innerJoinToText = "";
               $searchToText = "";
             /********************************

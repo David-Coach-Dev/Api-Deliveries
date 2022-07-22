@@ -37,9 +37,39 @@
                             $response->postLogin($db, $table, $_POST, $suffix);
                         }else{
                             /***********************************************************************************
-                             *? solicitud de repuestas del controlador para crear datos en cualquier tabla
+                             *? Petición POST para usuarios autorizados con JWT
                              ***********************************************************************************/
-                                $response->postData($db, $table, $_POST);
+                                if(isset($_GET["token"])){
+                                    $table=$_GET["table"]?? "users";
+                                    $suffix=$_GET["suffix"]?? "user";
+                                    $validate=Connection::validateToken($tabla, $suffix, $_GET["token"]);
+                                    /***********************************************************************************
+                                     *? Ok -> si el token existe y no esta expirado.
+                                     ***********************************************************************************/
+                                    if($validate=="ok"){
+                                        /***********************************************************************************
+                                         *? Solicitud de creación de dato en cualquier tabla
+                                         ***********************************************************************************/
+                                            $response->postData($db, $table, $_POST);
+                                    }
+                                    /***********************************************************************************
+                                     *? Exp -> si el token existe pero esta expirado.
+                                     ***********************************************************************************/
+                                        if($validate=="exp"){
+                                            $return->fncResponse(null,"POST","El token a expirado." );
+                                        }
+                                    /***********************************************************************************
+                                     *? No-out -> si el token no coincide en DB.
+                                     ***********************************************************************************/
+                                        if($validate=="no-aut"){
+                                            $return->fncResponse(null,"POST","El usuario no esta autorizado." );
+                                        }
+                                }else{
+                                    /***********************************************************************************
+                                     *? No consta con un token de autorización.
+                                     ***********************************************************************************/
+                                        $return->fncResponse(null,"POST","Autorización requerida.");
+                                }
                         }
                 }
             }

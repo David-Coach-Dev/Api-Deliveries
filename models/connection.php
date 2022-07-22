@@ -182,5 +182,29 @@
             );
             return $code;
           }
+        /*************************************************
+         ** validar token
+         *************************************************/
+          static public function valideToken($tabla, $suffix, $token){
+            /*************************************************
+             ** validar usuario del token.
+             *************************************************/
+              $user=GetModel::getDataFilter($db, $table, "*", "token_".$suffix, $token, null, null, null, null);
+              echo'<pre>';print_r($user);echo'</pre>';
+                if(!empty($user)){
+                  /*************************************************
+                   ** validar usuario del token.
+                   *************************************************/
+                    $time=time();
+                    if($time < $user[0]->{"token_exp_".$suffix}){
+                      return "ok";
+                    }else{
+                      return "exp";
+                    }
+                }else{
+                  return "no-aut";
+                }
+              return;
+          }
       }
 ?>
