@@ -8,7 +8,7 @@
     require_once "models/connection.php";
     require_once "vendor/autoload.php";
   /************************
-   *! Use.
+   *! Use el JWT.
    ************************/
     use Firebase\JWT\JWT;
   /******************************
@@ -24,22 +24,20 @@
           ***********************************************/
             $responde = new PostController();
             $return = new PostController();
+            $suffix=array();
           /***********************************************
            *? Validación del suffix
            ***********************************************/
-            $val=explode("_",(array_keys($data)[0]));
-            if(count($val)>1){
-              $val=end($val);
+            $suffix=explode("_",(array_keys($data)[0]));
+            if(count($suffix)>1){
+              $suffix=end($suffix);
             }else{
-              $val=$val[0];
-            }
-            if($suffix == null || $suffix!=$val){
-              $suffix=$val;
+              $suffix=$suffix[0];
             }
           /**************************************************
-           *? Generando la facha de creación.
+           *? registro indirecto de usuario.
            **************************************************/
-            $data["date_create_".$suffix]=date("Y-m-d H:i:s");
+            $data["active_".$suffix]=true;
           /*****************************************************
            *? Llamado al modelo del postData.
           *****************************************************/
@@ -81,10 +79,6 @@
               **************************************************/
                 $crypt = crypt($data["password_".$suffix],$pass_crypt);
                 $data["password_".$suffix]=$crypt;
-              /**************************************************
-               *? Generando la fecha de creación.
-              **************************************************/
-                $data["date_create_".$suffix]=date("Y-m-d H:i:s");
               /*****************************************************
                *? Registro del usuario en la DB.
               *****************************************************/
@@ -94,11 +88,6 @@
               ***********************************************/
                 $return->fncResponse($response,"postData",null);
             }else{
-              /**************************************************
-               *? Generando la fecha de creación.
-              **************************************************/
-                $data["date_create_".$suffix]=date("Y-m-d H:i:s");
-              /**************************************************
               /**************************************************
                *? registro indirecto de usuario.
               **************************************************/
@@ -141,7 +130,6 @@
                           **************************************************/
                             $response[0]->{"token_".$suffix}=$jwt;
                             $response[0]->{"token_exp_".$suffix}=$token["exp"];
-                            $response[0]->{"date_create_".$suffix}=date("Y-m-d H:i:s");
                             unset($response[0]->{"password_".$suffix});
                           /*********************************************
                            *? Retorno del registro en la DB.
