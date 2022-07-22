@@ -14,7 +14,7 @@
       $id=$_GET["id"]?? null;
       $nameId=$_GET["nameId"]?? null;
       $suffix=$_GET["suffix"]?? null;
-      $active=$_GET["active"]?? null;
+      $desactive=$_GET["desactive"]?? null;
       $response = new DeleteController();
       $return = new DeleteController();
     /***************************************************************
@@ -30,15 +30,45 @@
             return;
           }
         /***********************************************************************************
-         *? Petición Delete para cambizar el active a false em DB
-         ***********************************************************************************/
-          if(isset($_GET["desactive"]) && $_GET["desactive"]==true){
-              $response->deleteDataActive($db, $table, $id, $nameId, $suffix);
-            }else{
+         *? Petición Delete para usuarios autorizados con JWT
+          ***********************************************************************************/
+            if(isset($_GET["token"])){
+              $tableToken=$_GET["tableToken"]?? "users";
+              $suffixToken=$_GET["suffixToken"]?? "user";
+              $validate=Connection::valideToken($db, $tableToken, $suffixToken, $_GET["token"]);
               /***********************************************************************************
-               *? solicitud de repuestas del controlador para borrar datos en cualquier tabla
-               ***********************************************************************************/
-                $response->deleteData($db, $table, $id, $nameId);
-          }
+               *? Ok -> si el token existe y no esta expirado.
+                  ***********************************************************************************/
+                  if($validate=="ok"){
+                    if(isset($_GET["desactive"]) && $_GET["desactive"]==true){
+                      /***********************************************************************************
+                       *? Petición para cambizar el active a false
+                      ***********************************************************************************/
+                        $response->deleteDataDesactive($db, $table, $id, $nameId, $suffix);
+                    }else{
+                      /***********************************************************************************
+                       *? solicitud Para borrar dato en cualquier tabla
+                       ***********************************************************************************/
+                        $response->deleteData($db, $table, $id, $nameId);
+                      }
+                    /***********************************************************************************
+                     *? Exp -> si el token existe pero esta expirado.
+                      ***********************************************************************************/
+                      if($validate=="exp"){
+                          $return->fncResponse(null,"DELETE","El token a expirado." );
+                      }
+                    /***********************************************************************************
+                     *? No-out -> si el token no coincide en DB.
+                      ***********************************************************************************/
+                      if($validate=="no-aut"){
+                          $return->fncResponse(null,"DELETE","El usuario no esta autorizado." );
+                      }
+            }else{
+                /***********************************************************************************
+                 *? No consta con un token de autorización.
+                  ***********************************************************************************/
+                    $return->fncResponse(null,"DELETE","Autorización requerida.");
+            }
+    }
       }
 ?>

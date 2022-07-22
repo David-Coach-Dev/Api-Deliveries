@@ -40,9 +40,9 @@
                      *? Petición PUT para usuarios autorizados con JWT
                      ***********************************************************************************/
                         if(isset($_GET["token"])){
-                            $tableToken=$_GET["table"]?? "users";
-                            $suffix=$_GET["suffix"]?? "user";
-                            $validate=Connection::valideToken($db, $tableToken, $suffix, $_GET["token"]);
+                            $tableToken=$_GET["tableToken"]?? "users";
+                            $suffixToken=$_GET["suffixToken"]?? "user";
+                            $validate=Connection::valideToken($db, $tableToken, $suffixToken, $_GET["token"]);
                             /***********************************************************************************
                              *? Ok -> si el token existe y no esta expirado.
                                 ***********************************************************************************/

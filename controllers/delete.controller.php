@@ -19,7 +19,7 @@
       /********************************************
        ** Petición DELETE para cambizar el active
        ********************************************/
-        static public function deleteDataActive($db, $table, $id, $nameId, $suffix){
+        static public function deleteDataDesactive($db, $table, $id, $nameId, $suffix){
           /********************************************
            *? armando la data a actualizar en la DB
            ********************************************/
@@ -28,7 +28,7 @@
               $suffix=$val;
             }
             $data=array(
-                "active_".$suffix => 0
+                "active_".$suffix => false
             );
             $update=PutModel::putData($db, $table, $data, $id, $nameId);
             $return = new DeleteController();
