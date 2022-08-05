@@ -12,7 +12,7 @@
          ********************************************/
             $JSONData = file_get_contents("php://input");
             $dataObject = json_decode($JSONData);
-            echo'<pre> 1 - ';print_r($JSONData);echo' - 2 - ';echo $dataObject ;echo' - p :';print_r($_POST);;echo'</pre>';
+            echo'<pre> 1 - ';print_r($JSONData);echo' - 2 u - ';echo $dataObject->email_userecho' - 2 p - ';echo $dataObject->password_user;echo' - p :';print_r($_POST);;echo'</pre>';
             $suffix=$_GET["suffix"]?? "user";
             $columns=array();
             $response = new PostController();
