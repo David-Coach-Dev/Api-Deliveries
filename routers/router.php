@@ -5,6 +5,14 @@
     $arrayRouters = explode("/", $_SERVER['REQUEST_URI']);
     $arrayRouters = array_filter($arrayRouters);
     date_default_timezone_set('America/Guayaquil');
+  /********************************************
+   *! Header.
+   ********************************************/
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type,Accept');
+    header('Access-Control-Allow-Headers: Special-Request-Header');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
   /********************************
    ** No hay Petición en la api
    ********************************/
