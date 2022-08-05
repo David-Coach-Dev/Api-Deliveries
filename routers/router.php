@@ -1,4 +1,10 @@
 <?php
+  /********************************************
+   *! Header.
+   ********************************************/
+    header('Access-Control-Allow-Origin: *');
+    header("Access-Control-Allow-Headers: Origin, X-Requested-With, content-type: application/json; charset=utf-8, Accept");
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
   /*******************************
    ** Api Deliveries
   ********************************/
