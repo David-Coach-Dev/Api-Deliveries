@@ -10,6 +10,7 @@
    ********************************************/
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Credentials: true');
+    header('content-type: application/json; charset=utf-8');
     header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
   /********************************
    ** No hay Petición en la api
