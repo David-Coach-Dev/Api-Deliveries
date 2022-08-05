@@ -3,6 +3,5 @@ Options -MultiViews
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
-header('Access-Control-Allow-Origin: *')
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept")
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE')
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
