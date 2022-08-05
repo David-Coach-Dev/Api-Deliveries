@@ -25,50 +25,74 @@
                  ********************************************/
                     parse_str(file_get_contents('php://input'), $data);
                 /********************************************
-                 *? Validar la tabla y columnas
+                 *? Separar propiedades en un arreglo
                  ********************************************/
                     foreach(array_keys($data) as $key => $value){
                         array_push($columns,$value);
                     }
                     array_push($columns,$_GET["nameId"]);
+                /********************************************
+                 *? Validar la tabla y columnas
+                 ********************************************/
                     $columns=array_unique($columns);
                     if (empty(Connection::getColumnsData($db, $table, $columns))){
                         $return -> fncResponse(null,"PUT");
                         return;
                     }
-                    /***********************************************************************************
-                     *? Petición PUT para usuarios autorizados con JWT
-                     ***********************************************************************************/
-                        if(isset($_GET["token"])){
-                            $tableToken=$_GET["tableToken"]?? "users";
-                            $suffixToken=$_GET["suffixToken"]?? "user";
-                            $validate=Connection::valideToken($db, $tableToken, $suffixToken, $_GET["token"]);
-                            /***********************************************************************************
-                             *? Ok -> si el token existe y no esta expirado.
+                /***********************************************************************************
+                 *? Verificando si exited el token
+                 ***********************************************************************************/
+                    if(isset($_GET["token"])){
+                        /***********************************************************************************
+                         *? Petición PUT para usuarios no autorizados con JWT
+                         ***********************************************************************************/
+                            if($_GET["token"]=='no' && isset($_GET["except"])){
+                                /********************************************
+                                 *? Validar la tabla y columnas
+                                 ********************************************/
+                                    $columns=array($_GET["except"]);
+                                    if (empty(Connection::getColumnsData($db, $table, $columns))){
+                                        $return->fncResponse(null,"POST","Files not match the DB" );
+                                        return;
+                                    }
+                                /***********************************************************************************
+                                 *? Solicitud de creación de dato en cualquier tabla
                                 ***********************************************************************************/
-                                if($validate=="ok"){
-                                    /***********************************************************************************
-                                     *? solicitud de repuestas del controlador para editar datos en cualquier tabla
-                                        ***********************************************************************************/
-                                        $response->putData($db, $table, $data, $id, $nameId);
-                                }
+                                    $response->putData($db, $table, $data, $id, $nameId);
+                            }else{
+                                /***********************************************************************************
+                                 *? Petición PUT para usuarios autorizados con JWT
+                                 ***********************************************************************************/
+                                    $tableToken=$_GET["tableToken"]?? "users";
+                                    $suffixToken=$_GET["suffixToken"]?? "user";
+                                    $validate=Connection::valideToken($db, $tableToken, $suffixToken, $_GET["token"]);
+                                /***********************************************************************************
+                                 *? Ok -> si el token existe y no esta expirado.
+                                 ***********************************************************************************/
+                                    if($validate=="ok"){
+                                        /***********************************************************************************
+                                         *? solicitud de repuestas del controlador para editar datos en cualquier tabla
+                                            ***********************************************************************************/
+                                            $response->putData($db, $table, $data, $id, $nameId);
+                                    }
                                 /***********************************************************************************
                                  *? Exp -> si el token existe pero esta expirado.
-                                    ***********************************************************************************/
+                                 ***********************************************************************************/
                                     if($validate=="exp"){
                                         $return->fncResponse(null,"PUT","El token a expirado." );
                                     }
                                 /***********************************************************************************
                                  *? No-out -> si el token no coincide en DB.
-                                    ***********************************************************************************/
+                                 ***********************************************************************************/
                                     if($validate=="no-aut"){
                                         $return->fncResponse(null,"PUT","El usuario no esta autorizado." );
                                     }
-                        }else{
-                            /***********************************************************************************
-                             *? No consta con un token de autorización.
-                             ***********************************************************************************/
-                                $return->fncResponse(null,"PUT","Autorización requerida.");
-                        }
-                }
+                            }
+                    }else{
+                        /***********************************************************************************
+                         *? No consta con un token de autorización.
+                         ***********************************************************************************/
+                            $return->fncResponse(null,"PUT","Autorización requerida.");
+                    }
+            }
 ?>
