@@ -88,18 +88,13 @@
                 /********************************
                  *? Conexión a la DB.
                 ********************************/
-                $dboptions = array(
-                  PDO::ATTR_PERSISTENT => FALSE,
-                  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                  PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                  PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
                   );
                 $link=new PDO(Connection::infoDatabase($db)["base"].":host="
                                     .Connection::infoDatabase($db)["host"]
                                     .";port=".Connection::infoDatabase($db)["port"]
                                     .";dbname=".Connection::infoDatabase($db)["database"],
                                     Connection::infoDatabase($db)["user"],
-                                    Connection::infoDatabase($db)["pass"],$dboptions);
+                                    Connection::infoDatabase($db)["pass"]);
                     if($db==1 && $db==2){
                       $link->exec("set names utf8");
                     }
