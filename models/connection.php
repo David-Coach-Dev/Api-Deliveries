@@ -88,7 +88,6 @@
                 /********************************
                  *? Conexión a la DB.
                 ********************************/
-                  );
                 $link=new PDO(Connection::infoDatabase($db)["base"].":host="
                                     .Connection::infoDatabase($db)["host"]
                                     .";port=".Connection::infoDatabase($db)["port"]
