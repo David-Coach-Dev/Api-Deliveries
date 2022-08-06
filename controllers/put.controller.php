@@ -17,23 +17,31 @@
                 }
             /*******************************
              ** Respuesta del controlador
-            *******************************/
-                public function fncResponse($response,$method){
+             *******************************/
+                public function fncResponse($response, $method, $error){
                     if(!empty($response)){
-                    $json = array(
-                        "status" => 200,
-                        "method" => $method,
-                        "total" => count($response),
-                        "detalle" => $response
-                    );
+                        $json = array(
+                            "status" => 201,
+                            "method" => $method,
+                            "total" => count($response),
+                            "detalle" => $response
+                        );
                     }else{
-                    $json = array(
-                        "status" => 404,
-                        "detalle" => "not found...",
-                        "method" => $method
-                    );
+                        if($error != null){
+                            $json = array(
+                                "status" => 400,
+                                "method" => $method,
+                                "error" => $error,
+                            );
+                        }else{
+                            $json = array(
+                            "status" => 404,
+                            "method" => $method,
+                            "detalle" => "not found...",
+                            );
+                        }
                     }
-                    echo json_encode($json, http_response_code($json["status"]));
-                }
+                        echo json_encode($json, http_response_code($json["status"]));
+                    }
         }
 ?>

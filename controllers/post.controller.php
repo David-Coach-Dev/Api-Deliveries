@@ -288,14 +288,14 @@
             if($error != null){
               $json = array(
                 "status" => 400,
+                "method" => $method,
                 "error" => $error,
-                "method" => $method
             );
             }else{
             $json = array(
               "status" => 404,
+              "method" => $method,
               "detalle" => "not found...",
-              "method" => $method
             );
             }
           }

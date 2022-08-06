@@ -93,7 +93,7 @@
                   PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                   PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-                  );    
+                  );
                 $link=new PDO(Connection::infoDatabase($db)["base"].":host="
                                     .Connection::infoDatabase($db)["host"]
                                     .";port=".Connection::infoDatabase($db)["port"]
@@ -209,6 +209,12 @@
                 }else{
                   return "no-aut";
                 }
+          }
+        /*************************************************
+         ** Api Key
+         *************************************************/
+          static public function apiKey(){
+            return "UdQtXDugTSJy6CLfT7BGV4bAFiUCaF";
           }
       }
 ?>
