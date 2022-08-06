@@ -51,7 +51,7 @@
                     /********************************
                      *? Tabla es publica
                      ********************************/
-                      $response -> getData($db, $table, "*", null, null, null, null);
+                      $response->getData($db, $table, "*", null, null, null, null);
                       return;
                   }
             }
