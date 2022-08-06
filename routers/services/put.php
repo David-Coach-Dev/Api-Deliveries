@@ -36,7 +36,7 @@
                  ********************************************/
                     $columns=array_unique($columns);
                     if (empty(Connection::getColumnsData($db, $table, $columns))){
-                        $return -> fncResponse(null,"PUT");
+                        $return -> fncResponse(null,"PUT",null);
                         return;
                     }
                 /***********************************************************************************
