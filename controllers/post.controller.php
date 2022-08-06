@@ -278,7 +278,6 @@
        *******************************/
           public function fncResponse($response, $method, $error){
             if(!empty($response)){
-              echo'<pre>';print_r(count($response));echo' - ';print_r($response);echo'</pre>';
               $json = array(
                 "status" => 201,
                 "method" => $method,
