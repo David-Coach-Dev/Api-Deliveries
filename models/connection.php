@@ -7,9 +7,22 @@
     ****************************************/
       require_once "models/get.model.php";
     /******************************
-     *?Class Connection
+     *? Class Connection
     ******************************/
       class Connection{
+        /*************************************************
+         ** Api Key
+         *************************************************/
+          static public function apiKey(){
+            return "UdQtXDugTSJy6CLfT7BGV4bAFiUCaF";
+          }
+        /*************************************************
+         ** Acceso publico a tablas
+         *************************************************/
+          static public function publicAccess(){
+            $tables=["products","orders"];
+            return $tables;
+          }
         /********************************
          ** Información de la DB.
         ********************************/
@@ -76,19 +89,6 @@
               if($db == 4){
                 return $infoPgSqlDBHeroku;
               }
-          }
-        /*************************************************
-         ** Api Key
-         *************************************************/
-          static public function apiKey(){
-            return "UdQtXDugTSJy6CLfT7BGV4bAFiUCaF";
-          }
-        /*************************************************
-         ** Acceso publico a tablas
-         *************************************************/
-          static public function publicAccess(){
-            $tables=["products","orders"];
-            return $tables;
           }
         /********************************
          ** Conexión a la DB.

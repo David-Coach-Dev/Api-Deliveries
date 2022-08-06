@@ -8,12 +8,6 @@
         require_once "models/connection.php";
         require_once "controllers/router.controller.php";
         require_once "controllers/get.controller.php";
-      /********************************************
-       *! Header.
-      ********************************************/
-        header('Access-Control-Allow-Origin: *');
-        header("Access-Control-Allow-Headers: Origin, X-Requested-With, content-type: application/json; charset=utf-8, Accept");
-        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
       /*******************************
        ** Api Deliveries
       ********************************/
