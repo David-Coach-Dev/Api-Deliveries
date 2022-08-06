@@ -44,7 +44,7 @@
                   /********************************
                    *? Tabla es privada
                   ********************************/
-                  echo'<pre>';print_r(Connection::publicAccess());echo'</pre>;
+                  echo'<pre>';print_r(Connection::publicAccess());echo'</pre>';
                   if(in_array($table, Connection::publicAccess())==0){
                     $return->fncResponse(null,"Router","You are not authorized to make this request...");
                     return;
