@@ -7,6 +7,7 @@
       ********************************************/
         require_once "models/connection.php";
         require_once "controllers/router.controller.php";
+        require_once "controllers/get.controller.php";
       /********************************************
        *! Header.
       ********************************************/
@@ -19,6 +20,7 @@
         $arrayRouters = explode("/", $_SERVER['REQUEST_URI']);
         $arrayRouters = array_filter($arrayRouters);
         date_default_timezone_set('America/Guayaquil');
+        $response = new GetController();
         $return = new RouterController();
       /********************************
        ** No hay Petición en la api
@@ -38,10 +40,20 @@
           /********************************
            *? Validación de la Api Key
           ********************************/
-            if (!isset(getallheaders()["Authorization"]) ||
-                getallheaders()["Authorization"] != Connection::apiKey()) {
-                  $return->fncResponse(null,"Router","You are not authorized to make this request...");
-                  return;
+            if (!isset(getallheaders()["Authorization"]) || getallheaders()["Authorization"] != Connection::apiKey()) {
+                  /********************************
+                   *? Tabla es privada
+                  ********************************/
+                  if(in_array($table, Connection::publicAccess())==0){
+                    $return->fncResponse(null,"Router","You are not authorized to make this request...");
+                    return;
+                  }else{
+                    /********************************
+                     *? Tabla es publica
+                     ********************************/
+                      $response -> getData($db, $table, "*", null, null, null, null);
+                      return;
+                  }
             }
           /*************************************
            *? Set DB
