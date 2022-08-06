@@ -13,7 +13,7 @@
                 static public function putData($db, $table, $data, $id, $nameId){
                     $response = PutModel::putData($db, $table, $data, $id, $nameId);
                     $return = new PutController();
-                    $return -> fncResponse($response,"putData");
+                    $return -> fncResponse($response,"putData",null);
                 }
             /*******************************
              ** Respuesta del controlador
