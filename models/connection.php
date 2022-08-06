@@ -10,6 +10,19 @@
      *?Class Connection
     ******************************/
       class Connection{
+        /*************************************************
+         ** Api Key
+         *************************************************/
+          static public function apiKey(){
+            return "UdQtXDugTSJy6CLfT7BGV4bAFiUCaF";
+          }
+        /*************************************************
+         ** Acceso publico a tablas
+         *************************************************/
+          static public function publicAccess(){
+            $tables=["products","orders"];
+            return $tables;
+          }
         /********************************
          ** Información de la DB.
         ********************************/
@@ -203,19 +216,6 @@
                 }else{
                   return "no-aut";
                 }
-          }
-        /*************************************************
-         ** Api Key
-         *************************************************/
-          static public function apiKey(){
-            return "UdQtXDugTSJy6CLfT7BGV4bAFiUCaF";
-          }
-        /*************************************************
-         ** Acceso publico a tablas
-         *************************************************/
-          static public function publicAccess(){
-            $tables=["products","orders"];
-            return $tables;
           }
       }
 ?>
