@@ -38,8 +38,8 @@
           /********************************
            *? Validación de la Api Key
           ********************************/
-            if (!isset(getallheaders()["authorization"]) ||
-                getallheaders()["authorization"] != Connection::apiKey()) {
+            if (!isset(getallheaders()["Authorization"]) ||
+                getallheaders()["Authorization"] != Connection::apiKey()) {
                   $return->fncResponse(null,"Router","You are not authorized to make this request...");
                   return;
             }
