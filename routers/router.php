@@ -24,7 +24,7 @@
        ** No hay Petición en la api
       ********************************/
         if (count($arrayRouters) < 1 || count($arrayRouters) >1) {
-          $return->fncResponse($response,"Router",null);
+          $return->fncResponse(null,"Router",null);
           return;
         }
       /********************************
