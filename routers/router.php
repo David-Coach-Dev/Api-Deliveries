@@ -1,6 +1,6 @@
 <?php
   /****************************************
-     *todo Petición PUT.
+     *todo Router.
      ****************************************/
       /********************************************
        *! Requerimientos.
@@ -22,6 +22,14 @@
         date_default_timezone_set('America/Guayaquil');
         $response = new GetController();
         $return = new RouterController();
+      /*************************************
+       *? Set DB
+       ** 1 -> Sql-local
+       ** 2 -> Sql-Heroku
+       ** 3 -> PgSql-local
+       ** 4 -> PgSql-Heroku
+       *************************************/
+        $db=2;
       /********************************
        ** No hay Petición en la api
       ********************************/
@@ -56,14 +64,6 @@
                       return;
                   }
             }
-          /*************************************
-           *? Set DB
-          ** 1 -> Sql-local
-          ** 2 -> Sql-Heroku
-          ** 3 -> PgSql-local
-          ** 4 -> PgSql-Heroku
-          *************************************/
-            $db=2;
           /********************************
            ** Petición GET
           ********************************/
