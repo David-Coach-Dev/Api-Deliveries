@@ -60,7 +60,7 @@
               );
             /***************************************
              *? Retorno de la DB seleccionada.
-            ***************************************/
+             ***************************************/
               // 1 - SQL
               if($db == 1){
                 return $infoSqlDBLocal;
@@ -79,35 +79,35 @@
           }
         /********************************
          ** Conexión a la DB.
-        ********************************/
+         ********************************/
           static public function connect($db){
             /************************************************
              *? Colección a la DB.
-            ************************************************/
+             ************************************************/
               try {
                 /********************************
                  *? Conexión a la DB.
-                ********************************/
-                $link=new PDO(Connection::infoDatabase($db)["base"].":host="
+                 ********************************/
+                  $link=new PDO(Connection::infoDatabase($db)["base"].":host="
                                     .Connection::infoDatabase($db)["host"]
                                     .";port=".Connection::infoDatabase($db)["port"]
                                     .";dbname=".Connection::infoDatabase($db)["database"],
                                     Connection::infoDatabase($db)["user"],
                                     Connection::infoDatabase($db)["pass"]);
-                    if($db==1 && $db==2){
-                      $link->exec("set names utf8");
-                    }
+                  if($db==1 && $db==2){
+                    $link->exec("set names utf8");
+                  }
               /************************************************
                *? Capturar error de confección a la DB.
-              ************************************************/
+               ************************************************/
                 }catch (PDOException $e){
                   die("Error: ".$e->getMessage());
                 }
-              /************************************************
-               *? Retorno de la función conectar.
-              ************************************************/
-                return $link;
-              }
+            /************************************************
+             *? Retorno de la función conectar.
+             ************************************************/
+              return $link;
+            }
         /*************************************************
          ** validar existencia de una tabla en la DB
         *************************************************/
