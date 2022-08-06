@@ -26,7 +26,7 @@
          ********************************************/
           $columns = array($_GET["nameId"]);
           if (empty(Connection::getColumnsData($db, $table, $columns))){
-            $return -> fncResponse(null,"Delete");
+            $return -> fncResponse(null,"Delete","Columna invalida..");
             return;
           }
         /***********************************************************************************

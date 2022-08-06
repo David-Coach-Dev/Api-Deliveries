@@ -14,7 +14,7 @@
         static public function deleteData($db, $table, $id, $nameId){
             $response = DeleteModel::deleteData($db, $table, $id, $nameId);
             $return = new DeleteController();
-            $return -> fncResponse($response,"deleteData");
+            $return -> fncResponse($response,"deleteData",null);
         }
       /********************************************
        ** Petición DELETE para cambizar el active
@@ -37,21 +37,29 @@
       /*******************************
        ** Respuesta del controlador
        *******************************/
-        public function fncResponse($response,$method){
-            if(!empty($response)){
+      public function fncResponse($response, $method, $error){
+        if(!empty($response)){
             $json = array(
-                "status" => 200,
+                "status" => 201,
                 "method" => $method,
                 "total" => count($response),
                 "detalle" => $response
             );
+        }else{
+            if($error != null){
+                $json = array(
+                    "status" => 400,
+                    "method" => $method,
+                    "error" => $error,
+                );
             }else{
-            $json = array(
+                $json = array(
                 "status" => 404,
                 "method" => $method,
                 "detalle" => "not found...",
-            );
+                );
             }
+        }
             echo json_encode($json, http_response_code($json["status"]));
         }
     }
