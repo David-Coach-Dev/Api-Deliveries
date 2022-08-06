@@ -96,6 +96,6 @@
                     $betweenIn, $betweenOut, $orderBy, $orderMode,
                     $startAt, $endAt, $filterTo, $inTo);
         }else{
-          $return -> fncResponse(null,"GET");
+          $return -> fncResponse(null,"GET","Endpoint invalido...");
       }
 ?>

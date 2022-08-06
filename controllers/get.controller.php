@@ -18,7 +18,7 @@
             $response = GetModel::getData($db, $table, $select,
                 $orderBy, $orderMode, $startAt, $endAt);
             $return = new GetController();
-            $return -> fncResponse($response,"getData");
+            $return -> fncResponse($response,"getData",null);
           }
         /********************************
          ** Petición GET con filtro
@@ -28,7 +28,7 @@
             $response = GetModel::getDataFilter($db, $table, $select,
               $linkTo,$equalTo, $orderBy, $orderMode, $startAt, $endAt);
             $return = new GetController();
-            $return -> fncResponse($response,"getDataFilter");
+            $return -> fncResponse($response,"getDataFilter",null);
           }
         /************************************************************
           ** Petición Get con tablas relacionadas.
@@ -38,7 +38,7 @@
             $response = GetModel::getRelData($db, $rel, $type,
               $select, $orderBy, $orderMode, $startAt, $endAt);
             $return = new GetController();
-            $return->fncResponse($response,"getRelData");
+            $return->fncResponse($response,"getRelData",null);
           }
         /*************************************************************
          ** Petición Get con tablas relacionadas con filtros .
@@ -50,7 +50,7 @@
               $select, $linkTo, $equalTo, $orderBy, $orderMode,
               $startAt, $endAt);
             $return = new GetController();
-            $return->fncResponse($response,"getRelDataFilter");
+            $return->fncResponse($response,"getRelDataFilter",null);
           }
         /****************************************************
         ** Petición Get para buscadores
@@ -60,7 +60,7 @@
             $response = GetModel::getDataSearch($db, $table, $select,
               $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt);
             $return = new GetController();
-            $return->fncResponse($response,"getDataSearch");
+            $return->fncResponse($response,"getDataSearch",null);
           }
         /*************************************************************
          ** Petición Get para buscadores con tablas relacionadas.
@@ -70,7 +70,7 @@
             $response = GetModel::getRelDataSearch($db, $rel, $type, $select,
               $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt);
             $return = new GetController();
-            $return->fncResponse($response,"getRelDataSearch");
+            $return->fncResponse($response,"getRelDataSearch",null);
           }
         /*************************************************************
          ** Petición Get con rangos.
@@ -82,7 +82,7 @@
               $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode,
               $startAt, $endAt, $filterTo, $inTo);
             $return = new GetController();
-            $return->fncResponse($response,"getDataRange");
+            $return->fncResponse($response,"getDataRange",null);
           }
         /*************************************************************
          ** Petición Get con rangos con tablas relacionadas.
@@ -94,27 +94,35 @@
               $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt,
               $endAt, $filterTo, $inTo);
             $return = new GetController();
-            $return->fncResponse($response,"getRelDataRange");
+            $return->fncResponse($response,"getRelDataRange",null);
           }
         /*******************************
         ** Respuesta del controlador
         *******************************/
-          public function fncResponse($response,$method){
-            if(!empty($response)){
-              $json = array(
-                "status" => 200,
-                "method" => $method,
-                "total" => count($response),
-                "detalle" => $response
-              );
-            }else{
-              $json = array(
-                "status" => 404,
-                "method" => $method,
-                "detalle" => "not found...",
-              );
-            }
-            echo json_encode($json, http_response_code($json["status"]));
+        public function fncResponse($response, $method, $error){
+          if(!empty($response)){
+            $json = array(
+              "status" => 201,
+              "method" => $method,
+              "total" => count($response),
+              "detalle" => $response
+            );
+          }else{
+          if($error != null){
+            $json = array(
+              "status" => 400,
+              "method" => $method,
+              "error" => $error,
+          );
+          }else{
+          $json = array(
+            "status" => 404,
+            "method" => $method,
+            "detalle" => "not found...",
+          );
           }
+        }
+          echo json_encode($json, http_response_code($json["status"]));
+        }
       }
 ?>

@@ -221,13 +221,13 @@
                           /**********************************************************
                            *? Retorno si no se actualiza el JWT en la DB.
                           **********************************************************/
-                            $return -> fncResponse(null,"postLogin", "JWT not updated");
+                            $return -> fncResponse(null, "postLogin", "JWT not updated");
                           }
                     }else{
                       /***********************************************
                        *? Retorno si el password no existe.
                       ***********************************************/
-                        $return -> fncResponse(null,"postLogin", "Wrong password");
+                        $return -> fncResponse(null, "postLogin", "Wrong password");
                     }
                 }else{
                   /***********************************************
@@ -263,14 +263,14 @@
                       /**********************************************************
                        *? Retorno si no se actualiza el JWT en la DB.
                       **********************************************************/
-                        $return -> fncResponse(null,"postLogin", "JWT not updated");
+                        $return -> fncResponse(null, "postLogin", "JWT not updated");
                       }
                 }
             }else{
               /***********************************************
                *? Retorno si el Email no existe.
                ***********************************************/
-                $return -> fncResponse(null,"postLogin", "Wrong email");
+                $return -> fncResponse(null, "postLogin", "Wrong email");
             }
         }
       /*******************************
@@ -281,6 +281,7 @@
               $json = array(
                 "status" => 201,
                 "method" => $method,
+                echo '<pre>':print_r($response);echo'</pre>';
                 "total" => count($response),
                 "detalle" => $response
               );
