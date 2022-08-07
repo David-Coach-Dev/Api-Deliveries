@@ -14,8 +14,7 @@
          ** Api Key
          *************************************************/
           static public function apiKey(){
-            return "UdQtXDugTSJy6CLfT7BGV4bAFiUCaF";
-            //return "+a#nWVm.v=zCg&C7B[pfL)ehJt*L8D";
+            return "+a#nWVm.v=zCg&C7B[pfL)ehJt*L8D";
           }
         /*************************************************
          ** Acceso publico a tablas
