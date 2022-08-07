@@ -13,6 +13,8 @@
     header('Access-Control-Allow-Methods: GET, POST,OPTIONS, OPTIONS, PUT, DELETE');
     header('Access-Control-Allow-Credentials: true');
     header('content-type: application/json; application/x-www-form-urlencoded; charset=utf-8;');
+    header("Allow: GET, POST,OPTIONS, OPTIONS, PUT, DELETE");
+    if ($_SERVER['REQUEST_METHOD'] == "OPTIONS") {header("HTTP/1.1 200 OK");}
   /*******************************
    ** Requerimientos
    *******************************/
