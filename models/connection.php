@@ -20,7 +20,7 @@
          ** Acceso publico a tablas
          *************************************************/
           static public function publicAccess(){
-            $tables=["products","orders"];
+            $tables=["rols"];
             return $tables;
           }
         /********************************
