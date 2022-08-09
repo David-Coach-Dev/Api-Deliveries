@@ -19,6 +19,7 @@
          ********************************************/
             if(isset($_POST)){
                 $_POST = json_decode(array_keys($_POST)[0], true);
+                echo'<pre> p: ';print_r($_POST);echo'</pre>';
                 foreach(array_keys($_POST) as $key => $value){
                     array_push($columns, $value);
                 }
