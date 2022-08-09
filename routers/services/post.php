@@ -19,11 +19,9 @@
          ********************************************/
             if(isset($_POST)){
                 $_POST = json_decode((file_get_contents('php://input')), TRUE); //convert JSON into array
-                echo'<pre> p1: ';print_r($_POST);echo'</pre>';
                 foreach(array_keys($_POST) as $key => $value){
                     array_push($columns, $value);
                 }
-                echo'<pre> c: ';print_r($columns);echo'</pre>';
             }
         /********************************************
          *? Validar la tabla y columnas
