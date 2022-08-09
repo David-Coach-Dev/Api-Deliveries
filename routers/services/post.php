@@ -19,7 +19,7 @@
          ********************************************/
             if(isset($_POST)){
                 $_POST = file_get_contents("php://input");
-                $_POST = explode("&", $_POST);
+                $_POST = explode("&", $_POST.Keys);
                 echo'<pre> p: ';print_r($_POST);echo'</pre>';
                 foreach(array_keys($_POST) as $key => $value){
                     array_push($columns, $value);
