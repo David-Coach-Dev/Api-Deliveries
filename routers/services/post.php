@@ -19,9 +19,9 @@
          ********************************************/
             if(isset($_POST)){
                 //$_POST = file_get_contents("php://input");
-                $iJ = file_get_contents('php://input');
+                //$iJ = file_get_contents('php://input');
                 //echo'<pre> p1: ';print_r($iJ);echo'</pre>';
-                $i = json_decode($iJ, TRUE); //convert JSON into array
+                $i = json_decode((file_get_contents('php://input')), TRUE); //convert JSON into array
                 echo'<pre> p1: ';print_r($i);echo'</pre>';
                 $_POST = $i;
                 echo'<pre> p: ';print_r($_POST);echo'</pre>';
