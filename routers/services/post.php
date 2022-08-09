@@ -18,7 +18,7 @@
          *? Separar propiedades en un arreglo
          ********************************************/
             if(isset($_POST)){
-                $_POST = json_decode((file_get_contents('php://input')), TRUE); //convert JSON into array
+                //$_POST = json_decode((file_get_contents('php://input')), TRUE); //convert JSON into array
                 foreach(array_keys($_POST) as $key => $value){
                     array_push($columns, $value);
                 }
