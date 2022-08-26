@@ -6,6 +6,7 @@
      *! Requerimientos.
     ************************/
       require_once "models/get.model.php";
+      require_once "controllers/router.controller.php";
     /******************************
      *? Class Controller GET
     ******************************/
@@ -17,7 +18,7 @@
           $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getData($db, $table, $select,
                 $orderBy, $orderMode, $startAt, $endAt);
-            $return = new GetController();
+            $return = new routerController();
             $return -> fncResponse($response,"getData",null);
           }
         /********************************

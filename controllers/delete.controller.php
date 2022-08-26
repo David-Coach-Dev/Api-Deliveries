@@ -40,7 +40,7 @@
       public function fncResponse($response, $method, $error){
         if(!empty($response)){
             $json = array(
-                "status" => 201,
+                "status" => 200,
                 "method" => $method,
                 "total" => count($response),
                 "detalle" => $response
