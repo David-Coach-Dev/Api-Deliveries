@@ -7,6 +7,7 @@
         ********************************************/
             require_once "models/connection.php";
             require_once "controllers/put.controller.php";
+            require_once "middleware/response.middleware.php";
         /********************************************
          *? Variables
         ********************************************/
@@ -15,7 +16,7 @@
             $id=$_GET["id"]?? null;
             $nameId=$_GET["nameId"]?? null;
             $response = new PutController();
-            $return = new PutController();
+            $return = new responseMiddleware();
         /********************************************
          *? Validando variables de PUt
          ********************************************/
@@ -36,7 +37,7 @@
                  ********************************************/
                     $columns=array_unique($columns);
                     if (empty(Connection::getColumnsData($db, $table, $columns))){
-                        $return -> fncResponse(null,"PUT",null);
+                        $return -> fncResponse(null,"PUT","Tabla o columna invalida.");
                         return;
                     }
                 /***********************************************************************************

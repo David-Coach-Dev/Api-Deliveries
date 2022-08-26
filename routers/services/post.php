@@ -7,13 +7,14 @@
          ********************************************/
             require_once "models/connection.php";
             require_once "controllers/post.controller.php";
+            require_once "middleware/response.middleware.php";
         /********************************************
          *? Variables
          ********************************************/
             $suffix=$_GET["suffix"]?? "user";
             $columns=array();
             $response = new PostController();
-            $return = new PostController();
+            $return = new responseMiddleware();
         /********************************************
          *? Separar propiedades en un arreglo
          ********************************************/

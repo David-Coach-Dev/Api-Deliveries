@@ -6,6 +6,7 @@
      *! Requerimientos.
      ***********************/
       require_once "controllers/get.controller.php";
+      require_once "middleware/response.middleware.php";
     /***************************************
      *? Variables.
     ****************************************/
@@ -24,7 +25,7 @@
       $betweenIn=$_GET["betweenIn"]?? null;
       $betweenOut=$_GET["betweenOut"]?? null;
       $response = new GetController();
-      $return = new GetController();
+      $return = new responseMiddleware();
     /****************************************
      ** 01) Con select.
      ****************************************/

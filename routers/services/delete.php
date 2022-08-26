@@ -7,6 +7,7 @@
     ********************************************/
       require_once "models/connection.php";
       require_once "controllers/delete.controller.php";
+      require_once "middleware/response.middleware.php";
     /********************************************
      *? Variables
     ********************************************/
@@ -16,7 +17,7 @@
       $suffix=$_GET["suffix"]?? null;
       $desactive=$_GET["desactive"]?? null;
       $response = new DeleteController();
-      $return = new DeleteController();
+      $return = new responseMiddleware();
     /***************************************************************
      *? Validando variables de DELETE
      ***************************************************************/
@@ -26,7 +27,7 @@
          ********************************************/
           $columns = array($_GET["nameId"]);
           if (empty(Connection::getColumnsData($db, $table, $columns))){
-            $return -> fncResponse(null,"Delete","Columna invalida..");
+            $return -> fncResponse(null,"Delete","Tabla o Columna invalida..");
             return;
           }
         /***********************************************************************************
