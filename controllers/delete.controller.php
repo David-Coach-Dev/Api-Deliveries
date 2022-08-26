@@ -2,8 +2,9 @@
   /************************
    *! Requerimientos.
     ************************/
-      require_once "models/delete.model.php";
-      require_once "models/put.model.php";
+        require_once "models/delete.model.php";
+        require_once "models/put.model.php";
+        require_once "middleware/response.middleware.php";
   /******************************
    *todo Class Controller delete
     ******************************/
@@ -13,7 +14,7 @@
        ********************************************/
         static public function deleteData($db, $table, $id, $nameId){
             $response = DeleteModel::deleteData($db, $table, $id, $nameId);
-            $return = new DeleteController();
+            $return = new responseMiddleware();
             $return -> fncResponse($response,"deleteData",null);
         }
       /********************************************
@@ -31,36 +32,8 @@
                 "active_".$suffix => false
             );
             $update=PutModel::putData($db, $table, $data, $id, $nameId);
-            $return = new DeleteController();
+            $return = new responseMiddleware();
             $return -> fncResponse($update,"deleteDataActive", null);
-        }
-      /*******************************
-       ** Respuesta del controlador
-       *******************************/
-      public function fncResponse($response, $method, $error){
-        if(!empty($response)){
-            $json = array(
-                "status" => 200,
-                "method" => $method,
-                "total" => count($response),
-                "detalle" => $response
-            );
-        }else{
-            if($error != null){
-                $json = array(
-                    "status" => 400,
-                    "method" => $method,
-                    "error" => $error,
-                );
-            }else{
-                $json = array(
-                "status" => 404,
-                "method" => $method,
-                "detalle" => "not found...",
-                );
-            }
-        }
-            echo json_encode($json, http_response_code($json["status"]));
         }
     }
 ?>

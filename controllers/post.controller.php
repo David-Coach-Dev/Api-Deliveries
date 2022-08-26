@@ -7,6 +7,7 @@
     require_once "models/put.model.php";
     require_once "models/connection.php";
     require_once "vendor/autoload.php";
+    require_once "middleware/response.middleware.php";
   /************************
    *! Use el JWT.
    ************************/
@@ -15,15 +16,14 @@
    *todo Class Controller POST
   ******************************/
     class PostController{
-      /****************************************
-       ** Petición Post para crear datos.
-      ****************************************/
+      /*******************************************
+       ** 1.- Petición Post para crear datos.
+       *******************************************/
         static public function postData($db, $table, $data){
           /***********************************************
            *? Variables
           ***********************************************/
-            $responde = new PostController();
-            $return = new PostController();
+            $return = new responseMiddleware();
             $suffix=array();
           /***********************************************
            *? Validación del suffix
@@ -47,14 +47,14 @@
           ***********************************************/
             $return -> fncResponse($response,"postData",null);
         }
-      /****************************************
-       ** Petición Post para registra usuario.
-      ****************************************/
+      /************************************************
+       ** 2.-+ Petición Post para registra usuario.
+       ************************************************/
         static public function postRegister($db, $table, $data, $suffix){
           /***********************************************
            *? Variables
             ***********************************************/
-              $return = new PostController();
+              $return = new responseMiddleware();
               $pass_crypt='$2a$07$use1pass2table3base5$';
               $key="user20pass22bd1";
               $cod='HS256';
@@ -155,14 +155,14 @@
                 }
             }
         }
-      /****************************************
-       ** Petición Post para login usuario.
-      ****************************************/
+      /*********************************************
+       ** 3.- Petición Post para login usuario.
+       *********************************************/
         static public function postLogin($db, $table, $data, $suffix){
           /***********************************************
            *? Variables
           ***********************************************/
-            $return = new PostController();
+            $return = new responseMiddleware();
             $pass_crypt='$2a$07$use1pass2table3base5$';
             $key="user20pass22bd1";
             $cod='HS256';
@@ -273,33 +273,5 @@
                 $return -> fncResponse(null, "postLogin", "Wrong email");
             }
         }
-      /*******************************
-       ** Respuesta del controlador
-       *******************************/
-          public function fncResponse($response, $method, $error){
-            if(!empty($response)){
-              $json = array(
-                "status" => 201,
-                "method" => $method,
-                "total" => count($response),
-                "detalle" => $response
-              );
-            }else{
-            if($error != null){
-              $json = array(
-                "status" => 400,
-                "method" => $method,
-                "error" => $error,
-            );
-            }else{
-            $json = array(
-              "status" => 404,
-              "method" => $method,
-              "detalle" => "not found...",
-            );
-            }
-          }
-            echo json_encode($json, http_response_code($json["status"]));
-          }
     }
 ?>
