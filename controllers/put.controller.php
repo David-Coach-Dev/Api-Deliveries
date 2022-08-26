@@ -3,7 +3,7 @@
      *! Requerimientos.
      ************************/
         require_once "models/put.model.php";
-        require_once "controllers/response.middleware.php";
+        require_once "middleware/response.middleware.php";
     /******************************
      *todo Class Controller PUT
      ******************************/
