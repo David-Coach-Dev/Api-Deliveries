@@ -6,8 +6,8 @@
        *! Requerimientos.
       ********************************************/
         require_once "models/connection.php";
-        require_once "controllers/router.controller.php";
         require_once "controllers/get.controller.php";
+        require_once "middleware/response.middleware.php";
       /*******************************
        ** Api Deliveries
       ********************************/
@@ -15,7 +15,7 @@
         $arrayRouters = array_filter($arrayRouters);
         date_default_timezone_set('America/Guayaquil');
         $response = new GetController();
-        $return = new RouterController();
+        $return = new responseMiddleware();
       /*************************************
        *? Set DB
        ** 1 -> Sql-local
