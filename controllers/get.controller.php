@@ -10,7 +10,7 @@
     /******************************
      *? Class Controller GET
     ******************************/
-      class routerController{
+      class getController{
         /********************************
          ** Petición GET sin filtro
         ********************************/
