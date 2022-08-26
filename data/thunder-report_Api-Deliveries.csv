@@ -1,0 +1,67 @@
+Client, Thunder Client
+CollectionName, Api-Deliveries
+FolderName, 
+EnvironmentName, pro
+DateExported, 2022-08-26T18:39:34.723Z
+Total Iterations, 1
+Total Passed, 1
+Total Failed, 0
+Failed Iterations Numbers, 
+
+
+
+Iteration, 1
+Method, Name, Url, Status, Time, Passed, Total, Result
+GET, GET., https://api-rest-full-deliveries.herokuapp.com/users, 400, 4.55 s, 0, 0, N/A
+GET, GET acceso publico., https://api-rest-full-deliveries.herokuapp.com/orders, 400, 358 ms, 0, 0, N/A
+GET, GET Con select., https://api-rest-full-deliveries.herokuapp.com/orders, 201, 309 ms, 0, 0, N/A
+GET, GET con select con orden., https://api-rest-full-deliveries.herokuapp.com/users?select=id_user,nick_user&orderBy=id_user&orderMode=asc, 201, 296 ms, 0, 0, N/A
+GET, GET con select con limites., https://api-rest-full-deliveries.herokuapp.com/users?select=nick_user&startAt=2&endAt=1, 201, 304 ms, 0, 0, N/A
+GET, GET con select con orden con limites., https://api-rest-full-deliveries.herokuapp.com/users?select=*&orderBy=id_user&orderMode=desc&startAt=0&endAt=1, 201, 296 ms, 0, 0, N/A
+GET, GET con selct con filtro., https://api-rest-full-deliveries.herokuapp.com/orders?select=id_order,order_date_order,paking_time_order,transportation_time_order,delivery_time_order&linkTo=id_order&equalTo=4, 201, 305 ms, 0, 0, N/A
+GET, GET con selct con filtro. Copy, https://api-rest-full-deliveries.herokuapp.com/orders?select=id_order,order_date_order,paking_time_order,transportation_time_order,delivery_time_order&linkTo=id_order&equalTo=4, 201, 294 ms, 0, 0, N/A
+GET, GET con selct con filter con orden., https://api-rest-full-deliveries.herokuapp.com/orders?select=*&linkTo=id_user_order&equalTo=4&orderBy=id_order&orderMode=desc, 201, 303 ms, 0, 0, N/A
+GET, GET con selct con filtro con limites., https://api-rest-full-deliveries.herokuapp.com/orders?select=*&linkTo=id_user_order&equalTo=4&startAt=0&endAt=1, 201, 328 ms, 0, 0, N/A
+GET, GET con selct con filter con orden con limites, https://api-rest-full-deliveries.herokuapp.com/orders?select=*&linkTo=id_user_order&equalTo=4&orderBy=id_order&orderMode=desc&startAt=0&endAt=1, 201, 296 ms, 0, 0, N/A
+GET, GET con select con buscadores, https://api-rest-full-deliveries.herokuapp.com/products?select=*&linkTo=name_product&searchTo=Monitor, 201, 312 ms, 0, 0, N/A
+GET, GET con select con buscadores con orden., https://api-rest-full-deliveries.herokuapp.com/products?select=*&linkTo=name_product&searchTo=teclado&orderBy=id_product&orderMode=desc, 201, 634 ms, 0, 0, N/A
+GET, GET con select con buscadores con limites, https://api-rest-full-deliveries.herokuapp.com/products?select=*&linkTo=name_product&searchTo=teclado&startAt=0&endAt=1, 201, 405 ms, 0, 0, N/A
+GET, GET con select con buscadores con orden con limites., https://api-rest-full-deliveries.herokuapp.com/products?select=*&linkTo=name_product&searchTo=teclado&orderBy=id_product&orderMode=asc&startAt=0&endAt=2, 201, 400 ms, 0, 0, N/A
+GET, GET Con select con rangos., https://api-rest-full-deliveries.herokuapp.com/orders?select=*&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30, 201, 399 ms, 0, 0, N/A
+GET, GET Con select con rangos con orden., https://api-rest-full-deliveries.herokuapp.com/orders?select=*&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30&orderBy=id_order&orderMode=asc, 201, 465 ms, 0, 0, N/A
+GET, GET Con select con rangos con limites., https://api-rest-full-deliveries.herokuapp.com/orders?select=*&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30&startAt=0&endAt=2, 201, 301 ms, 0, 0, N/A
+GET, GET Con select con rangos con orden con limites., https://api-rest-full-deliveries.herokuapp.com/orders?select=*&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30&orderBy=id_order&orderMode=asc&startAt=0&endAt=2, 201, 287 ms, 0, 0, N/A
+GET, GET Con select con rangos con orden con limites con filtro., https://api-rest-full-deliveries.herokuapp.com/orders?select=*&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30&orderBy=id_order&orderMode=asc&startAt=0&endAt=2&filterTo=id_user_order&inTo=4, 201, 292 ms, 0, 0, N/A
+GET, GET con select con tablas relacionadas., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user, 201, 289 ms, 0, 0, N/A
+GET, GET con select con tablas relacionadas con orden., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user&orderBy=Id_product&orderMode=desc, 201, 295 ms, 0, 0, N/A
+GET, GET con select con tablas relacionadas con limites., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user&startAt=0&endAt=2, 201, 289 ms, 0, 0, N/A
+GET, GET con select con tablas relacionadas con orden con linites., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user&orderBy=Id_product&orderMode=asc&startAt=0&endAt=1, 201, 441 ms, 0, 0, N/A
+GET, GET con select con tablas relacionadas con filtro., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user&linkTo=nick_user&equalTo=dcdev, 201, 362 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con filtro con orden., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user&linkTo=nick_user&equalTo=dcdev&orderBy=id_product&orderMode=desc, 201, 288 ms, 0, 0, N/A
+GET, GET con select con tablas relacionadas con filtro con limites., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user&linkTo=nick_user&equalTo=dcdev&startAt=0&endAt=1, 201, 302 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con filtro con orden con limites., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user&linkTo=nick_user&equalTo=dcdev&orderBy=id_product&orderMode=desc&startAt=0&endAt=1, 201, 299 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con buscadores., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user&linkTo=nick_user&searchTo=DcDev, 201, 295 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con buscadores con order., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user&linkTo=nick_user&searchTo=dcdev&orderBy=id_product&orderMode=asc, 201, 291 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con buscadores con limites., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user&linkTo=nick_user&searchTo=dcdev&startAt=0&endAt=1, 201, 296 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con buscadores con orden con limites., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=products,users&type=product,user&linkTo=nick_user&searchTo=dcdev&orderBy=id_product&orderMode=desc&startAt=0&endAt=1, 201, 285 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con rangos., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=orders,products,users&type=order,product,user&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30, 201, 293 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con rangos con orden, https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=orders,products,users&type=order,product,user&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30&orderBy=id_order&orderMode=desc, 201, 292 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con rangos con limites, https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=orders,products&type=order,product&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30&startAt=0&endAt=2, 201, 297 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con rangos con orden con limites., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=orders,products,users&type=order,product,user&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30&orderBy=id_order&orderMode=asc&startAt=0&endAt=2, 201, 288 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con rangos con orden con limites con filtro., https://api-rest-full-deliveries.herokuapp.com/relations?select=*&rel=orders,products,users&type=order,product,user&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30&orderBy=id_order&orderMode=asc&startAt=0&endAt=2&filterTo=id_user_order&inTo=4, 201, 298 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con rangos con orden con limites con filtro por user, https://api-rest-full-deliveries.herokuapp.com/relations?select=id_order,tracking_order,id_user_order,email_user,id_product_order,name_product,image_product,order_date_order,paking_time_order,transportation_time_order,delivery_time_order&rel=orders,products,users&type=order,product,user&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30&orderBy=id_order&orderMode=asc&startAt=0&endAt=10&filterTo=id_user_order&inTo=84, 201, 288 ms, 0, 0, N/A
+GET, GET Con select con tablas relacionadas con rangos con orden con limites con filtro por email, https://api-rest-full-deliveries.herokuapp.com/relations?select=id_order,tracking_order,id_user_order,email_user,id_product_order,name_product,image_product,order_date_order,paking_time_order,transportation_time_order,delivery_time_order&rel=orders,products,users&type=order,product,user&linkTo=date_create_order&betweenIn=2022-08-01&betweenOut=2022-08-30&orderBy=id_order&orderMode=asc&startAt=0&endAt=10&filterTo=email_user&inTo=%22admin@deleveries.tk%22, 201, 562 ms, 0, 0, N/A
+POST, POST registro de producto con token., https://api-rest-full-deliveries.herokuapp.com/products?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NzQ4Nzk0LCJleHAiOjE2NTk4MzUxOTQsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.Nsiaq-vltfgGmvHXqBwuwkoC5Q-pzhRlNW3WrDzvvbs&tableToken=users&suffixToken=user, 400, 304 ms, 0, 0, N/A
+POST, POST registro de rol con token., https://api-rest-full-deliveries.herokuapp.com/rols?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NzQ4Nzk0LCJleHAiOjE2NTk4MzUxOTQsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.Nsiaq-vltfgGmvHXqBwuwkoC5Q-pzhRlNW3WrDzvvbs&tableToken=users&suffixToken=user, 400, 326 ms, 0, 0, N/A
+POST, POST registro de producto sin token., https://api-rest-full-deliveries.herokuapp.com/products?token=no&except=id_product, 201, 651 ms, 0, 0, N/A
+POST, POST registro de usuario, https://api-rest-full-deliveries.herokuapp.com/users?register=true&suffix=user, 201, 349 ms, 0, 0, N/A
+POST, POST registro de usuario App Esternas,, https://api-rest-full-deliveries.herokuapp.com/users?suffix=user&status=true, 400, 303 ms, 0, 0, N/A
+POST, POST login de usuario., https://api-rest-full-deliveries.herokuapp.com/users?login=true&suffix=use, 201, 483 ms, 0, 0, N/A
+POST, POST login de usuario App externas., https://api-rest-full-deliveries.herokuapp.com/users?login=true&suffix=use, 201, 775 ms, 0, 0, N/A
+PUT, PUT Users, https://api-rest-full-deliveries.herokuapp.com/users?id=64&nameId=id_user&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NjYzODE0LCJleHAiOjE2NTk3NTAyMTQsImRhdGEiOnsiaWQiOjQsImVtYWlsIjoiZGNkZXZAdG93ZWJnby50ayJ9fQ.W_Jo6eP6mrWGmpxh-j0CnCGQT78LGZT4ksyTBLfaFSQ&tableToken=users&suffix=user, 400, 311 ms, 0, 0, N/A
+PUT, PUT Order, https://api-rest-full-deliveries.herokuapp.com/orders?id=24&nameId=id_order&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjYxMTMyNjcxLCJleHAiOjE2NjEyMTkwNzEsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.U4pH28b_J9RDZvetVSNB1GJtdHACJmoYRN54tYAP8Ho&tableToken=users&suffix=user, 400, 400 ms, 0, 0, N/A
+PUT, PUT Rol, https://api-rest-full-deliveries.herokuapp.com/rols?id=14&nameId=id_rol&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjYxMTMyNjcxLCJleHAiOjE2NjEyMTkwNzEsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.U4pH28b_J9RDZvetVSNB1GJtdHACJmoYRN54tYAP8Ho&tableToken=users&suffix=user, 400, 484 ms, 0, 0, N/A
+PUT, PUT Products con token, https://api-rest-full-deliveries.herokuapp.com/products?id=204&nameId=id_product&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NzU5ODQ2LCJleHAiOjE2NTk4NDYyNDYsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.Kn2WaF_ZF6mIOOx1_ExzwkRxqpsRfAWTodo7D5FBhB0&tableToken=users&suffixToken=user, 400, 314 ms, 0, 0, N/A
+PUT, PUT Products sin token, https://api-rest-full-deliveries.herokuapp.com/products?id=134&nameId=id_product&token=no&except=id_product, 201, 680 ms, 0, 0, N/A
+DELETE, DELETE, https://api-rest-full-deliveries.herokuapp.com/products?id=204&nameId=id_product&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NzU5ODQ2LCJleHAiOjE2NTk4NDYyNDYsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.Kn2WaF_ZF6mIOOx1_ExzwkRxqpsRfAWTodo7D5FBhB0&tableToken=users&suffixToken=user, 400, 397 ms, 0, 0, N/A
+DELETE, DELETE modificando estado, https://api-rest-full-deliveries.herokuapp.com/products?id=124&nameId=id_product&suffix=product&desactive=true&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NzQ4Nzk0LCJleHAiOjE2NTk4MzUxOTQsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.Nsiaq-vltfgGmvHXqBwuwkoC5Q-pzhRlNW3WrDzvvbs&tableToken=users&suffixToken=user, 400, 304 ms, 0, 0, N/A
