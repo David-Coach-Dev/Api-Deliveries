@@ -16,7 +16,7 @@
           if(!empty($response)){
             $json = array(
               "status" => 201,
-              "method" => 'r',
+              "method" => $method,
               "total" => count($response),
               "detalle" => $response
             );

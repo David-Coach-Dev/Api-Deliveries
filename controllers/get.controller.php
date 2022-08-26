@@ -10,7 +10,7 @@
     /******************************
      *? Class Controller GET
     ******************************/
-      class GetController{
+      class routerController{
         /********************************
          ** Petición GET sin filtro
         ********************************/
@@ -28,7 +28,7 @@
             $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getDataFilter($db, $table, $select,
               $linkTo,$equalTo, $orderBy, $orderMode, $startAt, $endAt);
-            $return = new GetController();
+            $return = new routerController();
             $return -> fncResponse($response,"getDataFilter",null);
           }
         /************************************************************
@@ -38,7 +38,7 @@
             $select, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getRelData($db, $rel, $type,
               $select, $orderBy, $orderMode, $startAt, $endAt);
-            $return = new GetController();
+            $return = new routerController();
             $return->fncResponse($response,"getRelData",null);
           }
         /*************************************************************
@@ -50,7 +50,7 @@
             $response = GetModel::getRelDataFilter($db, $rel, $type,
               $select, $linkTo, $equalTo, $orderBy, $orderMode,
               $startAt, $endAt);
-            $return = new GetController();
+            $return = new routerController();
             $return->fncResponse($response,"getRelDataFilter",null);
           }
         /****************************************************
@@ -60,7 +60,7 @@
             $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getDataSearch($db, $table, $select,
               $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt);
-            $return = new GetController();
+            $return = new routerController();
             $return->fncResponse($response,"getDataSearch",null);
           }
         /*************************************************************
@@ -70,7 +70,7 @@
             $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getRelDataSearch($db, $rel, $type, $select,
               $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt);
-            $return = new GetController();
+            $return = new routerController();
             $return->fncResponse($response,"getRelDataSearch",null);
           }
         /*************************************************************
@@ -82,7 +82,7 @@
             $response = GetModel::getDataRange($db, $table, $select,
               $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode,
               $startAt, $endAt, $filterTo, $inTo);
-            $return = new GetController();
+            $return = new routerController();
             $return->fncResponse($response,"getDataRange",null);
           }
         /*************************************************************
@@ -94,36 +94,8 @@
             $response = GetModel::getRelDataRange($db, $rel, $type, $select,
               $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt,
               $endAt, $filterTo, $inTo);
-            $return = new GetController();
+            $return = new routerController();
             $return->fncResponse($response,"getRelDataRange",null);
           }
-        /*******************************
-        ** Respuesta del controlador
-        *******************************/
-        public function fncResponse($response, $method, $error){
-          if(!empty($response)){
-            $json = array(
-              "status" => 201,
-              "method" => $method,
-              "total" => count($response),
-              "detalle" => $response
-            );
-          }else{
-          if($error != null){
-            $json = array(
-              "status" => 400,
-              "method" => $method,
-              "error" => $error,
-          );
-          }else{
-          $json = array(
-            "status" => 404,
-            "method" => $method,
-            "detalle" => "not found...",
-          );
-          }
-        }
-          echo json_encode($json, http_response_code($json["status"]));
-        }
       }
 ?>
