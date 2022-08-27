@@ -80,7 +80,7 @@
                                  *? Exp -> si el token existe pero esta expirado.
                                  ***********************************************************************************/
                                     if($validate=="exp"){
-                                        $return->fncResponse(null,"PUT","El token a expirado." );
+                                        $return->fncResponse(null,"PUT","El token a expirado.");
                                     }
                                 /***********************************************************************************
                                  *? No-out -> si el token no coincide en DB.
