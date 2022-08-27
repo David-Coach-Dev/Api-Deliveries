@@ -1,7 +1,7 @@
 {
   "client": "Thunder Client",
   "collectionName": "Api-Deliveries",
-  "dateExported": "2022-08-27T04:35:15.905Z",
+  "dateExported": "2022-08-27T19:25:02.233Z",
   "version": "1.1",
   "folders": [
     {
@@ -39,11 +39,11 @@
       "colId": "e60237d7-e47f-4ca8-8b04-008dbe0854f0",
       "containerId": "3c65e72a-4bf6-4fb3-bf1b-a039a639cfdc",
       "name": "PUT Users",
-      "url": "{{url}}/users?id=64&nameId=id_user&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NjYzODE0LCJleHAiOjE2NTk3NTAyMTQsImRhdGEiOnsiaWQiOjQsImVtYWlsIjoiZGNkZXZAdG93ZWJnby50ayJ9fQ.W_Jo6eP6mrWGmpxh-j0CnCGQT78LGZT4ksyTBLfaFSQ&tableToken=users&suffix=user",
+      "url": "{{url}}/users?id=64&nameId=id_user&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjYxNTkwNDEzLCJleHAiOjE2NjE2NzY4MTMsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.FqQrcLBLULICRSOdQ9FAYrjqxaDtDaPl9qW4u6eKes0&tableToken=users&suffix=user",
       "method": "PUT",
       "sortNum": 10000,
       "created": "2022-08-15T21:56:55.409Z",
-      "modified": "2022-08-15T21:56:55.409Z",
+      "modified": "2022-08-27T08:56:59.997Z",
       "headers": [
         {
           "name": "Authorization",
@@ -63,7 +63,7 @@
         },
         {
           "name": "token",
-          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NjYzODE0LCJleHAiOjE2NTk3NTAyMTQsImRhdGEiOnsiaWQiOjQsImVtYWlsIjoiZGNkZXZAdG93ZWJnby50ayJ9fQ.W_Jo6eP6mrWGmpxh-j0CnCGQT78LGZT4ksyTBLfaFSQ",
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjYxNTkwNDEzLCJleHAiOjE2NjE2NzY4MTMsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.FqQrcLBLULICRSOdQ9FAYrjqxaDtDaPl9qW4u6eKes0",
           "isPath": false
         },
         {
@@ -353,11 +353,11 @@
       "colId": "e60237d7-e47f-4ca8-8b04-008dbe0854f0",
       "containerId": "7a68cf71-3976-4a2c-aea3-f479c672e838",
       "name": "DELETE modificando estado",
-      "url": "{{url}}/products?id=124&nameId=id_product&suffix=product&desactive=true&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NzQ4Nzk0LCJleHAiOjE2NTk4MzUxOTQsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.Nsiaq-vltfgGmvHXqBwuwkoC5Q-pzhRlNW3WrDzvvbs&tableToken=users&suffixToken=user",
+      "url": "{{url}}/products?id=124&nameId=id_product&suffix=product&desactive=true&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjYxNTkwNDEzLCJleHAiOjE2NjE2NzY4MTMsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.FqQrcLBLULICRSOdQ9FAYrjqxaDtDaPl9qW4u6eKes0&tableToken=users&suffixToken=user",
       "method": "DELETE",
       "sortNum": 20000,
       "created": "2022-08-15T21:56:55.411Z",
-      "modified": "2022-08-15T21:56:55.411Z",
+      "modified": "2022-08-27T08:57:49.729Z",
       "headers": [
         {
           "name": "Authorization",
@@ -387,7 +387,7 @@
         },
         {
           "name": "token",
-          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NzQ4Nzk0LCJleHAiOjE2NTk4MzUxOTQsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.Nsiaq-vltfgGmvHXqBwuwkoC5Q-pzhRlNW3WrDzvvbs",
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjYxNTkwNDEzLCJleHAiOjE2NjE2NzY4MTMsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.FqQrcLBLULICRSOdQ9FAYrjqxaDtDaPl9qW4u6eKes0",
           "isPath": false
         },
         {
@@ -497,11 +497,11 @@
       "colId": "e60237d7-e47f-4ca8-8b04-008dbe0854f0",
       "containerId": "cddea142-056e-493b-99a3-45b257fbc55c",
       "name": "GET.",
-      "url": "{{url}}/users",
+      "url": "{{url}}/user",
       "method": "GET",
       "sortNum": 25000,
       "created": "2022-08-15T21:56:55.413Z",
-      "modified": "2022-08-27T04:29:35.999Z",
+      "modified": "2022-08-27T19:23:35.977Z",
       "headers": [
         {
           "name": "Authorization",
@@ -628,7 +628,7 @@
       "method": "GET",
       "sortNum": 37500,
       "created": "2022-08-15T21:56:55.416Z",
-      "modified": "2022-08-27T04:34:49.966Z",
+      "modified": "2022-08-27T19:24:34.235Z",
       "headers": [
         {
           "name": "Authorization",
@@ -653,7 +653,7 @@
         ]
       },
       "tests": [],
-      "docs": "## Get con select.\n\n### Link:\n```sh\n/users\n```\n### Headers:\n```json\n{\n  \"name\": \"Authorization\",\n  \"value\": apiKey\n}\n```\n### Response:\n#### 200:\n```json\n{\n \"status\": 200,\n  \"method\": \"getData\",\n  \"total\": 16,\n  \"detalle\": [\n    {...},{...},{...}...\n}\n```\n### 400:\n```sh\n{\n  \"status\": 400,\n  \"method\": \"Router\",\n  \"error\": \"You are not authorized to make this request...\"\n}\n```\n---\n"
+      "docs": "## Get con select.\n\n### Link:\n```sh\n{{url}}/orders?select=id_order\n```\n### Headers:\n```json\n{\n  \"name\": \"Authorization\",\n  \"value\": {{apiKey}}\n}\n```\n### Response:\n#### 200:\n```json\n{\n \"status\": 200,\n  \"method\": \"getData\",\n  \"total\": 16,\n  \"detalle\": [\n    {...},{...},{...}...\n}\n```\n### 400:\n```sh\n{\n  \"status\": 400,\n  \"method\": \"Router\",\n  \"error\": \"You are not authorized to make this request...\"\n}\n```\n---\n"
     },
     {
       "_id": "2579dd50-db10-4d2a-8ba2-d2750c666928",
@@ -2050,7 +2050,7 @@
       "method": "POST",
       "sortNum": 115000,
       "created": "2022-08-15T21:56:55.442Z",
-      "modified": "2022-08-15T21:56:55.442Z",
+      "modified": "2022-08-27T08:53:33.941Z",
       "headers": [
         {
           "name": "Authorization",

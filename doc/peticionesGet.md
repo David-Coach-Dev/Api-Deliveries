@@ -1,84 +1,33 @@
-# Peticiones Get.
-## Variables de entorno.
+# **Peticiones Get.**
+## **Variables de entorno.**
 
 | Nombre               | Value                                                   |
 |----------------------|---------------------------------------------------------|
 |  url                 |  https://api-rest-full-deliveries.herokuapp.com         |
 |  aiKey               |  +a#nWVm.v=zCg&C7B[pfL)ehJt*L8D                         |
-
+---
+## [**Get.**]("https://api-rest-full-deliveries.herokuapp/doc/get.md")
 ---
 
-## Get con select.
----
-### Link:
-```link
-{{url}}/orders?select=id_order
-```
----
-### Headers:
-```json
-{
-  "name": "Authorization",
-  "value": "value": "{{apiKey}}"
-}
-```
-### Params:
-```json
-{
-  "name": "select",
-  "value": "id_order"
-}
-```
----
-### Response:
+## **Get de acceso publico.**
 
-### 200
-```json
-{
-  "status": 201,
-  "method": "getData",
-  "total": 3,
-  "detalle": [
-    {
-      "id_order": 4
-    },
-    {
-      "id_order": 14
-    },
-    {
-      "id_order": 24
-    }
-  ]
-}
-```
-### 401:
-```json
-{
-  "status": 401,
-  "method": "Router",
-  "error": "You are not authorized to make this request..."
-}
-```
----
-# Ruta Get de acceso publico solo a la tabla de roles.
-## Link:
+### **Link:**
 ```
 /rols
 ```
-## Headers:
-```
+
+### **Headers:**
+```json
 {
   "name": "Authorization",
   "value": no requerida
 }
 ```
-## Body:
-```
-   no requerido
-```
-## Response:
-### 200:
-```
+
+### **Response:**
+
+#### **200:**
+```json
 {
   "status": 201,
   "method": "getData",
@@ -100,7 +49,8 @@
     }
   ]
 ```
-### 400:
+
+### **400:**
 ```
 {
   "status": 400,
@@ -108,3 +58,4 @@
   "error": "You are not authorized to make this request..."
 }
 ```
+---
