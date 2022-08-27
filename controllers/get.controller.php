@@ -16,7 +16,7 @@
          ********************************/
           static public function getData($db, $table, $select, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getData($db, $table, $select, $orderBy, $orderMode, $startAt, $endAt);
-            responseValidation($response, "getData");
+            getController::responseValidation($response, "getData");
           }
         /********************************
          ** 2.- Petición GET con filtro

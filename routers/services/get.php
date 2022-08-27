@@ -32,16 +32,14 @@
       if ($table!="relations" && !isset($_GET["searchTo"])
         && !isset($_GET["equalTo"]) && !isset($_GET["betweenIn"])
         && !isset($_GET["betweenOut"])) {
-        $response -> getData($db, $table, $select, $orderBy,
-            $orderMode, $startAt, $endAt);
+        $response -> getData($db, $table, $select, $orderBy, $orderMode, $startAt, $endAt);
       } else
     /****************************************************
      ** 02) Con select con filtro.
      ****************************************************/
       if($table!="relations" && isset($_GET["linkTo"])
         && isset($_GET["equalTo"]) && !isset($_GET["searchTo"])){
-        $response -> getDataFilter($db, $table, $select,
-                      $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt);
+        $response -> getDataFilter($db, $table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt);
       }else
     /*****************************************************
      ** 03) Con select con buscador
