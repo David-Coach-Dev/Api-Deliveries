@@ -9,7 +9,7 @@
         /*************************************************************
          ** Response Validation.
          *************************************************************/
-          static public function fncResponseValidation($response,  $method){
+          static public function fncResponseValidation($method, $response){
             ($response==null ? ResponseMiddleware::fncResponse(400, $method, array("error"=>"Sintaxis invalida...")) : ResponseMiddleware::fncResponse(200, $method, $response));
           }
         /*****************************************

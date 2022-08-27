@@ -16,21 +16,21 @@
          ********************************/
           static public function getData($db, $table, $select, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getData($db, $table, $select, $orderBy, $orderMode, $startAt, $endAt);
-            ResponseMiddleware::fncResponseValidation($response, "getData");
+            ResponseMiddleware::fncResponseValidation("getData", $response);
           }
         /********************************
          ** 2.- Petición GET con filtro
          ********************************/
           static public function getDataFilter($db, $table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getDataFilter($db, $table, $select, $linkTo,$equalTo, $orderBy, $orderMode, $startAt, $endAt);
-            ResponseMiddleware::fncResponseValidation($response, "getDataFilter");
+            ResponseMiddleware::fncResponseValidation("getDataFilter", $response);
           }
         /************************************************************
           ** 3.- Petición Get con tablas relacionadas.
          ************************************************************/
           static public function getRelData($db, $rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getRelData($db, $rel, $type,$select, $orderBy, $orderMode, $startAt, $endAt);
-            ResponseMiddleware::fncResponseValidation($response, "getRelData");
+            ResponseMiddleware::fncResponseValidation("getRelData", $response);
           }
         /*************************************************************
          ** 4.- Petición Get con tablas relacionadas con filtros .
