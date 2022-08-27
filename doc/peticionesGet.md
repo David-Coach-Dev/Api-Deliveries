@@ -51,10 +51,10 @@
   ]
 }
 ```
-### 400:
+### 401:
 ```json
 {
-  "status": 400,
+  "status": 401,
   "method": "Router",
   "error": "You are not authorized to make this request..."
 }

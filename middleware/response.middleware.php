@@ -6,10 +6,10 @@
       /*****************************************
        ** Respuesta para los controladores
        *****************************************/
-        public function fncResponse($response, $method, $error){
+        public function fncResponse($status, $response, $method, $error){
           if(!empty($response)){
             $json = array(
-              "status" => 201,
+              "status" => $status,
               "method" => $method,
               "total" => count($response),
               "detalle" => $response
