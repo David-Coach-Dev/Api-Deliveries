@@ -27,7 +27,7 @@
          ********************************************/
           $columns = array($_GET["nameId"]);
           if (empty(Connection::getColumnsData($db, $table, $columns))){
-            $return -> fncResponse(null,"Delete","Tabla o Columna invalida..");
+            $return -> fncResponse(400, null, "Delete", "Tabla o Columna invalida...");
             return;
           }
         /***********************************************************************************
@@ -59,19 +59,19 @@
                    *? Exp -> si el token existe pero esta expirado.
                    ***********************************************************************************/
                     if($validate=="exp"){
-                        $return->fncResponse(null,"DELETE","El token a expirado." );
+                        $return->fncResponse(403, null,"DELETE","El token a expirado." );
                     }
                   /***********************************************************************************
                    *? No-out -> si el token no coincide en DB.
                    ***********************************************************************************/
                     if($validate=="no-aut"){
-                        $return->fncResponse(null,"DELETE","El usuario no esta autorizado." );
+                        $return->fncResponse(403, null,"DELETE","El usuario no esta autorizado." );
                     }
                 }else{
                   /***********************************************************************************
                    *? No consta con un token de autorización.
                    ***********************************************************************************/
-                      $return->fncResponse(null,"DELETE","Autorización requerida.");
+                      $return->fncResponse(403, null,"DELETE","Autorización requerida.");
             }
     }
       }

@@ -15,7 +15,7 @@
         static public function deleteData($db, $table, $id, $nameId){
             $response = DeleteModel::deleteData($db, $table, $id, $nameId);
             $return = new responseMiddleware();
-            $return -> fncResponse($response,"deleteData",null);
+            ($response==null ? $return -> fncResponse(400, null, "deleteData", "Tabla o Columna invalida...") : $return -> fncResponse(200, $response, "deleteData" ,null));
         }
       /********************************************
        ** Petición DELETE para cambizar el active

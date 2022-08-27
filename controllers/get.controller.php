@@ -17,7 +17,7 @@
           static public function getData($db, $table, $select, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getData($db, $table, $select, $orderBy, $orderMode, $startAt, $endAt);
             $return = new responseMiddleware();
-            $return -> fncResponse($response,"getData",null);
+            ($response==null ? $return -> fncResponse(400, null, "deleteData", "Sintaxis invalida...") : $return -> fncResponse(200, $response, "getData", null));
           }
         /********************************
          ** 2.- Petición GET con filtro

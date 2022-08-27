@@ -28,7 +28,7 @@
        ** No hay Petición en la api
       ********************************/
         if (count($arrayRouters) < 1 || count($arrayRouters) >1) {
-          $return->fncResponse(null,"Router",null);
+          $return->fncResponse(404, null,"Router",null);
           return;
         }
       /********************************
@@ -47,7 +47,7 @@
                    *? Tabla es privada
                   ********************************/
                   if(in_array($table, Connection::publicAccess())==0){
-                    $return->fncResponse(null,"Router","You are not authorized to make this request...");
+                    $return->fncResponse(401, null,"Router","You are not authorized to make this request...");
                     return;
                   }else{
                     /********************************
