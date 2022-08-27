@@ -1,20 +1,20 @@
 <?php
   /************************
    *! Requerimientos.
-    ************************/
-        require_once "models/delete.model.php";
-        require_once "models/put.model.php";
-        require_once "middleware/response.middleware.php";
+   ************************/
+    require_once "models/delete.model.php";
+    require_once "models/put.model.php";
+    require_once "middleware/response.middleware.php";
   /******************************
    *todo Class Controller delete
-    ******************************/
+   ******************************/
     class DeleteController{
       /********************************************
        ** Petición DELETE.
        ********************************************/
         static public function deleteData($db, $table, $id, $nameId){
-            $response = DeleteModel::deleteData($db, $table, $id, $nameId);
-            DeleteController::responseValidation($response, "deleteData");
+          $response = DeleteModel::deleteData($db, $table, $id, $nameId);
+          ResponseMiddleware::fncResponseValidation("deleteData", $response);
         }
       /********************************************
        ** Petición DELETE para cambizar el active
@@ -28,17 +28,10 @@
               $suffix=$val;
             }
             $data=array(
-                "active_".$suffix => false
+              "active_".$suffix => false
             );
             $update=PutModel::putData($db, $table, $data, $id, $nameId);
-            DeleteController::responseValidation($update, "deleteDataDesactive");
+            ResponseMiddleware::fncResponseValidation("deleteDataDesactive", $update);
         }
-      /*************************************************************
-         ** Response Validation.
-         *************************************************************/
-          static public function responseValidation($response,  $method){
-            $return = new responseMiddleware();
-            ($response==null ? $return -> fncResponse(400,  $method, array("error"=>"Sintaxis invalida...")) : $return -> fncResponse(201 , $method, $response));
-          }  
     }
 ?>

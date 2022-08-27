@@ -22,7 +22,7 @@
         static public function postData($db, $table, $data){
           /***********************************************
            *? Variables
-          ***********************************************/
+           ***********************************************/
             $suffix=array();
           /***********************************************
            *? Validación del suffix
@@ -39,12 +39,12 @@
             $data["active_".$suffix]=true;
           /*****************************************************
            *? Llamado al modelo del postData.
-          *****************************************************/
+           *****************************************************/
             $response = PostModel::postData($db, $table, $data);
           /***********************************************
            *? Retorno del postData.
            ***********************************************/
-            PostController::responseValidation($response, "postLogin");
+            ResponseMiddleware::fncResponseValidation("postLogin", $response);
         }
       /************************************************
        ** 2.-+ Petición Post para registra usuario.
@@ -85,7 +85,7 @@
               /***********************************************
                *? Retorno del postRegister.
                 ***********************************************/
-                PostController::responseValidation($response, "postLogin");
+                ResponseMiddleware::fncResponseValidation("postLogin", $response);
             }else{
               /**************************************************
                *? registro indirecto de usuario.
@@ -133,23 +133,23 @@
                           /*********************************************
                            *? Retorno del registro en la DB.
                           **********************************************/
-                            $return -> fncResponse(200, "postLogin", $response);
+                            ResponseMiddleware::fncResponseValidation("postLogin", $response);
                         }else{
                           /**********************************************************
                            *? Retorno si no se actualizo la data en la DB.
-                          **********************************************************/
+                           **********************************************************/
                             $return -> fncResponse(404, "postLogin",  array("error"=>"Data not updated"));
                         }
                     }else{
                       /***********************************************
                        *? Retorno si el Email no existe.
-                        ***********************************************/
+                       ***********************************************/
                         $return -> fncResponse(404,"postLogin",  array("error"=>"Wrong email"));
                     }
                 }else{
                   /***********************************************
                    *? Retorno si el usuario no fue creado.
-                    ***********************************************/
+                   ***********************************************/
                     $return -> fncResponse(404, "postLogin", array("error"=>"User creation error"));
                 }
             }
@@ -176,8 +176,7 @@
           /***********************************************
            *? Validación del usuario existe en DB
           ***********************************************/
-            $response=GetModel::getDataFilter($db, $table, "*",
-            "email_".$suffix, $data["email_".$suffix], null, null, null, null);
+            $response=GetModel::getDataFilter($db, $table, "*","email_".$suffix, $data["email_".$suffix], null, null, null, null);
             if(!empty($response)){
               /***********************************************
                *? login de usuario desde una app externas
@@ -214,18 +213,18 @@
                           unset($response[0]->{"password_".$suffix});
                           /******************************************************
                            *? Retorno de la actualización del JWT en la DB.
-                          ******************************************************/
-                          $return -> fncResponse(200, "postLogin", $response);
+                           ******************************************************/
+                            ResponseMiddleware::fncResponseValidation("postLogin", $response);
                         }else{
                           /**********************************************************
                            *? Retorno si no se actualiza el JWT en la DB.
-                          **********************************************************/
+                           **********************************************************/
                             $return -> fncResponse(404, "postLogin", array("error"=>"JWT not updated"));
                           }
                     }else{
                       /***********************************************
                        *? Retorno si el password no existe.
-                      ***********************************************/
+                       ***********************************************/
                         $return -> fncResponse(404, "postLogin", array("error"=>"Wrong password"));
                     }
                 }else{
@@ -271,13 +270,6 @@
                ***********************************************/
                 $return -> fncResponse(404, "postLogin", array("error"=>"Wrong email"));
             }
-        }
-      /*************************************************************
-       ** 4.Response Validation.
-        *************************************************************/
-        static public function responseValidation($response,  $method){
-          $return = new responseMiddleware();
-          ($response==null ? $return -> fncResponse(400,  $method, array("error"=>"Sintaxis invalida...")) : $return -> fncResponse(200, $method, $response));
         }
     }
 ?>

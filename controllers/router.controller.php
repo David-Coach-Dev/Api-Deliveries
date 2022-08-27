@@ -2,7 +2,7 @@
   /*****************************
    *todo Controller ROUTER
    ****************************/
-    class routerController{
+    class RouterController{
       /************************
        ** Index
        ***********************/

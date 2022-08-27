@@ -15,7 +15,7 @@
         $arrayRouters = array_filter($arrayRouters);
         date_default_timezone_set('America/Guayaquil');
         $response = new GetController();
-        $return = new responseMiddleware();
+        $return = new ResponseMiddleware();
       /*************************************
        *? Set DB
        ** 1 -> Sql-local

@@ -95,7 +95,7 @@
                             /***********************************************************************************
                              *? No consta con un token de autorización.
                              ***********************************************************************************/
-                                $return->fncResponse(403, array("error"=>"POST","Autorización requerida."));
+                                $return->fncResponse(403, "POST", array("error"=>"POST","Autorización requerida."));
                         }
                 }
 ?>

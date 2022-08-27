@@ -37,7 +37,8 @@
                  ********************************************/
                     $columns=array_unique($columns);
                     if (empty(Connection::getColumnsData($db, $table, $columns))){
-                        $return -> fncResponse(400, "PUT", array("error"=>"Tabla o columna invalida..."));
+                        ResponseMiddleware::fncResponseValidation("PUT", null);
+                        //$return -> fncResponse(400, "PUT", array("error"=>"Tabla o columna invalida..."));
                         return;
                     }
                 /***********************************************************************************
@@ -53,7 +54,8 @@
                                  ********************************************/
                                     $columns=array($_GET["except"]);
                                     if (empty(Connection::getColumnsData($db, $table, $columns))){
-                                        $return->fncResponse(400, "PUT", array("error"=>"Tabla o columna invalida..."));
+                                        ResponseMiddleware::fncResponseValidation("PUT", null);
+                                        //$return->fncResponse(400, "PUT", array("error"=>"Tabla o columna invalida..."));
                                         return;
                                     }
                                 /***********************************************************************************
