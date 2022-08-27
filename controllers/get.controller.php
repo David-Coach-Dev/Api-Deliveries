@@ -23,49 +23,49 @@
          ********************************/
           static public function getDataFilter($db, $table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getDataFilter($db, $table, $select, $linkTo,$equalTo, $orderBy, $orderMode, $startAt, $endAt);
-            responseValidation($response, "getDataFilter");
+            getController::responseValidation($response, "getDataFilter");
           }
         /************************************************************
           ** 3.- Petición Get con tablas relacionadas.
          ************************************************************/
           static public function getRelData($db, $rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getRelData($db, $rel, $type,$select, $orderBy, $orderMode, $startAt, $endAt);
-            responseValidation($response, "getRelData");
+            getController::responseValidation($response, "getRelData");
           }
         /*************************************************************
          ** 4.- Petición Get con tablas relacionadas con filtros .
          *************************************************************/
           static public function getRelDataFilter($db, $rel, $type, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getRelDataFilter($db, $rel, $type, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt);
-            responseValidation($response, "getRelDataFilter");
+            getController::responseValidation($response, "getRelDataFilter");
           }
         /****************************************************
          ** 5.- Petición Get para buscadores
          ****************************************************/
           static public function getDataSearch($db, $table, $select, $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getDataSearch($db, $table, $select, $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt);
-            responseValidation($response, "getDataSearch");
+            getController::responseValidation($response, "getDataSearch");
           }
         /*************************************************************
          ** 6.- Petición Get para buscadores con tablas relacionadas.
          *************************************************************/
           static public function getRelDataSearch($db, $rel, $type, $select, $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt){
             $response = GetModel::getRelDataSearch($db, $rel, $type, $select, $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt);
-            responseValidation($response, "getRelDataSearch");
+            getController::responseValidation($response, "getRelDataSearch");
           }
         /*************************************************************
          ** 7.- Petición Get con rangos.
          *************************************************************/
           static public function getDataRange($db, $table, $select, $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
             $response = GetModel::getDataRange($db, $table, $select, $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo);
-            responseValidation($response, "getDataRange");
+            getController::responseValidation($response, "getDataRange");
           }
         /*************************************************************
          ** 8.- Petición Get con rangos con tablas relacionadas.
          *************************************************************/
           static public function getRelDataRange($db, $rel, $type, $select, $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
             $response = GetModel::getRelDataRange($db, $rel, $type, $select, $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo);
-            responseValidation($response, "getRelDataRange");
+            getController::responseValidation($response, "getRelDataRange");
           }
         /*************************************************************
          ** 9.- Response Validation.
