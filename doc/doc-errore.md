@@ -8,9 +8,6 @@
 ### **201** Created o Creado.
 > La solicitud ha tenido éxito y se ha creado un nuevo recurso como resultado de ello.
 
-### **204** No Content o Sin contenido.
-> La petición se ha completado con éxito pero su respuesta no tiene ningún contenido, aunque los encabezados pueden ser útiles.
-
 ## **Errores de cliente.**
 ---
 

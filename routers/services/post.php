@@ -27,7 +27,7 @@
          *? Validar la tabla y columnas
          ********************************************/
             if (empty(Connection::getColumnsData($db, $table, $columns))){
-                $return->fncResponse(400, "POST" , "Tabla o Columna invalida...");
+                $return->fncResponse(400, "POST" , array("error"=>"Tabla o Columna invalida..."));
                 return;
             }
         /***********************************************************************************
@@ -55,7 +55,7 @@
                                      ********************************************/
                                         $columns=array($_GET["except"]);
                                         if (empty(Connection::getColumnsData($db, $table, $columns))){
-                                            $return->fncResponse(400, "POST", "Tabla o Columna invalida...");
+                                            $return->fncResponse(400, "POST", array("error"=>"Tabla o Columna invalida..."));
                                             return;
                                         }
                                     /***********************************************************************************
@@ -82,20 +82,20 @@
                                          *? Exp -> si el token existe pero esta expirado.
                                         ***********************************************************************************/
                                             if($validate=="exp"){
-                                                $return->fncResponse(403, "POST", "El token a expirado...");
+                                                $return->fncResponse(403, "POST", array("error"=>"El token a expirado..."));
                                             }
                                         /***********************************************************************************
                                          *? No-out -> si el token no coincide en DB.
                                         ***********************************************************************************/
                                             if($validate=="no-aut"){
-                                                $return->fncResponse(403, "POST", "El usuario no esta autorizado...");
+                                                $return->fncResponse(403, "POST", array("error"=>"El usuario no esta autorizado..."));
                                             }
                                 }
                         }else{
                             /***********************************************************************************
                              *? No consta con un token de autorización.
                              ***********************************************************************************/
-                                $return->fncResponse(403, "POST","Autorización requerida.");
+                                $return->fncResponse(403, array("error"=>"POST","Autorización requerida."));
                         }
                 }
 ?>

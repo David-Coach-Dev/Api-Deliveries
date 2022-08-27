@@ -45,7 +45,7 @@
                                     );
                                     return $response;
                                 }else{
-                                    return $link->errorInfo();
+                                    return null;
                                 }
                     }
             }

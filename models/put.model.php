@@ -22,8 +22,7 @@
                         /************************************
                          *? Validación del ID
                          ************************************/
-                            $response=GetModel::getDataFilter($db, $table, $nameId,
-                                                    $nameId, $id, null, null, null, null);
+                            $response=GetModel::getDataFilter($db, $table, $nameId, $nameId, $id, null, null, null, null);
                             if(empty($response)){
                                 return null;
                             }

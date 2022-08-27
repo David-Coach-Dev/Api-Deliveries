@@ -14,8 +14,7 @@
        ********************************************/
         static public function deleteData($db, $table, $id, $nameId){
             $response = DeleteModel::deleteData($db, $table, $id, $nameId);
-            $return = new responseMiddleware();
-            ($response==null ? $return -> fncResponse(400, null, "deleteData", "Tabla o Columna invalida...") : $return -> fncResponse(200, $response, "deleteData" ,null));
+            DeleteController::responseValidation($response, "deleteData");
         }
       /********************************************
        ** Petición DELETE para cambizar el active
@@ -32,8 +31,14 @@
                 "active_".$suffix => false
             );
             $update=PutModel::putData($db, $table, $data, $id, $nameId);
-            $return = new responseMiddleware();
-            $return -> fncResponse($update,"deleteDataActive", null);
+            DeleteController::responseValidation($update, "deleteDataDesactive");
         }
+      /*************************************************************
+         ** Response Validation.
+         *************************************************************/
+          static public function responseValidation($response,  $method){
+            $return = new responseMiddleware();
+            ($response==null ? $return -> fncResponse(400,  $method, array("error"=>"Sintaxis invalida...")) : $return -> fncResponse(201 , $method, $response));
+          }  
     }
 ?>

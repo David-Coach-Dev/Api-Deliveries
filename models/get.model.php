@@ -104,28 +104,21 @@
             ****************************************/
               if ($orderBy!=null && $orderMode!=null
                 && $startAt==null && $endAt==null){
-                $sql="SELECT $select FROM $table
-                      WHERE $linkToArray[0] = :$linkToArray[0] $linkToText
-                      ORDER BY $orderBy $orderMode";
+                $sql="SELECT $select FROM $table WHERE $linkToArray[0] = :$linkToArray[0] $linkToText ORDER BY $orderBy $orderMode";
               }
             /*******************************************
              *? Con filtro con limites
             *******************************************/
               if ($orderBy==null && $orderMode==null
                 && $startAt!=null && $endAt!=null) {
-                $sql="SELECT $select FROM $table
-                      WHERE $linkToArray[0] = :$linkToArray[0] $linkToText
-                      LIMIT $startAt, $endAt";
+                $sql="SELECT $select FROM $table WHERE $linkToArray[0] = :$linkToArray[0] $linkToText LIMIT $startAt, $endAt";
               }
             /*******************************************
              *? Con filtro con orden con limites
             *******************************************/
               if ($orderBy!=null && $orderMode!=null
                 && $startAt!=null && $endAt!=null) {
-                $sql="SELECT $select FROM $table
-                      WHERE $linkToArray[0]=:$linkToArray[0] $linkToText
-                      ORDER BY $orderBy $orderMode
-                      LIMIT $startAt, $endAt";
+                $sql="SELECT $select FROM $table WHERE $linkToArray[0]=:$linkToArray[0] $linkToText ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
               }
             /********************************
              *? Contención con sql
@@ -153,8 +146,7 @@
         /*******************************************************
          ** Peticiones Get para buscadores.
          *******************************************************/
-          static public function getDataSearch($db, $table, $select, $linkTo,
-            $searchTo, $orderBy, $orderMode, $startAt, $endAt){
+          static public function getDataSearch($db, $table, $select, $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt){
             /********************************
              *? Armado de variables.
             ********************************/
@@ -195,39 +187,27 @@
             /********************************
              *? Con buscadores
             ********************************/
-              $sql = "SELECT $select FROM $table
-                      WHERE $linkToArray[0]
-                      LIKE '%$searchToArray[0]%' $searchToText";
+              $sql = "SELECT $select FROM $table WHERE $linkToArray[0] LIKE '%$searchToArray[0]%' $searchToText";
             /*********************************
              *? Con buscadores Con Ordena
             **********************************/
               if ($orderBy != null && $orderMode != null
                 && $startAt == null && $endAt == null) {
-                $sql = "SELECT $select FROM $table
-                        WHERE $linkToArray[0]
-                        LIKE '%$searchToArray[0]%' $searchToText
-                        ORDER BY $orderBy $orderMode";
+                $sql = "SELECT $select FROM $table WHERE $linkToArray[0] LIKE '%$searchToArray[0]%' $searchToText ORDER BY $orderBy $orderMode";
               }
             /********************************
              *? Con buscadores Con limites
             ********************************/
               if ($orderBy == null && $orderMode == null
                 && $startAt != null && $endAt != null) {
-                $sql = "SELECT $select FROM $table
-                        WHERE $linkToArray[0]
-                        LIKE '%$searchToArray[0]%' $searchToText
-                        LIMIT $startAt, $endAt";
+                $sql = "SELECT $select FROM $table WHERE $linkToArray[0] LIKE '%$searchToArray[0]%' $searchToText LIMIT $startAt, $endAt";
               }
             /***********************************************
              *? Con buscadores Con Orden con limites
             ***********************************************/
               if ($orderBy != null && $orderMode != null
                 && $startAt != null && $endAt != null) {
-                $sql = "SELECT $select FROM $table
-                        WHERE $linkToArray[0]
-                        LIKE '%$searchToArray[0]%' $searchToText
-                        ORDER BY $orderBy $orderMode
-                        LIMIT $startAt, $endAt";
+                $sql = "SELECT $select FROM $table WHERE $linkToArray[0] LIKE '%$searchToArray[0]%' $searchToText ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
               }
             /********************************
               *? Contención con sql
@@ -257,8 +237,7 @@
         /************************************************************
          ** Peticiones Get con rangos.
          *************************************************************/
-          static public function getDataRange($db, $table, $select, $linkTo, $betweenIn,
-            $betweenOut, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
+          static public function getDataRange($db, $table, $select, $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
             /********************************
              *? Armado de variables.
             ********************************/
@@ -284,43 +263,27 @@
             /*******************************
             *? Con rangos.
             ********************************/
-              $sql = "SELECT $select FROM $table
-                      WHERE $linkTo
-                      BETWEEN '$betweenIn'
-                      AND '$betweenOut' $filToText";
+              $sql = "SELECT $select FROM $table WHERE $linkTo BETWEEN '$betweenIn' AND '$betweenOut' $filToText";
             /*********************************
             *? Con rango con orden.
             **********************************/
               if ($orderBy != null && $orderMode != null
                 && $startAt == null && $endAt == null) {
-                $sql = "SELECT $select FROM $table
-                        WHERE $linkTo
-                        BETWEEN '$betweenIn'
-                        AND '$betweenOut' $filToText
-                        ORDER BY $orderBy $orderMode";
+                $sql = "SELECT $select FROM $table WHERE $linkTo BETWEEN '$betweenIn' AND '$betweenOut' $filToText ORDER BY $orderBy $orderMode";
               }
             /*******************************
             *? Con rango con limites.
             ********************************/
               if ($orderBy == null && $orderMode == null
                 && $startAt != null && $endAt != null) {
-                $sql = "SELECT $select FROM $table
-                        WHERE $linkTo
-                        BETWEEN '$betweenIn'
-                        AND '$betweenOut' $filToText
-                        LIMIT $startAt, $endAt";
+                $sql = "SELECT $select FROM $table WHERE $linkTo BETWEEN '$betweenIn' AND '$betweenOut' $filToText LIMIT $startAt, $endAt";
               }
             /****************************************
             *? Con rango con orden con limites.
             ****************************************|*/
               if ($orderBy != null && $orderMode != null
                 && $startAt != null && $endAt != null) {
-                $sql = "SELECT $select FROM $table
-                        WHERE $linkTo
-                        BETWEEN '$betweenIn'
-                        AND '$betweenOut' $filToText
-                        ORDER BY $orderBy $orderMode
-                        LIMIT $startAt, $endAt";
+                $sql = "SELECT $select FROM $table WHERE $linkTo BETWEEN '$betweenIn' AND '$betweenOut' $filToText ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
               }
             /********************************
              *? Contención con sql
@@ -342,8 +305,7 @@
         /************************************************************
          ** Peticiones Get con tablas relacionadas.
          *************************************************************/
-          static public function getRelData($db, $rel, $type,$select, $orderBy,
-            $orderMode, $startAt, $endAt){
+          static public function getRelData($db, $rel, $type,$select, $orderBy, $orderMode, $startAt, $endAt){
             /********************************
              *? Armado de variables.
             ********************************/
@@ -359,9 +321,7 @@
                 ********************************/
                   foreach ($relToArray as $key => $value) {
                     if ($key > 0) {
-                      $innerJoinToText.="INNER JOIN ".$value." ON "
-                                      .$relToArray[0].".id_".$typeToArray[$key]."_".$typeToArray[0]
-                                      ." = ".$value.".id_".$typeToArray[$key]." ";
+                      $innerJoinToText.="INNER JOIN ".$value." ON ".$relToArray[0].".id_".$typeToArray[$key]."_".$typeToArray[0]." = ".$value.".id_".$typeToArray[$key]." ";
                     }
                   }
                 /***********************************
@@ -373,25 +333,21 @@
                 ****************************************/
                   if($orderBy!=null && $orderMode!=null
                     && $startAt==null && $endAt==null){
-                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText
-                          ORDER BY $orderBy $orderMode";
+                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText ORDER BY $orderBy $orderMode";
                   }
                 /****************************************
                  *? Con tablas relacionas con limites
                 ****************************************/
                   if ($orderBy==null && $orderMode==null
                     && $startAt!=null && $endAt!=null) {
-                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText
-                          LIMIT $startAt, $endAt";
+                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText LIMIT $startAt, $endAt";
                   }
                 /***************************************************
                  *? Con tablas relacionas con orden con limites
                 ***************************************************/
                   if ($orderBy!=null && $orderMode!=null
                     && $startAt!=null && $endAt!=null){
-                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText
-                          ORDER BY $orderBy $orderMode
-                          LIMIT $startAt, $endAt";
+                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
                   }
                 /********************************
                  *? Contención con sql
@@ -419,8 +375,7 @@
         /************************************************************
          ** Peticiones Get con tablas relacionadas con filtros.
          *************************************************************/
-          static public function getRelDataFilter($db, $rel, $type, $select,
-            $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
+          static public function getRelDataFilter($db, $rel, $type, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
             /********************************
              *? Armado de variables.
             ********************************/
@@ -439,9 +394,7 @@
                 ********************************/
                   foreach ($relToArray as $key => $value) {
                     if ($key > 0) {
-                      $innerJoinToText.="INNER JOIN ".$value." ON "
-                                          .$relToArray[0].".id_".$typeToArray[$key]."_".$typeToArray[0]
-                                          ." = ".$value.".id_".$typeToArray[$key]." ";
+                      $innerJoinToText.="INNER JOIN ".$value." ON ".$relToArray[0].".id_".$typeToArray[$key]."_".$typeToArray[0]." = ".$value.".id_".$typeToArray[$key]." ";
                     }
                   }
                 /*******************************
@@ -457,32 +410,24 @@
                 /********************************************
                  *? Con tablas relacionadas con filtro.
                 ********************************************/
-                  $sql="SELECT $select FROM $relToArray[0] $innerJoinToText
-                        WHERE $linkToArray[0]=:$linkToArray[0] $filterToText";
+                  $sql="SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkToArray[0]=:$linkToArray[0] $filterToText";
                 /*******************************************************
                  *? Con tablas relacionadas con filtro con orden.
                 *******************************************************/
                   if($orderBy!=null && $orderMode!=null && $startAt==null && $endAt==null){
-                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText
-                          WHERE $linkToArray[0]=:$linkToArray[0] $filterToText
-                          ORDER BY $orderBy $orderMode";
+                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkToArray[0]=:$linkToArray[0] $filterToText ORDER BY $orderBy $orderMode";
                   }
                 /************************************************************
                  *? Con tablas relacionadas con filtro con limites.
                  ************************************************************/
                   if ($orderBy==null && $orderMode==null && $startAt!=null && $endAt!=null) {
-                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText
-                          WHERE $linkToArray[0]=:$linkToArray[0] $filterToText
-                          LIMIT $startAt, $endAt";
+                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkToArray[0]=:$linkToArray[0] $filterToText LIMIT $startAt, $endAt";
                   }
                 /************************************************************************
                  *? Con tablas relacionadas con filtro con orden con limites
                  ************************************************************************/
                   if ($orderBy!=null && $orderMode!=null && $startAt!=null && $endAt!=null) {
-                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText
-                          WHERE $linkToArray[0]=:$linkToArray[0] $filterToText
-                          ORDER BY $orderBy $orderMode
-                          LIMIT $startAt, $endAt";
+                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkToArray[0]=:$linkToArray[0] $filterToText ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
                   }
                 /********************************
                  *? Contención con sql
@@ -516,8 +461,7 @@
         /***************************************************************
          ** Peticiones Get con tablas relacionadas con buscadores.
          ***************************************************************/
-          static public function getRelDataSearch($db, $rel, $type, $select, $linkTo,
-            $searchTo, $orderBy, $orderMode, $startAt, $endAt){
+          static public function getRelDataSearch($db, $rel, $type, $select, $linkTo, $searchTo, $orderBy, $orderMode, $startAt, $endAt){
             /********************************
              *? Armado de variables.
              ********************************/
@@ -546,47 +490,33 @@
                 ********************************/
                   foreach ($relToArray as $key => $value) {
                     if ($key > 0) {
-                      $innerJoinToText .= "INNER JOIN ".$value." ON ".$relToArray[0]
-                                        .".id_".$typeToArray[$key]."_".$typeToArray[0]." = "
-                                        .$value.".id_".$typeToArray[$key]." ";
+                      $innerJoinToText .= "INNER JOIN ".$value." ON ".$relToArray[0].".id_".$typeToArray[$key]."_".$typeToArray[0]." = ".$value.".id_".$typeToArray[$key]." ";
                     }
                   }
                 /***********************************
                  *? Con buscador
                 **********************************/
-                  $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
-                          WHERE $linkToArray[0]
-                          LIKE '%$searchToArray[0]%' $searchToText";
+                  $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkToArray[0] LIKE '%$searchToArray[0]%' $searchToText";
                 /*********************************
                  *? Con buscador con orden
                 **********************************/
                   if ($orderBy != null && $orderMode != null
                     && $startAt == null && $endAt == null) {
-                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText
-                          WHERE $linkToArray[0]
-                          LIKE '%$searchToArray[0]%' $searchToText
-                          ORDER BY $orderBy $orderMode";
+                    $sql="SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkToArray[0] LIKE '%$searchToArray[0]%' $searchToText ORDER BY $orderBy $orderMode";
                   }
                 /********************************
                  *? limitar datos sin ordenar
                 ********************************/
                   if ($orderBy == null && $orderMode == null
                     && $startAt != null && $endAt != null) {
-                    $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
-                            WHERE $linkToArray[0]
-                            LIKE '%$searchToArray[0]%' $searchToText
-                            LIMIT $startAt, $endAt";
+                    $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkToArray[0] LIKE '%$searchToArray[0]%' $searchToText LIMIT $startAt, $endAt";
                   }
                 /*********************************
                  *? Con buscador con limites
                 **********************************/
                   if ($orderBy != null && $orderMode != null
                     && $startAt != null && $endAt != null) {
-                    $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
-                            WHERE $linkToArray[0]
-                            LIKE '%$searchToArray[0]%' $searchToText
-                            ORDER BY $orderBy $orderMode
-                            LIMIT $startAt, $endAt";
+                    $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkToArray[0] LIKE '%$searchToArray[0]%' $searchToText ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
                   }
                 /********************************
                  *? Contención con sql
@@ -622,9 +552,7 @@
         /************************************************************
         ** Peticiones Get con tablas relacionadas con rangos.
         *************************************************************/
-          static public function getRelDataRange($db, $rel, $type, $select, $linkTo,
-            $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt, $endAt,
-            $filterTo, $inTo){
+          static public function getRelDataRange($db, $rel, $type, $select, $linkTo, $betweenIn, $betweenOut, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
             /********************************
              *? Armado de variables.
              ********************************/
@@ -641,9 +569,7 @@
                  ********************************/
                   foreach ($relToArray as $key => $value) {
                     if ($key > 0) {
-                      $innerJoinToText.="INNER JOIN ".$value." ON "
-                                      .$relToArray[0].".id_".$typeToArray[$key]."_".$typeToArray[0]
-                                      ." = ".$value.".id_".$typeToArray[$key]." ";
+                      $innerJoinToText.="INNER JOIN ".$value." ON ".$relToArray[0].".id_".$typeToArray[$key]."_".$typeToArray[0]." = ".$value.".id_".$typeToArray[$key]." ";
                     }
                   }
                 /********************************
@@ -655,43 +581,27 @@
                 /********************************
                  *? Con rango.
                  ********************************/
-                  $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
-                          WHERE $linkTo
-                          BETWEEN '$betweenIn'
-                          AND '$betweenOut' $filToText";
+                  $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkTo BETWEEN '$betweenIn' AND '$betweenOut' $filToText";
                 /**********************************
                  *? Con rango con orden.
                  **********************************/
                   if ($orderBy != null && $orderMode != null
                     && $startAt == null && $endAt == null) {
-                    $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
-                            WHERE $linkTo
-                            BETWEEN '$betweenIn'
-                            AND '$betweenOut' $filToText
-                            ORDER BY $orderBy $orderMode";
+                    $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkTo BETWEEN '$betweenIn' AND '$betweenOut' $filToText ORDER BY $orderBy $orderMode";
                   }
                 /********************************
                  *? Con rango con limites.
                  ********************************/
                   if ($orderBy == null && $orderMode == null
                     && $startAt != null && $endAt != null) {
-                    $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
-                            WHERE $linkTo
-                            BETWEEN '$betweenIn'
-                            AND '$betweenOut' $filToText
-                            LIMIT $startAt, $endAt";
+                    $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkTo BETWEEN '$betweenIn' AND '$betweenOut' $filToText LIMIT $startAt, $endAt";
                   }
                 /**************************************
                 *? Con rango con orden con limites
                 ***************************************/
                   if ($orderBy != null && $orderMode != null
                     && $startAt != null && $endAt != null) {
-                    $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText
-                            WHERE $linkTo
-                            BETWEEN '$betweenIn'
-                            AND '$betweenOut' $filToText
-                            ORDER BY $orderBy $orderMode
-                            LIMIT $startAt, $endAt";
+                    $sql = "SELECT $select FROM $relToArray[0] $innerJoinToText WHERE $linkTo BETWEEN '$betweenIn' AND '$betweenOut' $filToText ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
                   }
                 /********************************
                  *? Contención con sql
