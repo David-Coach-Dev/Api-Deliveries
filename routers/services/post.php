@@ -27,7 +27,7 @@
          *? Validar la tabla y columnas
          ********************************************/
             if (empty(Connection::getColumnsData($db, $table, $columns))){
-                $return->fncResponse(400, null, "POST" , "Tabla o Columna invalida...");
+                $return->fncResponse(400, "POST" , "Tabla o Columna invalida...");
                 return;
             }
         /***********************************************************************************
@@ -55,7 +55,7 @@
                                      ********************************************/
                                         $columns=array($_GET["except"]);
                                         if (empty(Connection::getColumnsData($db, $table, $columns))){
-                                            $return->fncResponse(400, null, "POST", "Tabla o Columna invalida...");
+                                            $return->fncResponse(400, "POST", "Tabla o Columna invalida...");
                                             return;
                                         }
                                     /***********************************************************************************
@@ -69,33 +69,33 @@
                                         $tableToken=$_GET["tableToken"]?? "users";
                                         $suffixToken=$_GET["suffixToken"]?? "user";
                                         $validate=Connection::valideToken($db, $tableToken, $suffixToken, $_GET["token"]);
-                                    /***********************************************************************************
-                                     *? Ok -> si el token existe y no esta expirado.
-                                     ***********************************************************************************/
-                                        if($validate=="ok"){
-                                            /***********************************************************************************
-                                             *? Solicitud de creación de dato en cualquier tabla
-                                             ***********************************************************************************/
-                                                $response->postData($db, $table, $_POST);
-                                        }
-                                    /***********************************************************************************
-                                     *? Exp -> si el token existe pero esta expirado.
-                                     ***********************************************************************************/
-                                        if($validate=="exp"){
-                                            $return->fncResponse(403, null, "POST", "El token a expirado...");
-                                        }
-                                    /***********************************************************************************
-                                     *? No-out -> si el token no coincide en DB.
-                                     ***********************************************************************************/
-                                        if($validate=="no-aut"){
-                                            $return->fncResponse(403, null, "POST", "El usuario no esta autorizado...");
-                                        }
+                                        /***********************************************************************************
+                                         *? Ok -> si el token existe y no esta expirado.
+                                        ***********************************************************************************/
+                                            if($validate=="ok"){
+                                                /***********************************************************************************
+                                                 *? Solicitud de creación de dato en cualquier tabla
+                                                ***********************************************************************************/
+                                                    $response->postData($db, $table, $_POST);
+                                            }
+                                        /***********************************************************************************
+                                         *? Exp -> si el token existe pero esta expirado.
+                                        ***********************************************************************************/
+                                            if($validate=="exp"){
+                                                $return->fncResponse(403, "POST", "El token a expirado...");
+                                            }
+                                        /***********************************************************************************
+                                         *? No-out -> si el token no coincide en DB.
+                                        ***********************************************************************************/
+                                            if($validate=="no-aut"){
+                                                $return->fncResponse(403, "POST", "El usuario no esta autorizado...");
+                                            }
                                 }
                         }else{
                             /***********************************************************************************
                              *? No consta con un token de autorización.
                              ***********************************************************************************/
-                                $return->fncResponse(403, null,"POST","Autorización requerida.");
+                                $return->fncResponse(403, "POST","Autorización requerida.");
                         }
                 }
 ?>

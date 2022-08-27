@@ -37,7 +37,7 @@
                  ********************************************/
                     $columns=array_unique($columns);
                     if (empty(Connection::getColumnsData($db, $table, $columns))){
-                        $return -> fncResponse(400, null, "PUT", "Tabla o columna invalida...");
+                        $return -> fncResponse(400, "PUT", "Tabla o columna invalida...");
                         return;
                     }
                 /***********************************************************************************
@@ -53,7 +53,7 @@
                                  ********************************************/
                                     $columns=array($_GET["except"]);
                                     if (empty(Connection::getColumnsData($db, $table, $columns))){
-                                        $return->fncResponse(400, null, "POST", "Tabla o columna invalida...");
+                                        $return->fncResponse(400, "POST", "Tabla o columna invalida...");
                                         return;
                                     }
                                 /***********************************************************************************
@@ -67,27 +67,27 @@
                                     $tableToken=$_GET["tableToken"]?? "users";
                                     $suffixToken=$_GET["suffixToken"]?? "user";
                                     $validate=Connection::valideToken($db, $tableToken, $suffixToken, $_GET["token"]);
-                                /***********************************************************************************
-                                 *? Ok -> si el token existe y no esta expirado.
-                                 ***********************************************************************************/
-                                    if($validate=="ok"){
-                                        /***********************************************************************************
-                                         *? solicitud de repuestas del controlador para editar datos en cualquier tabla
-                                            ***********************************************************************************/
-                                            $response->putData($db, $table, $data, $id, $nameId);
-                                    }
-                                /***********************************************************************************
-                                 *? Exp -> si el token existe pero esta expirado.
-                                 ***********************************************************************************/
-                                    if($validate=="exp"){
-                                        $return->fncResponse(403, null, "PUT", "El token a expirado...");
-                                    }
-                                /***********************************************************************************
-                                 *? No-out -> si el token no coincide en DB.
-                                 ***********************************************************************************/
-                                    if($validate=="no-aut"){
-                                        $return->fncResponse(403, null, "PUT", "El usuario no esta autorizado..." );
-                                    }
+                                    /***********************************************************************************
+                                     *? Ok -> si el token existe y no esta expirado.
+                                     ***********************************************************************************/
+                                        if($validate=="ok"){
+                                            /***********************************************************************************
+                                             *? solicitud de repuestas del controlador para editar datos en cualquier tabla
+                                                ***********************************************************************************/
+                                                $response->putData($db, $table, $data, $id, $nameId);
+                                        }
+                                    /***********************************************************************************
+                                     *? Exp -> si el token existe pero esta expirado.
+                                     ***********************************************************************************/
+                                        if($validate=="exp"){
+                                            $return->fncResponse(403, null, "PUT", "El token a expirado...");
+                                        }
+                                    /***********************************************************************************
+                                     *? No-out -> si el token no coincide en DB.
+                                     ***********************************************************************************/
+                                        if($validate=="no-aut"){
+                                            $return->fncResponse(403, null, "PUT", "El usuario no esta autorizado..." );
+                                        }
                             }
                     }else{
                         /***********************************************************************************

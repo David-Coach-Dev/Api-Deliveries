@@ -1,34 +1,21 @@
 <?php
-  /*****************************
-   *todo middleware ROUTER
-   ****************************/
-    class responseMiddleware{
+  /********************************
+   *todo middleware Response
+   ********************************/
+    /*********************************
+     *? Class Response Middleware
+    *********************************/
+      class responseMiddleware{
       /*****************************************
        ** Respuesta para los controladores
        *****************************************/
-        public function fncResponse($status, $response, $method, $error){
-          if(!empty($response)){
-            $json = array(
-              "status" => $status,
-              "method" => $method,
-              "total" => count($response),
-              "detalle" => $response
-            );
-          }else{
-          if($error != null){
-            $json = array(
-              "status" => 401,
-              "method" => $method,
-              "error" => $error,
-          );
-          }else{
+        public function fncResponse($status, $method, $response){
           $json = array(
-            "status" => 404,
+            "status" => $status,
             "method" => $method,
-            "detalle" => "not found...",
+            "total" => count($response),
+            "response" => $response
           );
-          }
-        }
           echo json_encode($json, http_response_code($json["status"]));
         }
   }

@@ -13,8 +13,7 @@
         /********************************
          ** Petición Get.
          ********************************/
-          static public function getData($db, $table, $select,
-            $orderBy, $orderMode, $startAt, $endAt){
+          static public function getData($db, $table, $select, $orderBy, $orderMode, $startAt, $endAt){
             /***********************************************
              *? Validar exigencia de la tabla y columnas
             ***********************************************/
@@ -29,27 +28,20 @@
             /**********************************
              *? Con select con orden
             **********************************/
-              if($orderBy!=null && $orderMode!=null
-                && $startAt==null && $endAt==null){
-                $sql = "SELECT $select FROM $table
-                        ORDER BY $orderBy $orderMode";
+              if($orderBy!=null && $orderMode!=null && $startAt==null && $endAt==null){
+                $sql = "SELECT $select FROM $table ORDER BY $orderBy $orderMode";
               }
             /**********************************
              *? Con select con limites
             **********************************/
-              if ($orderBy==null && $orderMode==null
-                && $startAt!=null && $endAt!=null) {
-                $sql = "SELECT $select FROM $table
-                        LIMIT $startAt, $endAt";
+              if ($orderBy==null && $orderMode==null && $startAt!=null && $endAt!=null) {
+                $sql = "SELECT $select FROM $table LIMIT $startAt, $endAt";
               }
             /***************************************
              *? Con select con orden con limites
             ***************************************/
-              if ($orderBy!=null && $orderMode!=null
-                && $startAt!=null && $endAt!=null) {
-                $sql = "SELECT $select FROM $table
-                        ORDER BY $orderBy $orderMode
-                        LIMIT $startAt, $endAt";
+              if ($orderBy!=null && $orderMode!=null && $startAt!=null && $endAt!=null) {
+                $sql = "SELECT $select FROM $table ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
               }
             /********************************
              *? Contención con sql
@@ -71,9 +63,7 @@
         /********************************
          ** Petición Get con filtro.
          ********************************/
-          static public function getDataFilter($db, $table, $select,
-            $linkTo, $equalTo, $orderBy, $orderMode,
-            $startAt, $endAt){
+          static public function getDataFilter($db, $table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
             /************************************
              *? Armado de variables
             ************************************/

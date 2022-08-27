@@ -97,6 +97,6 @@
                     $betweenIn, $betweenOut, $orderBy, $orderMode,
                     $startAt, $endAt, $filterTo, $inTo);
         }else{
-          $return -> fncResponse(404, null, "GET", "Endpoint invalido...");
+          $return -> fncResponse(404, "GET", "Ruta invalida...");
       }
 ?>
