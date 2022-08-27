@@ -72,7 +72,7 @@
          *************************************************************/
           static public function responseValidation($response,  $method){
             $return = new responseMiddleware();
-            ($response==null ? $return -> fncResponse(400,  $method,'{"erro"=>"Sintaxis invalida..."}') : $return -> fncResponse(200, $method, $response));
+            ($response==null ? $return -> fncResponse(400,  $method, array("error"=>"Sintaxis invalida...")) : $return -> fncResponse(200, $method, $response));
           }
       }
 ?>
