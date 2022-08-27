@@ -31,8 +31,8 @@
      ****************************************/
       if ($table!="relations" && !isset($_GET["searchTo"])
         && !isset($_GET["equalTo"]) && !isset($_GET["betweenIn"])
-        && !isset($_GET["betweenOut"])) {
-        $response -> getData($db, $table, $select, $orderBy, $orderMode, $startAt, $endAt);
+        && !isset($_GET["betweenOut"])){
+        $response->getData($db, $table, $select, $orderBy, $orderMode, $startAt, $endAt);
       } else
     /****************************************************
      ** 02) Con select con filtro.
@@ -81,7 +81,7 @@
      ***************************************************************/
       if ($table == "relations" && isset($_GET["rel"])
         && isset($_GET["type"]) && isset($_GET["linkTo"])
-        && isset($_GET["searchTo"])) {
+        && isset($_GET["searchTo"])){
         $response->getRelDataSearch($db, $rel, $type, $select, $linkTo,
                     $searchTo, $orderBy, $orderMode, $startAt, $endAt);
       }else

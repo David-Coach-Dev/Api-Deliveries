@@ -15,7 +15,7 @@
         /*****************************************
          ** Respuesta para los controladores
          *****************************************/
-          public function fncResponse($status, $method, $response){
+          static public function fncResponse($status, $method, $response){
             $json = array(
               "status" => $status,
               "method" => $method,
