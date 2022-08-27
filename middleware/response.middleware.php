@@ -17,7 +17,7 @@
           }else{
           if($error != null){
             $json = array(
-              "status" => 400,
+              "status" => 401,
               "method" => $method,
               "error" => $error,
           );
