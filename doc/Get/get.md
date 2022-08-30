@@ -1,32 +1,43 @@
 ## **Get.**
 
 ### **Link:**
+
 ```json
-/users
+{{url}}/users
 ```
 
 ### **Headers:**
+
+|  Variable    |  Descripción.                                                             |
+|-------------|---------------------------------------------------------|
+|   apiKey      |  Codigo de autorización para el uso de la app.        |
+
 ```json
-{
-  "name": "Authorization",
-  "value": apiKey
-}
+"headers": [
+  {
+    "name": "Authorization",
+    "value": apiKe
+  }
+]
 ```
 
 ### **Response:**
 
 #### **200:**
+
 ```json
 {
- "status": 200,
+  "status": 200,
   "method": "getData",
-  "total": 16,
-  "detalle": [
-    {...},{...},{...}
+  "total": 17,
+  "response": [
+    {...}
+  ]
 }
 ```
 
 ### **400:**
+
 ```json
 {
   "status": 400,
@@ -36,6 +47,7 @@
 ```
 
 ### **401:**
+
 ```json
 {
   "status": 401,

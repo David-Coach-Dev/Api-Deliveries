@@ -1,7 +1,7 @@
 {
   "client": "Thunder Client",
   "collectionName": "Api-Deliveries",
-  "dateExported": "2022-08-27T19:25:02.233Z",
+  "dateExported": "2022-08-27T20:02:02.039Z",
   "version": "1.1",
   "folders": [
     {
@@ -497,20 +497,21 @@
       "colId": "e60237d7-e47f-4ca8-8b04-008dbe0854f0",
       "containerId": "cddea142-056e-493b-99a3-45b257fbc55c",
       "name": "GET.",
-      "url": "{{url}}/user",
+      "url": "{{url}}/users",
       "method": "GET",
       "sortNum": 25000,
       "created": "2022-08-15T21:56:55.413Z",
-      "modified": "2022-08-27T19:23:35.977Z",
+      "modified": "2022-08-27T19:38:09.449Z",
       "headers": [
         {
           "name": "Authorization",
-          "value": "{{apiKey}}"
+          "value": "{{apiKey}}",
+          "isDisabled": true
         }
       ],
       "params": [],
       "tests": [],
-      "docs": "## Get for list user\n### Link:\n```sh\n/users\n```\n### Headers:\n```json\n{\n  \"name\": \"Authorization\",\n  \"value\": apiKey\n}\n```\n### Response:\n#### 200:\n```json\n{\n \"status\": 200,\n  \"method\": \"getData\",\n  \"total\": 16,\n  \"detalle\": [\n    {...},{...},{...}...\n}\n```\n### 400:\n```sh\n{\n  \"status\": 400,\n  \"method\": \"Router\",\n  \"error\": \"You are not authorized to make this request...\"\n}\n```\n---\n"
+      "docs": "## **Get.**\n\n### **Link:**\n```json\n/users\n```\n\n### **Headers:**\n```json\n{\n  \"name\": \"Authorization\",\n  \"value\": apiKey\n}\n```\n\n### **Response:**\n#### **200:**\n```json\n{\n \"status\": 200,\n  \"method\": \"getData\",\n  \"total\": 16,\n  \"detalle\": [\n    {...},{...},{...}\n}\n```\n\n### **400:**\n```json\n{\n  \"status\": 400,\n  \"method\": \"Router\",\n  \"error\": \"You are not authorized to make this request...\"\n}\n```\n\n### **401:**\n```json\n{\n  \"status\": 401,\n  \"method\": \"Router\",\n  \"total\": 1,\n  \"response\": {\n    \"error\": \"No está autorizado...\"\n  }\n}\n```\n---\n"
     },
     {
       "_id": "a72fb7cb-09a5-4530-b918-df1e656a86a6",
@@ -613,11 +614,11 @@
       "method": "GET",
       "sortNum": 31250,
       "created": "2022-08-15T21:56:55.415Z",
-      "modified": "2022-08-27T04:31:21.227Z",
+      "modified": "2022-08-27T20:00:19.231Z",
       "headers": [],
       "params": [],
       "tests": [],
-      "docs": "## Ruta Get de acceso publico solo a la tabla de roles. \n### Link:\n```\n/rols\n```\n### Headers:\n```json\n{\n  \"name\": \"Authorization\",\n  \"value\": no requerida\n}\n```\n### Response:\n#### 200:\n```json\n{\n  \"status\": 201,\n  \"method\": \"getData\",\n  \"total\": 2,\n  \"detalle\": [\n    {\n      \"id_rol\": 4,\n      \"type_rol\": \"Admin\",\n      \"active_rol\": 1,\n      \"date_create_rol\": \"2022-07-21 22:36:07\",\n      \"date_update_rol\": \"2022-07-21 22:36:07\"\n    },\n    {\n      \"id_rol\": 14,\n      \"type_rol\": \"User\",\n      \"active_rol\": 1,\n      \"date_create_rol\": \"2022-07-21 22:36:24\",\n      \"date_update_rol\": \"2022-08-22 02:09:47\"\n    }\n  ]\n```\n### 400:\n```\n{\n  \"status\": 400,\n  \"method\": \"Router\",\n  \"error\": \"You are not authorized to make this request...\"\n}\n```\n---"
+      "docs": "## **Get de acceso publico.**\n\n### **Link:**\n```\n{{url}}/rols\n```\n\n### **Response:**\n\n#### **200:**\n```json\n{\n  \"status\": 201,\n  \"method\": \"getData\",\n  \"total\": 2,\n  \"detalle\": [\n    {\n      \"id_rol\": 4,\n      \"type_rol\": \"Admin\",\n      \"active_rol\": 1,\n      \"date_create_rol\": \"2022-07-21 22:36:07\",\n      \"date_update_rol\": \"2022-07-21 22:36:07\"\n    },\n    {\n      \"id_rol\": 14,\n      \"type_rol\": \"User\",\n      \"active_rol\": 1,\n      \"date_create_rol\": \"2022-07-21 22:36:24\",\n      \"date_update_rol\": \"2022-08-22 02:09:47\"\n    }\n  ]\n```\n\n### **401:**\n\n```json\n{\n  \"status\": 401,\n  \"method\": \"Router\",\n  \"total\": 1,\n  \"response\": {\n    \"error\": \"No está autorizado...\"\n  }\n}\n```\n\n---"
     },
     {
       "_id": "aa21e262-25bc-40f2-90d1-ad5cc2f3c8da",
@@ -628,11 +629,12 @@
       "method": "GET",
       "sortNum": 37500,
       "created": "2022-08-15T21:56:55.416Z",
-      "modified": "2022-08-27T19:24:34.235Z",
+      "modified": "2022-08-27T19:34:15.478Z",
       "headers": [
         {
           "name": "Authorization",
-          "value": "{{apiKey}}"
+          "value": "{{apiKey}}",
+          "isDisabled": true
         }
       ],
       "params": [
@@ -653,7 +655,7 @@
         ]
       },
       "tests": [],
-      "docs": "## Get con select.\n\n### Link:\n```sh\n{{url}}/orders?select=id_order\n```\n### Headers:\n```json\n{\n  \"name\": \"Authorization\",\n  \"value\": {{apiKey}}\n}\n```\n### Response:\n#### 200:\n```json\n{\n \"status\": 200,\n  \"method\": \"getData\",\n  \"total\": 16,\n  \"detalle\": [\n    {...},{...},{...}...\n}\n```\n### 400:\n```sh\n{\n  \"status\": 400,\n  \"method\": \"Router\",\n  \"error\": \"You are not authorized to make this request...\"\n}\n```\n---\n"
+      "docs": "## **Get con select.**\n\n### **Link:**\n```json\n{{url}}/orders?select=id_order\n```\n\n### **Headers:**\n```json\n{\n  \"name\": \"Authorization\",\n  \"value\": {{apiKey}}\n}\n```\n\n### **Params:**\n```json\n{\n  \"name\": \"select\",\n  \"value\": \"id_order\",\n}\n```\n\n### **Response:**\n\n#### **200:**\n```json\n{\n  \"status\": 200,\n  \"method\": \"getData\",\n  \"total\": 3,\n  \"response\": [\n    {\n      \"id_order\": 4\n    },\n    {\n      \"id_order\": 14\n    },\n    {\n      \"id_order\": 24\n    }\n  ]\n}\n```\n\n### **400:**\n```json\n{\n  \"status\": 400,\n  \"method\": \"getData\",\n  \"total\": 1,\n  \"response\": {\n    \"error\": \"Sintaxis invalida...\"\n  }\n}\n```\n\n### **401:**\n```json\n{\n  \"status\": 401,\n  \"method\": \"Router\",\n  \"total\": 1,\n  \"response\": {\n    \"error\": \"No está autorizado...\"\n  }\n}\n```\n"
     },
     {
       "_id": "2579dd50-db10-4d2a-8ba2-d2750c666928",
@@ -665,7 +667,7 @@
       "sortNum": 43750,
       "created": "2022-08-15T21:56:55.417Z",
       "modified": "2022-08-15T21:56:55.417Z",
-      "headers": [
+     
         {
           "name": "authorization",
           "value": "{{apiKey}}"
