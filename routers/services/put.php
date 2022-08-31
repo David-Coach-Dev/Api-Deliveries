@@ -40,8 +40,9 @@
                     echo "<pre> dato: ";print_r($dato);echo"</pre>";
                     $dato= explode('"',$dato[0]);
                     echo "<pre> dato: ";print_r($dato);echo"</pre>";
-                    $object = [dato[1] => dato[2]];
-                    echo "<pre> obj : ";print_r($object);echo"</pre>";
+                    $obj = new stdClass();
+                    $obj->dato[1]=dato[2];
+                    echo "<pre> obj : ";print_r($obj);echo"</pre>";
                 /********************************************
                  *? Separar propiedades en un arreglo
                  ********************************************/
