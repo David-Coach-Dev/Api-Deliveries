@@ -42,6 +42,7 @@
                     echo "<pre> dato: ";print_r($dato);echo"</pre>";
                     $obj = array($dato[1]=>(int)$dato[2]);
                     echo "<pre> obj : ";print_r($obj);echo"</pre>";
+                    $data=$obj;
                 /********************************************
                  *? Separar propiedades en un arreglo
                  ********************************************/
