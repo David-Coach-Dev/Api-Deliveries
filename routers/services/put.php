@@ -46,8 +46,8 @@
                             foreach($data1 as $k3 => $value){
                                 if(($k3%2)==0){
                                     echo"====================\n";
-                                    echo "-> Data1[ ";print_r($key);echo"]\n";
-                                    $dato= $data1[$key];
+                                    echo "-> Data1[ ";print_r($k3);echo"]\n";
+                                    $dato= $data1[$k3];
                                     echo"====================\n";
                                     echo "-> Dato-P1 = ";print_r($dato);echo"]\n";
                                     $dato= explode("------WebKitFormBoundary",$dato);
