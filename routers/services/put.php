@@ -33,7 +33,7 @@
                     echo "-> Data : ";print_r($dataTem);echo"\n";
                     foreach($dataTem as $k1 => $value){
                         if($k1!=0){
-                            $data1 = explode("------WebKitFo",$data[$k1]);
+                            $data1 = explode("------WebKitFo",$dataTem[$k1]);
                             echo"====================\n";
                             echo "-> Data1 = ";print_r($data1);echo"\n";
                             foreach($data1 as $k2 => $value){
