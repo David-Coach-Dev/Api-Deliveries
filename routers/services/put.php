@@ -34,7 +34,7 @@
                     echo"====================\n";
                     echo "-> Data : ";print_r($data);echo"\n";
                     foreach($data as $k1 => $value){
-                        if($k2!=0){
+                        if($k1!=0){
                             $dataTem = explode("------WebKitFo",$data[$k1]);
                         }else{
                             next:
