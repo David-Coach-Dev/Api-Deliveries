@@ -13,8 +13,9 @@
         ********************************************/
             $data=array();
             $data1=array();
-            $data3=array();
             $dato="";
+            $objP=array();
+            $obj=array();
             $columns=array();
             $id=$_GET["id"]?? null;
             $nameId=$_GET["nameId"]?? null;
@@ -35,13 +36,15 @@
                     }
                     foreach($data1 as $key => $value){
                         echo "<pre> data1: ";print_r($data1, $key);echo"</pre>";
-                        $dato[$key]= $data1[$key];
+                        $dato= $data1[$key];
                         echo "<pre> dat01: ";print_r($dato[$key]);echo"</pre>";
-                        $dato[$key]= explode("-",$dato[$key]);
-                        echo "<pre> dato2: ";print_r($dato[$key]);echo"</pre>";
-                        $dato[$key]= explode('"',$dato[$key]);
-                        echo "<pre> dato3: ";print_r($dato[$key]);echo"</pre>";
-                        $obj[$key] = array($dato[1]=>$dato[2]);
+                        $dato= explode("-",$dato[0]);
+                        echo "<pre> dato2: ";print_r($dato[0]);echo"</pre>";
+                        $dato= explode('"',$dato[0]);
+                        echo "<pre> dato3: ";print_r($dato[0]);echo"</pre>";
+                        $objP = array($dato[1]=>$dato[2]);
+                        echo "<pre> objP : ";print_r($objP);echo"</pre>";
+                        array_push($obj, $objP);
                         echo "<pre> obj : ";print_r($obj);echo"</pre>";
                     }
                     // echo "<pre> data1: ";print_r($data1);echo"</pre>";
