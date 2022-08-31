@@ -32,7 +32,7 @@
                     $data = explode("=",file_get_contents('php://input'));
                     unset($data[0]);
                     echo "<pre> data : ";print_r($data);echo"</pre>";
-                    echo "<pre> data : ";print_r(array_count_value($data));echo"</pre>";
+                    echo "<pre> data : ";print_r(count($data));echo"</pre>";
                     $data = explode("------WebKitFo",$data[1]);
                     echo "<pre> data[0] : ";print_r($data);echo"</pre>";
                     // foreach($data as $key => $value){
