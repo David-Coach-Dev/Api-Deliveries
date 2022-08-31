@@ -37,7 +37,7 @@
                     echo "<pre> data1: ";print_r($dato);echo"</pre>";
                     $dato= explode("-",$dato);
                     echo "<pre> dato: ";print_r($dato);echo"</pre>";
-                    $dato= explode(" ",$dato[0]);
+                    $dato= explode('"',$dato[0]);
                     echo "<pre> dato: ";print_r($dato);echo"</pre>";
                     //echo "<pre> var_nbump : ";var_dump($dato);echo"</pre>";
                 /********************************************
