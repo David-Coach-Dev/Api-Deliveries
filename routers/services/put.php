@@ -37,11 +37,11 @@
                     foreach($data1 as $key => $value){
                         echo "<pre> data1: ";print_r($data1, $key);echo"</pre>";
                         $dato= $data1[$key];
-                        echo "<pre> dat01: ";print_r($dato[$key]);echo"</pre>";
+                        echo "<pre> dat01: ";print_r($dato);echo"</pre>";
                         $dato= explode("-",$dato);
-                        echo "<pre> dato2: ";print_r($dato[0]);echo"</pre>";
+                        echo "<pre> dato2: ";print_r($dato);echo"</pre>";
                         $dato= explode('"',$dato[0]);
-                        echo "<pre> dato3: ";print_r($dato[0]);echo"</pre>";
+                        echo "<pre> dato3: ";print_r($dato);echo"</pre>";
                         $objP[$key] = array($dato[1]=>(int)$dato[2]);
                         echo "<pre> obj : ";print_r($ob);echo"</pre>";
                     }
