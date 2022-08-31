@@ -29,10 +29,10 @@
                     parse_str(file_get_contents('php://input'), $data);
                     echo "<pre> input : ";print_r($data);echo"</pre>";
                     foreach($data as $key => $value){
-                        array_push($data1, $key);
+                        array_push($data1, $value);
                     }
                     echo "<pre> data1: ";print_r($data1);echo"</pre>";
-                    echo "<pre> dato: ";print_r($data->{data1[0]});echo"</pre>";
+                    echo "<pre> dato: ";print_r($data);echo"</pre>";
                     //$dato= explode(" ", $data1[0].$value);
                     //echo "<pre> var_nbump : ";var_dump($dato);echo"</pre>";
                 /********************************************
