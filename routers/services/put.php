@@ -13,7 +13,7 @@
         ********************************************/
             $data=array();
             $data1=array();
-            $dato=array();
+            $dato="";
             $columns=array();
             $id=$_GET["id"]?? null;
             $nameId=$_GET["nameId"]?? null;
@@ -33,7 +33,7 @@
                         array_push($data1, $value);
                     }
                     echo "<pre> data1: ";print_r($data1);echo"</pre>";
-                    $dato= explode("--", $data1);
+                    $dato= explode("-", $data1);
                     echo "<pre> dato: ";print_r($dato);echo"</pre>";
                     //echo "<pre> var_nbump : ";var_dump($dato);echo"</pre>";
                 /********************************************
