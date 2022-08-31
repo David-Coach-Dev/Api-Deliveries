@@ -45,7 +45,7 @@
                         echo"====================\n";
                         echo "-> Data1 = ";print_r($data1);echo"\n";
                         foreach($data1 as $key => $value){
-                            if(($key%2)==0){
+                            if(($key%2)!=0){
                                 echo"====================\n";
                                 echo "-> Data1[ ";print_r($key);echo"]\n";
                                 $dato= $data1[$key];
