@@ -15,8 +15,6 @@
             $dataTem=array();
             $data1=array();
             $dato="";
-            $objTem=array();
-            $obj=array();
             $columns=array();
             $id=$_GET["id"]?? null;
             $nameId=$_GET["nameId"]?? null;
@@ -30,10 +28,10 @@
                  *? Capturar los datos del formulario
                  ********************************************/
                     echo "-> Input : ";print_r(file_get_contents('php://input'));echo"\n";
-                    $data = explode("=",file_get_contents('php://input'));
+                    $dataTem = explode("=",file_get_contents('php://input'));
                     echo"====================\n";
-                    echo "-> Data : ";print_r($data);echo"\n";
-                    foreach($data as $k1 => $value){
+                    echo "-> Data : ";print_r($dataTem);echo"\n";
+                    foreach($dataTem as $k1 => $value){
                         if($k1!=0){
                             $data1 = explode("------WebKitFo",$data[$k1]);
                             echo"====================\n";
@@ -51,18 +49,13 @@
                                     $dato= explode('"',$dato[0]);
                                     echo"====================\n";
                                     echo "-> Dato-P3 = ";print_r($dato);echo"\n";
-                                    $obj += [$dato[1]=>(int)$dato[2]];
+                                    $data += [$dato[1]=>(int)$dato[2]];
                                     echo"====================\n";
-                                    echo "-> Dato-P4 = ";print_r($obj);echo"\n";
+                                    echo "-> Data = ";print_r($data);echo"\n";
                                 }
                             }
                         }
                     }
-                    echo"====================\n";
-                    echo "-> Obj = ";print_r($obj);echo"\n";
-                    $data=$obj;
-                    echo"====================\n";
-                    echo "-> Data = ";print_r($data);echo"\n";
                 /********************************************
                  *? Separar propiedades en un arreglo
                  ********************************************/
