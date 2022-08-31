@@ -9,7 +9,7 @@
    ** Cors
    *******************************/
     header('Access-Control-Allow-Origin: *');
-    header("Access-Control-Allow-Headers: Origin, Authorization, X-Requested-With, Content-Type, Accept");
+    header("Access-Control-Allow-Headers: Origin, Authorization, X-Requested-With, XMLHttpRequest, Content-Type, Accept");
     header('Access-Control-Allow-Methods: GET, POST,OPTIONS, OPTIONS, PUT, DELETE');
     header('Access-Control-Allow-Credentials: true');
     header('content-type: application/json; application/x-www-form-urlencoded; multipart/form-data; text/plain; charset=utf-8;');

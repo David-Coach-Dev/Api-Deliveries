@@ -24,6 +24,7 @@
                 /********************************************
                  *? Capturar los datos del formulario
                  ********************************************/
+                    echo "<pre>";printf(file_get_contents('php://input'));echo"</pre>";
                     parse_str(file_get_contents('php://input'), $data);
                 /********************************************
                  *? Separar propiedades en un arreglo
