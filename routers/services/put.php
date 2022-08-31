@@ -36,29 +36,33 @@
                     foreach($data as $key => $value){
                         $data = explode("------WebKitFo",$data[$key]);
                         echo"====================\n";
-                        echo"-> Data[";print_r($key);echo"] = ";echo"\n";
+                        echo"-> Data[";print_r($key);echo"]";echo"\n";
                         foreach($data as $key => $value){
                             array_push($data1, $value);
                         }
+                        echo"====================\n";
+                        echo "-> Data1 = ";print_r($data1);echo"\n";
                         foreach($data1 as $key => $value){
-                            echo "-> Data1[ ";print_r($key);echo"\n";
-                            $dato= $data1[$key];
-                            echo "-> Dato-01 = ";print_r($dato);echo"]\n";
                             echo"====================\n";
+                            echo "-> Data1[ ";print_r($key);echo"]\n";
+                            $dato= $data1[$key];
+                            echo"====================\n";
+                            echo "-> Dato-P1 = ";print_r($dato);echo"]\n";
                             $dato= explode("------WebKitFormBoundary",$dato);
                             echo"====================\n";
-                            echo "-> Dato-02 = ";print_r($dato);echo"\n";
+                            echo "-> Dato-P2 = ";print_r($dato);echo"\n";
                             $dato= explode('"',$dato[0]);
                             echo"====================\n";
-                            echo "-> Dato-03 = ";print_r($dato);echo"\n";
+                            echo "-> Dato-P3 = ";print_r($dato);echo"\n";
                             $obj += [$dato[1]=>(int)$dato[2]];
-                            echo "-> Dato-04 = ";print_r($obj);echo"\n";
+                            echo"====================\n";
+                            echo "-> Dato-P4 = ";print_r($obj);echo"\n";
                         }
                     }
-                     echo"====================\n";
+                    echo"====================\n";
                     echo "-> Obj = ";print_r($obj);echo"\n";
                     $data=$obj;
-                     echo"====================\n";
+                    echo"====================\n";
                     echo "-> Data = ";print_r($data);echo"\n";
                 /********************************************
                  *? Separar propiedades en un arreglo
