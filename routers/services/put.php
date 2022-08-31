@@ -14,7 +14,7 @@
             $data=array();
             $data1=array();
             $data3=array();
-            $dato="";
+            $dato=array();
             $columns=array();
             $id=$_GET["id"]?? null;
             $nameId=$_GET["nameId"]?? null;
@@ -27,21 +27,23 @@
                 /********************************************
                  *? Capturar los datos del formulario
                  ********************************************/
-                    echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
+                    //echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
                     parse_str(file_get_contents('php://input'), $data);
-                    echo "<pre> input : ";print_r($data);echo"</pre>";
+                    //echo "<pre> input : ";print_r($data);echo"</pre>";
                     foreach($data as $key => $value){
                         array_push($data1, $value);
                     }
-                    echo "<pre> data1: ";print_r($data1);echo"</pre>";
-                    $dato= $data1[0];
-                    echo "<pre> data1: ";print_r($dato);echo"</pre>";
-                    $dato= explode("-",$dato);
-                    echo "<pre> dato: ";print_r($dato);echo"</pre>";
-                    $dato= explode('"',$dato[0]);
-                    echo "<pre> dato: ";print_r($dato);echo"</pre>";
-                    $obj = array($dato[1]=>(int)$dato[2]);
-                    echo "<pre> obj : ";print_r($obj);echo"</pre>";
+                    foreach($data1 as $key => $value){
+                        echo "<pre> data1: ";print_r($data1);echo"</pre>";
+                        $dato[$key]= $data1[$key];
+                        echo "<pre> data1: ";print_r($dato[$key]);echo"</pre>";
+                        $dato[$key]= explode("-",$dato[$key]);
+                        echo "<pre> dato: ";print_r($dato[$key]);echo"</pre>";
+                        $dato[$key]= explode('"',$dato[$key]);
+                        echo "<pre> dato: ";print_r($dato[$key]);echo"</pre>";
+                        $obj[$key] = array($dato[1]=>$dato[2]);
+                        echo "<pre> obj : ";print_r($obj);echo"</pre>";
+                    }
                     $data=$obj;
                 /********************************************
                  *? Separar propiedades en un arreglo
