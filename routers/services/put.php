@@ -12,6 +12,7 @@
          *? Variables
         ********************************************/
             $data=array();
+            $data1=array();
             $columns=array();
             $id=$_GET["id"]?? null;
             $nameId=$_GET["nameId"]?? null;
@@ -28,6 +29,9 @@
                     echo "<pre> file : ";print_r($_FILES);echo"</pre>";
                     parse_str(file_get_contents('php://input'), $data);
                     echo "<pre> data: ";print_r($data);echo"</pre>";
+                    parse_str($data, $data1);
+                    echo "<pre> data: ";print_r($data1);echo"</pre>";
+
                 /********************************************
                  *? Separar propiedades en un arreglo
                  ********************************************/
