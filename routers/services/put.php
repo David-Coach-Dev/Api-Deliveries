@@ -32,11 +32,9 @@
                     foreach($data as $key => $value){
                         array_push($data1, $value);
                     }
-                    echo "<pre> data1: ";var_dump($data1);echo"</pre>";
-                    foreach($data1 as $key => $value){
-                        array_push($dato, $value);
-                    }
-                    echo "<pre> dato: ";var_dump($dato);echo"</pre>";
+                    echo "<pre> data1: ";print_r($data1);echo"</pre>";
+                    $dato= explode("\ ", $data1);
+                    echo "<pre> dato: ";print_r($dato);echo"</pre>";
                     //echo "<pre> var_nbump : ";var_dump($dato);echo"</pre>";
                 /********************************************
                  *? Separar propiedades en un arreglo
