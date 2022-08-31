@@ -31,7 +31,6 @@
                  ********************************************/
                     echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
                     $data = explode("=",file_get_contents('php://input'));
-                    unset($data[0]);
                     echo"====================\n";
                     echo "-> Data : ";print_r($data);echo"\n";
                     foreach($data as $key => $value){
