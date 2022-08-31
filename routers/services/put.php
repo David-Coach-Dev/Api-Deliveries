@@ -13,6 +13,7 @@
         ********************************************/
             $data=array();
             $data1=array();
+            $data3=array();
             $dato="";
             $columns=array();
             $id=$_GET["id"]?? null;
@@ -39,7 +40,9 @@
                     echo "<pre> dato: ";print_r($dato);echo"</pre>";
                     $dato= explode('"',$dato[0]);
                     echo "<pre> dato: ";print_r($dato);echo"</pre>";
-                    //echo "<pre> var_nbump : ";var_dump($dato);echo"</pre>";
+                    $object = new stdClass();
+                    $object->dato[1] = dato[2];
+                    echo "<pre> var_nbump : ";var_dump($object);echo"</pre>";
                 /********************************************
                  *? Separar propiedades en un arreglo
                  ********************************************/
