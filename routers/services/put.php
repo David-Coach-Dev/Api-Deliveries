@@ -49,7 +49,7 @@
                                     $dato= explode('"',$dato[0]);
                                     echo"====================\n";
                                     echo "-> Dato-P3 = ";print_r($dato);echo"\n";
-                                    $data += [$dato[1]=>$dato[2]];
+                                    $data += [$dato[1]=>preg_replace("/[\r\n|\n|\r]+/", " ", $dato[2])];
                                     echo"====================\n";
                                     echo "-> Data = ";print_r($data);echo"\n";
                                 }
