@@ -35,19 +35,14 @@
                     echo "-> Data : ";print_r($data);echo"\n";
                     foreach($data as $k1 => $value){
                         if($k1!=0){
-                            $dataTem = explode("------WebKitFo",$data[$k1]);
-                            echo"====================\n";
-                            echo"-> DataTem = ";print_r($dataTem);echo"\n";
-                            foreach($dataTem as $k2 => $value){
-                                array_push($data1, $value);
-                            }
+                            $data1 = explode("------WebKitFo",$data[$k1]);
                             echo"====================\n";
                             echo "-> Data1 = ";print_r($data1);echo"\n";
-                            foreach($data1 as $k3 => $value){
-                                if(($k3%2)==0){
+                            foreach($data1 as $k2 => $value){
+                                if(($k2%2)==0){
                                     echo"====================\n";
-                                    echo "-> Data1[ ";print_r($k3);echo"]\n";
-                                    $dato= $data1[$k3];
+                                    echo "-> Data1[ ";print_r($k2);echo"]\n";
+                                    $dato= $data1[$k2];
                                     echo"====================\n";
                                     echo "-> Dato-P1 = ";print_r($dato);echo"]\n";
                                     $dato= explode("------WebKitFormBoundary",$dato);
