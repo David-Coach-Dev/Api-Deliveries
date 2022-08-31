@@ -29,10 +29,7 @@
                     echo "<pre> file : ";print_r($_FILES);echo"</pre>";
                     parse_str(file_get_contents('php://input'), $data);
                     echo "<pre> data: ";print_r($data);echo"</pre>";
-                    echo "<pre> data: ";var_dump($data);echo"</pre>";
-                    parse_str($data, $data1);
-                    echo "<pre> data: ";var_dump($data1);echo"</pre>";
-
+                    echo "<pre> var_nbump : ";var_dump($data);echo"</pre>";
                 /********************************************
                  *? Separar propiedades en un arreglo
                  ********************************************/
