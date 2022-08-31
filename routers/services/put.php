@@ -29,23 +29,27 @@
                 /********************************************
                  *? Capturar los datos del formulario
                  ********************************************/
-                    echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
+                    echo "-> Input : ";print_r(file_get_contents('php://input'));echo"\n";
                     $data = explode("=",file_get_contents('php://input'));
                     echo"====================\n";
                     echo "-> Data : ";print_r($data);echo"\n";
-                    foreach($data as $key => $value){
-                        $dataTem = explode("------WebKitFo",$data[$key]);
+                    foreach($data as $k1 => $value){
+                        if($k2!=0){
+                            $dataTem = explode("------WebKitFo",$data[$k1]);
+                        }else{
+                            next:
+                        }
                         echo"====================\n";
                         echo"-> DataTem = ";print_r($dataTem);echo"\n";
-                        foreach($dataTem as $key => $value){
-                            if($key!=0){
+                        foreach($dataTem as $k2 => $value){
+                            if($k2!=0){
                                 array_push($data1, $value);
                             }
                         }
                         echo"====================\n";
                         echo "-> Data1 = ";print_r($data1);echo"\n";
-                        foreach($data1 as $key => $value){
-                            if(($key%2)!=0){
+                        foreach($data1 as $k3 => $value){
+                            if(($k3%2)!=0){
                                 echo"====================\n";
                                 echo "-> Data1[ ";print_r($key);echo"]\n";
                                 $dato= $data1[$key];
