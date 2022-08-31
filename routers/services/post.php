@@ -18,7 +18,7 @@
         /********************************************
          *? Separar propiedades en un arreglo
          ********************************************/
-            echo "<pre> input : ";print_r($_POST);echo"</pre>";
+            //echo "<pre> input : ";print_r($_POST);echo"</pre>";
             if(isset($_POST)){
                 foreach(array_keys($_POST) as $key => $value){
                     array_push($columns, $value);
