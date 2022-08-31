@@ -28,11 +28,13 @@
                     echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
                     echo "<pre> file : ";print_r($_FILES);echo"</pre>";
                     parse_str(file_get_contents('php://input'), $data);
-                    echo "<pre> data: ";print_r($data);echo"</pre>";
-                    echo "<pre> var_nbump : ";var_dump($data);echo"</pre>";
-                    echo "<pre> var_nbump : ";var_dump($data->{data.key});echo"</pre>";
-                    $dato= explode(" ", $data[0].$value);
-                    echo "<pre> var_nbump : ";var_dump($dato);echo"</pre>";
+                    foreach($data as $key => $value){
+                        array_push($data1, $value);
+                    }
+                    echo "<pre> data: ";print_r($data1);echo"</pre>";
+                    echo "<pre> var_nbump : ";var_dump($data->{data1[0]});echo"</pre>";
+                    //$dato= explode(" ", $data1[0].$value);
+                    //echo "<pre> var_nbump : ";var_dump($dato);echo"</pre>";
                 /********************************************
                  *? Separar propiedades en un arreglo
                  ********************************************/
