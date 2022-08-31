@@ -44,7 +44,8 @@
                         echo "<pre> dato3: ";print_r($dato);echo"</pre>";
                         $objTem = array($dato[1]=>(int)$dato[2]);
                         echo "<pre> obj : ";print_r($objTem);echo"</pre>";
-                        array_push($obj,$objTem);
+                        $obj += [$dato[1]=>(int)$dato[2]];
+                        echo "<pre> obj : ";print_r($obj);echo"</pre>";
                     }
                     echo "<pre> obj : ";print_r($obj);echo"</pre>";
                     // echo "<pre> data1: ";print_r($data1);echo"</pre>";
