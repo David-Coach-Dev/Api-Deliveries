@@ -28,9 +28,9 @@
                 /********************************************
                  *? Capturar los datos del formulario
                  ********************************************/
-                    //echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
+                    echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
                     parse_str(file_get_contents('php://input'), $data);
-                    //echo "<pre> input : ";print_r($data);echo"</pre>";
+                    echo "<pre> input : ";print_r($data);echo"</pre>";
                     foreach($data as $key => $value){
                         array_push($data1, $value);
                     }
