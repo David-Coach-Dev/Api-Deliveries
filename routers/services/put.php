@@ -12,6 +12,7 @@
          *? Variables
         ********************************************/
             $data=array();
+            $dataTem=array();
             $data1=array();
             $dato="";
             $objTem=array();
@@ -34,10 +35,10 @@
                     echo"====================\n";
                     echo "-> Data : ";print_r($data);echo"\n";
                     foreach($data as $key => $value){
-                        $data = explode("------WebKitFo",$data[$key]);
+                        $dataTem = explode("------WebKitFo",$data[$key]);
                         echo"====================\n";
-                        echo"-> Data[";print_r($key);echo"]";echo"\n";
-                        foreach($data as $key => $value){
+                        echo"-> DataTem[";print_r($key);echo"]";echo"\n";
+                        foreach($dataTem as $key => $value){
                             array_push($data1, $value);
                         }
                         echo"====================\n";
