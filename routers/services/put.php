@@ -42,7 +42,7 @@
                     echo "<pre> dato: ";print_r($dato);echo"</pre>";
                     $object = new stdClass();
                     $object->dato[1] = dato[2];
-                    echo "<pre> var_nbump : ";print_r($object);echo"</pre>";
+                    echo "<pre> obj : ";print_r($object);echo"</pre>";
                 /********************************************
                  *? Separar propiedades en un arreglo
                  ********************************************/
