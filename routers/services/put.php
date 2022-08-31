@@ -38,7 +38,9 @@
                         echo"====================\n";
                         echo"-> DataTem[";print_r($key);echo"]";echo"\n";
                         foreach($dataTem as $key => $value){
-                            array_push($data1, $value);
+                            if($key>1){
+                                array_push($data1, $value);
+                            }
                         }
                         echo"====================\n";
                         echo "-> Data1 = ";print_r($data1);echo"\n";
