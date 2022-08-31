@@ -30,11 +30,13 @@
                  ********************************************/
                     echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
                     $data = explode("=",file_get_contents('php://input'));
-                    unset($data);
+                    unset($data[0]);
+                    echo"====================\n";
                     echo "-> Data : ";print_r($data);echo"\n";
                     foreach($data as $key => $value){
                         $data = explode("------WebKitFo",$data[$key]);
-                        echo"-> Data[";print_r($key);echo"] = ";print_r(count($data));echo"\n";
+                        echo"====================\n";
+                        echo"-> Data[";print_r($key);echo"] = ";echo"\n";
                         foreach($data as $key => $value){
                             array_push($data1, $value);
                         }
@@ -50,8 +52,10 @@
                             echo "-> Dato-04 = ";print_r($obj);echo"\n";
                         }
                     }
+                     echo"====================\n";
                     echo "-> Obj = ";print_r($obj);echo"\n";
                     $data=$obj;
+                     echo"====================\n";
                     echo "-> Data = ";print_r($data);echo"\n";
                 /********************************************
                  *? Separar propiedades en un arreglo
