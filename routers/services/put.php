@@ -43,20 +43,22 @@
                         echo"====================\n";
                         echo "-> Data1 = ";print_r($data1);echo"\n";
                         foreach($data1 as $key => $value){
-                            echo"====================\n";
-                            echo "-> Data1[ ";print_r($key);echo"]\n";
-                            $dato= $data1[$key];
-                            echo"====================\n";
-                            echo "-> Dato-P1 = ";print_r($dato);echo"]\n";
-                            $dato= explode("------WebKitFormBoundary",$dato);
-                            echo"====================\n";
-                            echo "-> Dato-P2 = ";print_r($dato);echo"\n";
-                            $dato= explode('"',$dato[0]);
-                            echo"====================\n";
-                            echo "-> Dato-P3 = ";print_r($dato);echo"\n";
-                            $obj += [$dato[1]=>(int)$dato[2]];
-                            echo"====================\n";
-                            echo "-> Dato-P4 = ";print_r($obj);echo"\n";
+                            if(($key%2)==0){
+                                echo"====================\n";
+                                echo "-> Data1[ ";print_r($key);echo"]\n";
+                                $dato= $data1[$key];
+                                echo"====================\n";
+                                echo "-> Dato-P1 = ";print_r($dato);echo"]\n";
+                                $dato= explode("------WebKitFormBoundary",$dato);
+                                echo"====================\n";
+                                echo "-> Dato-P2 = ";print_r($dato);echo"\n";
+                                $dato= explode('"',$dato[0]);
+                                echo"====================\n";
+                                echo "-> Dato-P3 = ";print_r($dato);echo"\n";
+                                $obj += [$dato[1]=>(int)$dato[2]];
+                                echo"====================\n";
+                                echo "-> Dato-P4 = ";print_r($obj);echo"\n";
+                            }
                         }
                     }
                     echo"====================\n";
