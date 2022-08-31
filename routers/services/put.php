@@ -42,14 +42,12 @@
                         echo"====================\n";
                         echo"-> DataTem = ";print_r($dataTem);echo"\n";
                         foreach($dataTem as $k2 => $value){
-                            if($k2!=0){
                                 array_push($data1, $value);
-                            }
                         }
                         echo"====================\n";
                         echo "-> Data1 = ";print_r($data1);echo"\n";
                         foreach($data1 as $k3 => $value){
-                            if(($k3%2)!=0){
+                            if(($k3%2)==0){
                                 echo"====================\n";
                                 echo "-> Data1[ ";print_r($key);echo"]\n";
                                 $dato= $data1[$key];
