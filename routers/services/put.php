@@ -32,8 +32,10 @@
                     foreach($data as $key => $value){
                         array_push($data1, $value);
                     }
-                    echo "<pre> data1: ";print_r($data1->{'0'});echo"</pre>";
-                    $dato= explode("-",$data1->{'0'});
+                    echo "<pre> data1: ";print_r($data1);echo"</pre>";
+                    $dato= $data1->{'0'};
+                    echo "<pre> data1: ";print_r($dato);echo"</pre>";
+                    $dato= explode("-",$dato);
                     echo "<pre> dato: ";print_r($dato);echo"</pre>";
                     //echo "<pre> var_nbump : ";var_dump($dato);echo"</pre>";
                 /********************************************
