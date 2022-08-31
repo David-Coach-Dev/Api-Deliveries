@@ -38,7 +38,7 @@
                         echo "<pre> data1: ";print_r($data1, $key);echo"</pre>";
                         $dato= $data1[$key];
                         echo "<pre> dat01: ";print_r($dato);echo"</pre>";
-                        $dato= explode("-",$dato);
+                        $dato= explode("------WebKitFormBoundary",$dato);
                         echo "<pre> dato2: ";print_r($dato);echo"</pre>";
                         $dato= explode('"',$dato[0]);
                         echo "<pre> dato3: ";print_r($dato);echo"</pre>";
