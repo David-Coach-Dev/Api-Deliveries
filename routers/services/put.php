@@ -42,11 +42,10 @@
                         echo "<pre> dato2: ";print_r($dato[0]);echo"</pre>";
                         $dato= explode('"',$dato[0]);
                         echo "<pre> dato3: ";print_r($dato[0]);echo"</pre>";
-                        $objP = array($dato[1]=>(int)$dato[2]);
-                        echo "<pre> objP : ";print_r($objP);echo"</pre>";
-                        array_push($obj, $objP);
-                        echo "<pre> obj : ";print_r($obj);echo"</pre>";
+                        $objP[$key] = array($dato[1]=>(int)$dato[2]);
+                        echo "<pre> obj : ";print_r($ob);echo"</pre>";
                     }
+                    echo "<pre> obj : ";print_r($obP);echo"</pre>";
                     // echo "<pre> data1: ";print_r($data1);echo"</pre>";
                     // $dato= $data1[0];
                     // echo "<pre> data1: ";print_r($dato);echo"</pre>";
