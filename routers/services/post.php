@@ -18,11 +18,13 @@
         /********************************************
          *? Separar propiedades en un arreglo
          ********************************************/
+            echo "<pre> input : ";printf($_POST);echo"</pre>";
             if(isset($_POST)){
                 foreach(array_keys($_POST) as $key => $value){
                     array_push($columns, $value);
                 }
             }
+            echo "<pre> input : ";printf($columns);echo"</pre>";
         /********************************************
          *? Validar la tabla y columnas
          ********************************************/
