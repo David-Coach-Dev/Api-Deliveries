@@ -30,7 +30,7 @@
                  ********************************************/
                     echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
                     $data = explode("=",file_get_contents('php://input'));
-                    unset($data[0]);
+                    unset($data);
                     echo "-> Data : ";print_r($data);echo"\n";
                     foreach($data as $key => $value){
                         $data = explode("------WebKitFo",$data[$key]);
@@ -39,7 +39,7 @@
                             array_push($data1, $value);
                         }
                         foreach($data1 as $key => $value){
-                            echo "-> Data1[ ";print_r($key);echo"] = ";print_r($data1);echo"\n";
+                            echo "-> Data1[ ";print_r($key);echo"\n";
                             $dato= $data1[$key];
                             echo "-> Dato-01 = ";print_r($dato);echo"\n";
                             $dato= explode("------WebKitFormBoundary",$dato);
@@ -47,17 +47,8 @@
                             $dato= explode('"',$dato[0]);
                             echo "-> Dato-03 = ";print_r($dato);echo"\n";
                             $obj += [$dato[1]=>(int)$dato[2]];
-                            echo "-> Dato-04 ?= ";print_r($obj);echo"\n";
+                            echo "-> Dato-04 = ";print_r($obj);echo"\n";
                         }
-                        // echo "<pre> data1: ";print_r($data1);echo"</pre>";
-                        // $dato= $data1[0];
-                        // echo "<pre> data1: ";print_r($dato);echo"</pre>";
-                        // $dato= explode("-",$dato);
-                        // echo "<pre> dato: ";print_r($dato);echo"</pre>";
-                        // $dato= explode('"',$dato[0]);
-                        // echo "<pre> dato: ";print_r($dato);echo"</pre>";
-                        // $obj = array($dato[1]=>(int)$dato[2]);
-                        // echo "<pre> obj : ";print_r($obj);echo"</pre>";
                     }
                     echo "-> Obj = ";print_r($obj);echo"\n";
                     $data=$obj;
