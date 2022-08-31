@@ -30,6 +30,13 @@
                  ********************************************/
                     echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
                     $data = explode("=",file_get_contents('php://input'));
+                    unset($data[0]);
+                    echo "<pre> data : ";print_r($data);echo"</pre>";
+                    $data = explode("------WebKitFo",$data[0]);
+                    echo "<pre> data[0] : ";print_r($data);echo"</pre>";
+                    // foreach($data as $key => $value){
+                    //     array_push($data1, $value);
+                    // }
                     //parse_str(file_get_contents('php://input'), $data);
                     echo "<pre> data0 : ";print_r($data);echo"</pre>";
                     foreach($data as $key => $value){
