@@ -31,40 +31,37 @@
                     echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
                     $data = explode("=",file_get_contents('php://input'));
                     unset($data[0]);
-                    echo "<pre> data : ";print_r($data);echo"</pre>";
-                    echo "<pre> data : ";print_r(count($data));echo"</pre>";
-                    $data = explode("------WebKitFo",$data[1]);
-                    echo "<pre> data[0] : ";print_r($data);echo"</pre>";
-                    // foreach($data as $key => $value){
-                    //     array_push($data1, $value);
-                    // }
-                    //parse_str(file_get_contents('php://input'), $data);
-                    echo "<pre> data0 : ";print_r($data);echo"</pre>";
+                    echo "-> Data : ";print_r($data);echo"\n";
                     foreach($data as $key => $value){
-                        array_push($data1, $value);
+                        $data = explode("------WebKitFo",$data[$key]);
+                        echo"-> Data[";print_r($key);echo"] = ";print_r(count($data));echo"\n";
+                        foreach($data as $key => $value){
+                            array_push($data1, $value);
+                        }
+                        foreach($data1 as $key => $value){
+                            echo "-> Data1[ ";print_r($key);echo"] = ";print_r($data1);echo"\n";
+                            $dato= $data1[$key];
+                            echo "-> Dato-01 = ";print_r($dato);echo"\n";
+                            $dato= explode("------WebKitFormBoundary",$dato);
+                            echo "-> Dato-02 = ";print_r($dato);echo"\n";
+                            $dato= explode('"',$dato[0]);
+                            echo "-> Dato-03 = ";print_r($dato);echo"\n";
+                            $obj += [$dato[1]=>(int)$dato[2]];
+                            echo "-> Dato-04 ?= ";print_r($obj);echo"\n";
+                        }
+                        // echo "<pre> data1: ";print_r($data1);echo"</pre>";
+                        // $dato= $data1[0];
+                        // echo "<pre> data1: ";print_r($dato);echo"</pre>";
+                        // $dato= explode("-",$dato);
+                        // echo "<pre> dato: ";print_r($dato);echo"</pre>";
+                        // $dato= explode('"',$dato[0]);
+                        // echo "<pre> dato: ";print_r($dato);echo"</pre>";
+                        // $obj = array($dato[1]=>(int)$dato[2]);
+                        // echo "<pre> obj : ";print_r($obj);echo"</pre>";
                     }
-                    foreach($data1 as $key => $value){
-                        echo "<pre> data1: ";print_r($data1, $key);echo"</pre>";
-                        $dato= $data1[$key];
-                        echo "<pre> dat01: ";print_r($dato);echo"</pre>";
-                        $dato= explode("------WebKitFormBoundary",$dato);
-                        echo "<pre> dato2: ";print_r($dato);echo"</pre>";
-                        $dato= explode('"',$dato[0]);
-                        echo "<pre> dato3: ";print_r($dato);echo"</pre>";
-                        $obj += [$dato[1]=>(int)$dato[2]];
-                        echo "<pre> dato4 : ";print_r($obj);echo"</pre>";
-                    }
-                    echo "<pre> obj : ";print_r($obj);echo"</pre>";
-                    // echo "<pre> data1: ";print_r($data1);echo"</pre>";
-                    // $dato= $data1[0];
-                    // echo "<pre> data1: ";print_r($dato);echo"</pre>";
-                    // $dato= explode("-",$dato);
-                    // echo "<pre> dato: ";print_r($dato);echo"</pre>";
-                    // $dato= explode('"',$dato[0]);
-                    // echo "<pre> dato: ";print_r($dato);echo"</pre>";
-                    // $obj = array($dato[1]=>(int)$dato[2]);
-                    // echo "<pre> obj : ";print_r($obj);echo"</pre>";
+                    echo "-> Obj = ";print_r($obj);echo"\n";
                     $data=$obj;
+                    echo "-> Data = ";print_r($data);echo"\n";
                 /********************************************
                  *? Separar propiedades en un arreglo
                  ********************************************/
