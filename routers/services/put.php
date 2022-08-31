@@ -34,7 +34,7 @@
                         array_push($data1, $value);
                     }
                     foreach($data1 as $key => $value){
-                        echo "<pre> data1: ";print_r($data1);echo"</pre>";
+                        echo "<pre> data1: ";print_r($data1, $key);echo"</pre>";
                         $dato[$key]= $data1[$key];
                         echo "<pre> dat01: ";print_r($dato[$key]);echo"</pre>";
                         $dato[$key]= explode("-",$dato[$key]);
