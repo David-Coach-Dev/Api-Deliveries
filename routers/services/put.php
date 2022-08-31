@@ -14,7 +14,7 @@
             $data=array();
             $data1=array();
             $data3=array();
-            $dato=array();
+            $dato="";
             $columns=array();
             $id=$_GET["id"]?? null;
             $nameId=$_GET["nameId"]?? null;
@@ -44,6 +44,15 @@
                         $obj[$key] = array($dato[1]=>$dato[2]);
                         echo "<pre> obj : ";print_r($obj);echo"</pre>";
                     }
+                    // echo "<pre> data1: ";print_r($data1);echo"</pre>";
+                    // $dato= $data1[0];
+                    // echo "<pre> data1: ";print_r($dato);echo"</pre>";
+                    // $dato= explode("-",$dato);
+                    // echo "<pre> dato: ";print_r($dato);echo"</pre>";
+                    // $dato= explode('"',$dato[0]);
+                    // echo "<pre> dato: ";print_r($dato);echo"</pre>";
+                    // $obj = array($dato[1]=>(int)$dato[2]);
+                    // echo "<pre> obj : ";print_r($obj);echo"</pre>";
                     $data=$obj;
                 /********************************************
                  *? Separar propiedades en un arreglo
