@@ -24,7 +24,8 @@
                 /********************************************
                  *? Capturar los datos del formulario
                  ********************************************/
-                    echo "<pre> input : ";printf(file_get_contents('php://input'));echo"</pre>";
+                    echo "<pre> input : ";print_r(file_get_contents('php://input'));echo"</pre>";
+                    echo "<pre> file : ";print_r($_FILES);echo"</pre>";
                     parse_str(file_get_contents('php://input'), $data);
                     echo "<pre> data: ";print_r($data);echo"</pre>";
                 /********************************************

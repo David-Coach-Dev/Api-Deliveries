@@ -24,7 +24,6 @@
                     array_push($columns, $value);
                 }
             }
-            echo "<pre> input : ";print_r($columns);echo"</pre>";
         /********************************************
          *? Validar la tabla y columnas
          ********************************************/
