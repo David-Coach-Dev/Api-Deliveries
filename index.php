@@ -10,7 +10,7 @@
    *******************************/
     header('Access-Control-Allow-Origin: *');
     header("Access-Control-Allow-Headers: Origin, Authorization, X-Requested-With, Content-Type: application/json; application/x-www-form-urlencoded; charset=utf-8;, Accept");
-    header('Access-Control-Allow-Methods: GET, POST,OPTIONS, OPTIONS, PUT, DELETE');
+    header('Access-Control-Allow-Methods: GET, POST, OPTIONS, OPTIONS, PUT, DELETE');
     header('Access-Control-Allow-Credentials: true');
     header("Allow: GET, POST, OPTIONS, PUT,  DELETE");
     if ($_SERVER['REQUEST_METHOD'] == "OPTIONS") {header("HTTP/1.1 200 OK");}
