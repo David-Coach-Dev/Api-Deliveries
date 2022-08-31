@@ -36,9 +36,9 @@
                     foreach($data as $key => $value){
                         $dataTem = explode("------WebKitFo",$data[$key]);
                         echo"====================\n";
-                        echo"-> DataTem[";print_r($key);echo"]";echo"\n";
+                        echo"-> DataTem = ";print_r($dataTem);echo"\n";
                         foreach($dataTem as $key => $value){
-                            if($key>1){
+                            if($key!=0){
                                 array_push($data1, $value);
                             }
                         }
