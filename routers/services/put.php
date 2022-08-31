@@ -30,6 +30,8 @@
                     parse_str(file_get_contents('php://input'), $data);
                     echo "<pre> data: ";print_r($data);echo"</pre>";
                     echo "<pre> var_nbump : ";var_dump($data);echo"</pre>";
+                    $dato= explode(" ", $data);
+                    echo "<pre> var_nbump : ";var_dump($dat0);echo"</pre>";
                 /********************************************
                  *? Separar propiedades en un arreglo
                  ********************************************/
