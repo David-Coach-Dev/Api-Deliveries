@@ -51,10 +51,8 @@
                         echo "<pre> dato2: ";print_r($dato);echo"</pre>";
                         $dato= explode('"',$dato[0]);
                         echo "<pre> dato3: ";print_r($dato);echo"</pre>";
-                        $objTem = array($dato[1]=>(int)$dato[2]);
-                        echo "<pre> obj : ";print_r($objTem);echo"</pre>";
                         $obj += [$dato[1]=>(int)$dato[2]];
-                        echo "<pre> obj : ";print_r($obj);echo"</pre>";
+                        echo "<pre> dato4 : ";print_r($obj);echo"</pre>";
                     }
                     echo "<pre> obj : ";print_r($obj);echo"</pre>";
                     // echo "<pre> data1: ";print_r($data1);echo"</pre>";
