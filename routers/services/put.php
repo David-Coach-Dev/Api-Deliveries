@@ -26,7 +26,7 @@
                  ********************************************/
                     echo "<pre> input : ";printf(file_get_contents('php://input'));echo"</pre>";
                     parse_str(file_get_contents('php://input'), $data);
-                    echo "<pre> data: ";printf($data);echo"</pre>";
+                    echo "<pre> data: ";print_r($data);echo"</pre>";
                 /********************************************
                  *? Separar propiedades en un arreglo
                  ********************************************/
