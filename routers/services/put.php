@@ -32,8 +32,8 @@
                         array_push($data1, $value);
                     }
                     echo "<pre> data1: ";print_r($data1);echo"</pre>";
-                    echo "<pre> dato: ";print_r($data);echo"</pre>";
-                    //$dato= explode(" ", $data1[0].$value);
+                    $dato= explode(" ", $data1);
+                    echo "<pre> dato: ";print_r($dato);echo"</pre>";
                     //echo "<pre> var_nbump : ";var_dump($dato);echo"</pre>";
                 /********************************************
                  *? Separar propiedades en un arreglo
