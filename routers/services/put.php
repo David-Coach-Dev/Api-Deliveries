@@ -29,12 +29,12 @@
                  ********************************************/
                 echo "-> Input => ";print_r(file_get_contents('php://input'));echo"\n";
                 if((strpos("------WebKitFor", file_get_contents('php://input'))!=false)) {
-                    $dataTem = explode("=",file_get_contents('php://input'));
+                    $dataTem = explode("=", file_get_contents('php://input'));
                     foreach($dataTem as $k1 => $value){
                     echo"====================\n";
                     echo "-> Data => ";print_r($dataTem);echo"\n";
                         if($k1!=0){
-                            $data1 = explode("------WebKitFo",$dataTem[$k1]);
+                            $data1 = explode("------WebKitFo", $dataTem[$k1]);
                             echo"====================\n";
                             echo "-> Data1 => ";print_r($data1);echo"\n";
                             foreach($data1 as $k2 => $value){
@@ -50,7 +50,7 @@
                                     $dato= explode('"',$dato[0]);
                                     echo"====================\n";
                                     echo "-> Dato-P3 => ";print_r($dato);echo"\n";
-                                    $data += [$dato[1]=>preg_replace("/[\r\n|\n|\r]+/", " ", $dato[2])];
+                                    $data += [$dato[1] => preg_replace("/[\r\n|\n|\r]+/", " ", $dato[2])];
                                     //echo"====================\n";
                                     echo "-> Data => ";print_r($data);echo"\n";
                                 }
