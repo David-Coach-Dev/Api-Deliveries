@@ -28,7 +28,7 @@
                  *? Capturar los datos del formulario
                  ********************************************/
                 echo "-> Input => ";print_r(file_get_contents('php://input'));echo"\n";
-                if((strpos("------WebKitFor", file_get_contents('php://input'))!=false)) {
+                if((strpos(file_get_contents('php://input'), "------WebKitFor")!=false)) {
                     $dataTem = explode("=", file_get_contents('php://input'));
                     foreach($dataTem as $k1 => $value){
                     echo"====================\n";
