@@ -27,39 +27,39 @@
                 /********************************************
                  *? Capturar los datos del formulario
                  ********************************************/
+                $sentence="------WebKitFormBoundary";
+                if((strpos($sentence,file_get_contents('php://input'))!=false)) {
                     //echo "-> Input => ";print_r(file_get_contents('php://input'));echo"\n";
                     $dataTem = explode("=",file_get_contents('php://input'));
+                    foreach($dataTem as $k1 => $value){
                     //echo"====================\n";
                     //echo "-> Data => ";print_r($dataTem);echo"\n";
-                    $sentence="------WebKitFormBoundary";
-                    if((strpos($sentence, $dataTem)!=false)) {
-                        foreach($dataTem as $k1 => $value){
-                            if($k1!=0){
-                                $data1 = explode("------WebKitFo",$dataTem[$k1]);
-                                //echo"====================\n";
-                                //echo "-> Data1 => ";print_r($data1);echo"\n";
-                                foreach($data1 as $k2 => $value){
-                                    if(($k2%2)==0){
-                                        //echo"====================\n";
-                                        //echo "-> Data1[ ";print_r($k2);echo"]\n";
-                                        $dato= $data1[$k2];
-                                        //echo"====================\n";
-                                        //echo "-> Dato-P1 => ";print_r($dato);echo"]\n";
-                                        $dato= explode("------WebKitFormBoundary",$dato);
-                                        //echo"====================\n";
-                                        //echo "-> Dato-P2 => ";print_r($dato);echo"\n";
-                                        $dato= explode('"',$dato[0]);
-                                        //echo"====================\n";
-                                        //echo "-> Dato-P3 => ";print_r($dato);echo"\n";
-                                        $data += [$dato[1]=>preg_replace("/[\r\n|\n|\r]+/", " ", $dato[2])];
-                                        //echo"====================\n";
-                                        //echo "-> Data => ";print_r($data);echo"\n";
-                                    }
+                        if($k1!=0){
+                            $data1 = explode("------WebKitFo",$dataTem[$k1]);
+                            //echo"====================\n";
+                            //echo "-> Data1 => ";print_r($data1);echo"\n";
+                            foreach($data1 as $k2 => $value){
+                                if(($k2%2)==0){
+                                    //echo"====================\n";
+                                    //echo "-> Data1[ ";print_r($k2);echo"]\n";
+                                    $dato= $data1[$k2];
+                                    //echo"====================\n";
+                                    //echo "-> Dato-P1 => ";print_r($dato);echo"]\n";
+                                    $dato= explode("------WebKitFormBoundary",$dato);
+                                    //echo"====================\n";
+                                    //echo "-> Dato-P2 => ";print_r($dato);echo"\n";
+                                    $dato= explode('"',$dato[0]);
+                                    //echo"====================\n";
+                                    //echo "-> Dato-P3 => ";print_r($dato);echo"\n";
+                                    $data += [$dato[1]=>preg_replace("/[\r\n|\n|\r]+/", " ", $dato[2])];
+                                    //echo"====================\n";
+                                    //echo "-> Data => ";print_r($data);echo"\n";
                                 }
                             }
                         }
+                    }
                     }else{
-                        $data=$dataTem;
+                        parse_str(file_get_contents('php://input'), $data);
                     }
                 /********************************************
                  *? Separar propiedades en un arreglo
