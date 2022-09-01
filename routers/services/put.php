@@ -32,7 +32,7 @@
                     //echo"====================\n";
                     //echo "-> Data => ";print_r($dataTem);echo"\n";
                     $sentence="------WebKitFormBoundary";
-                    if(!(strpos($sentence, $dataTem))) {
+                    if((strpos($sentence, $dataTem)!=false)) {
                         foreach($dataTem as $k1 => $value){
                             if($k1!=0){
                                 $data1 = explode("------WebKitFo",$dataTem[$k1]);
