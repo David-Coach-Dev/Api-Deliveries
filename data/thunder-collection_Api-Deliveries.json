@@ -158,7 +158,7 @@
       "colId": "e60237d7-e47f-4ca8-8b04-008dbe0854f0",
       "containerId": "7a68cf71-3976-4a2c-aea3-f479c672e838",
       "name": "DELETE",
-      "url": "{{url}}/products?id=204&nameId=id_product&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NzU5ODQ2LCJleHAiOjE2NTk4NDYyNDYsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.Kn2WaF_ZF6mIOOx1_ExzwkRxqpsRfAWTodo7D5FBhB0&tableToken=users&suffixToken=user",
+      "url": "{{url}}/products?id=204&nameId=id_product&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbml0IjoxNjU5NzU5ODQ2LCJleHAiOjE2NTk4NDYyNDYsImRhdGEiOnsiaWQiOjg0LCJlbWFpbCI6ImFkbWluQGRlbGV2ZXJpZXMudGsifX0.Kn2WaF_ZF6mIOOx1_ExzwkRxqpsRfAWTodo7D5FBhB0&tableToken=users&suffixToken=userpsost",
       "method": "DELETE",
       "sortNum": 10000,
       "created": "2022-08-15T21:56:55.410Z",
